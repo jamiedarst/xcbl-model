@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" targetNamespace="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" elementFormDefault="qualified">
+    <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+            XML Common Business Library 3.5
+            Copyright 2000 Commerce One, Inc.
+            Permission is granted to use, copy, modify and distribute the
+            DTD's, schemas and modules in the Commerce One XML Common Business
+            Library Version 3.5 subject to the terms and conditions specified
+            at http://www.xcbl.org/license.html
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType name="TransportEquipment">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="EquipmentProviderCoded" type="EquipmentProviderCode"/>
+            <xsd:element minOccurs="0" name="EquipmentProviderCodedOther" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="EquipmentOwnerCoded" type="EquipmentOwnerCode"/>
+            <xsd:element minOccurs="0" name="EquipmentOwnerCodedOther" type="xsd:string"/>
+            <xsd:element name="EquipmentID" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="EquipmentSizeTypeCoded" type="EquipmentSizeTypeCode"/>
+            <xsd:element minOccurs="0" name="EquipementSizeTypeCodedOther" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="EquipmentStatusCoded" type="EquipmentStatusCode"/>
+            <xsd:element minOccurs="0" name="EquipmentStatusCodedOther" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="FullIndicatorCoded" type="FullIndicatorCode"/>
+            <xsd:element minOccurs="0" name="FullIndicatorCodedOther" type="xsd:string"/>
+            <xsd:element minOccurs="0" ref="Conditions"/>
+            <xsd:element minOccurs="0" name="EquipmentNote" type="xsd:string"/>
+            <xsd:element minOccurs="0" ref="ListOfSealInfo"/>
+            <xsd:element minOccurs="0" name="ListOfEquipmentMeasurements">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="ListOfDimension"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="TransportEquipment" type="TransportEquipment"/>
+    <xsd:simpleType name="FullIndicatorCode">
+        <xsd:restriction base="xsd:NMTOKEN">
+            <xsd:enumeration value="Other"/>
+            <xsd:enumeration value="Full"/>
+            <xsd:enumeration value="Empty"/>
+            <xsd:enumeration value="Partial"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:complexType name="Conditions">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="RefrigerationOn" type="xcblBoolean"/>
+            <xsd:element minOccurs="0" name="Residue" type="xcblBoolean"/>
+            <xsd:element minOccurs="0" name="ListOfConditions">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="ListOfDimension"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="Conditions" type="Conditions"/>
+    <xsd:complexType name="ListOfTransportEquipment">
+        <xsd:sequence>
+            <xsd:element maxOccurs="unbounded" ref="TransportEquipment"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="ListOfTransportEquipment" type="ListOfTransportEquipment"/>
+</xsd:schema>

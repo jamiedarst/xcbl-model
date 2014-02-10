@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" targetNamespace="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" elementFormDefault="qualified">
+    <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+            XML Common Business Library 3.5
+            Copyright 2000 Commerce One, Inc.
+            Permission is granted to use, copy, modify and distribute the
+            DTD's, schemas and modules in the Commerce One XML Common Business
+            Library Version 3.5 subject to the terms and conditions specified
+            at http://www.xcbl.org/license.html
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType name="QuoteType">
+        <xsd:sequence>
+            <xsd:element name="QuoteTypeCoded" type="QuoteTypeCode"/>
+            <xsd:element minOccurs="0" name="QuoteTypeCodedOther" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="QuoteType" type="QuoteType"/>
+    <xsd:simpleType name="QuoteTypeCode">
+        <xsd:restriction base="xsd:NMTOKEN">
+            <xsd:enumeration value="Accept"/>
+            <xsd:enumeration value="Decline"/>
+            <xsd:enumeration value="AlternateBid"/>
+            <xsd:enumeration value="BestAndFinal"/>
+            <xsd:enumeration value="BidWithoutException"/>
+            <xsd:enumeration value="BidWithoutExceptionRequestForInformation"/>
+            <xsd:enumeration value="RequestForTimeExtension"/>
+            <xsd:enumeration value="DeclinedToQuote"/>
+            <xsd:enumeration value="OneOfMultiple"/>
+            <xsd:enumeration value="Replacement"/>
+            <xsd:enumeration value="UnableToQuote"/>
+            <xsd:enumeration value="AcceptWithChanges"/>
+            <xsd:enumeration value="Other"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+</xsd:schema>

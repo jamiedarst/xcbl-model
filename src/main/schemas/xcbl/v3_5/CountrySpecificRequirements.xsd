@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" targetNamespace="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" elementFormDefault="qualified">
+    <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+            XML Common Business Library 3.5
+            Copyright 2000 Commerce One, Inc.
+            Permission is granted to use, copy, modify and distribute the
+            DTD's, schemas and modules in the Commerce One XML Common Business
+            Library Version 3.5 subject to the terms and conditions specified
+            at http://www.xcbl.org/license.html
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType name="CountrySpecificRequirements">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="NotaFiscalType" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="PaymentReferenceNumber" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="OtherCountryRequirments">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="ListOfCountryRequirement"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="CountrySpecificRequirements" type="CountrySpecificRequirements"/>
+    <xsd:complexType name="CountryRequirement">
+        <xsd:sequence>
+            <xsd:element ref="Country"/>
+            <xsd:element ref="ListOfSpecificRequirement"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="CountryRequirement" type="CountryRequirement"/>
+    <xsd:complexType name="ListOfCountryRequirement">
+        <xsd:sequence>
+            <xsd:element maxOccurs="unbounded" ref="CountryRequirement"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="ListOfCountryRequirement" type="ListOfCountryRequirement"/>
+    <xsd:complexType name="SpecificRequirement">
+        <xsd:sequence>
+            <xsd:element name="RequirementTypeCoded" type="ReferenceTypeCode"/>
+            <xsd:element minOccurs="0" name="RequirementTypeCodedOther" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="RequirementReference">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Reference"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="RequirementDetails" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="SpecificRequirement" type="SpecificRequirement"/>
+    <xsd:complexType name="ListOfSpecificRequirement">
+        <xsd:sequence>
+            <xsd:element maxOccurs="unbounded" ref="SpecificRequirement"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="ListOfSpecificRequirement" type="ListOfSpecificRequirement"/>
+</xsd:schema>

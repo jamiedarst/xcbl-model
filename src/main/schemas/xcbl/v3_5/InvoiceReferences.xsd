@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" targetNamespace="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" elementFormDefault="qualified">
+    <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+            XML Common Business Library 3.5
+            Copyright 2000 Commerce One, Inc.
+            Permission is granted to use, copy, modify and distribute the
+            DTD's, schemas and modules in the Commerce One XML Common Business
+            Library Version 3.5 subject to the terms and conditions specified
+            at http://www.xcbl.org/license.html
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType name="InvoiceReferences">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" ref="PurchaseOrderReference"/>
+            <xsd:element minOccurs="0" name="ContractReference">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Contract"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="AccountNumber">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Reference"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="ProformaInvoiceNumber">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Reference"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="ASNNumber">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Reference"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" ref="ASNOrderNumber"/>
+            <xsd:element minOccurs="0" name="SupplierOrderNumber">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Reference"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="PriceListNumber">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Reference"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="PriceListVersionNumber">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Reference"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="BuyersCatalogNumber">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Reference"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="BillOfLadingNumber">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Reference"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="AirWayBillNumber">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Reference"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="LetterOfCreditNumber">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Reference"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" ref="AuthorizationReference"/>
+            <xsd:element minOccurs="0" name="DeliveryNoteNumber">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Reference"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" ref="CostAllocation"/>
+            <xsd:element minOccurs="0" ref="ListOfRelatedInvoiceRef"/>
+            <xsd:element minOccurs="0" name="OtherInvoiceReferences">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="ListOfReferenceCoded"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="InvoiceReferences" type="InvoiceReferences"/>
+    <xsd:complexType name="AuthorizationReference">
+        <xsd:sequence>
+            <xsd:element name="AuthorizationNumber">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Reference"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="AuthorizationAssignedBy">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Party"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="AuthorizationReference" type="AuthorizationReference"/>
+    <xsd:complexType name="CostAllocation">
+        <xsd:sequence>
+            <xsd:element name="CostAllocationNumber">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Reference"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="WorkBreakdownStructure" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="FixedAsset" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="CostAllocation" type="CostAllocation"/>
+</xsd:schema>

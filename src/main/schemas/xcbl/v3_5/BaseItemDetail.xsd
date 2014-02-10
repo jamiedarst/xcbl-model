@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" targetNamespace="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" elementFormDefault="qualified">
+    <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+            XML Common Business Library 3.5
+            Copyright 2000 Commerce One, Inc.
+            Permission is granted to use, copy, modify and distribute the
+            DTD's, schemas and modules in the Commerce One XML Common Business
+            Library Version 3.5 subject to the terms and conditions specified
+            at http://www.xcbl.org/license.html
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType name="BaseItemDetail">
+        <xsd:sequence>
+            <xsd:element ref="LineItemNum"/>
+            <xsd:element minOccurs="0" ref="LineItemType"/>
+            <xsd:element minOccurs="0" name="ParentItemNumber">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="LineItemNumberReference"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" ref="ItemIdentifiers"/>
+            <xsd:element minOccurs="0" ref="ListOfDimension"/>
+            <xsd:element minOccurs="0" name="TotalQuantity">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Quantity"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="MaxBackOrderQuantity">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Quantity"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" ref="ListOfQuantityCoded"/>
+            <xsd:element minOccurs="0" name="OffCatalogFlag" type="xcblBoolean"/>
+            <xsd:element minOccurs="0" ref="CatalogReference"/>
+            <xsd:element minOccurs="0" name="ItemContractReferences">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="ListOfContractItem"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="ListOfItemReferences">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="ListOfReferenceCoded"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="CountryOfOrigin">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Country"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="CountryOfDestination">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Country"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="FinalRecipient">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Party"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" ref="ListOfPartyCoded"/>
+            <xsd:element minOccurs="0" ref="ConditionsOfSale"/>
+            <xsd:element minOccurs="0" name="HazardousMaterials">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Hazardous"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="BaseItemDetail" type="BaseItemDetail"/>
+    <xsd:complexType name="LineItemNum">
+        <xsd:sequence>
+            <xsd:element name="BuyerLineItemNum" type="xsd:int"/>
+            <xsd:element minOccurs="0" name="SellerLineItemNum" type="xsd:int"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="LineItemNum" type="LineItemNum"/>
+    <xsd:complexType name="LineItemType">
+        <xsd:sequence>
+            <xsd:element name="LineItemTypeCoded" type="LineItemTypeCode"/>
+            <xsd:element minOccurs="0" name="LineItemTypeCodedOther" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="LineItemType" type="LineItemType"/>
+    <xsd:complexType name="LineItemNumberReference">
+        <xsd:simpleContent>
+            <xsd:extension base="xsd:int">
+                <xsd:attribute name="LineItemNumTypeCoded" type="LineItemNumTypeCode" use="optional" default="Buyer"/>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    <xsd:element name="LineItemNumberReference" type="LineItemNumberReference"/>
+    <xsd:simpleType name="LineItemTypeCode">
+        <xsd:restriction base="xsd:NMTOKEN">
+            <xsd:enumeration value="Item"/>
+            <xsd:enumeration value="ComponentGroup"/>
+            <xsd:enumeration value="TextItem"/>
+            <xsd:enumeration value="Other"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="LineItemNumTypeCode">
+        <xsd:restriction base="xsd:NMTOKEN">
+            <xsd:enumeration value="Buyer"/>
+            <xsd:enumeration value="Seller"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+</xsd:schema>

@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<OSNMessageAcknowledgement xmlns="http://perfect.com/LiteEnvelope"
+                        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                        xsi:schemaLocation="http://perfect.com/LiteEnvelope osnmsgack.xsd">
+  <AcknowledgementLocation>PerfectLiteEnvelope.transport/receive</AcknowledgementLocation>
+  <AcknowledgementReferenceID>5e25dddc-7935-1000-f35c-0afa3d7c0001</AcknowledgementReferenceID>
+  <AcknowledgementNote>Document was received and and is currently being processed.</AcknowledgementNote>
+</OSNMessageAcknowledgement>

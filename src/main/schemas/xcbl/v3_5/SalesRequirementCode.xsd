@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" targetNamespace="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" elementFormDefault="qualified">
+    <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+            XML Common Business Library 3.5
+            Copyright 2000 Commerce One, Inc.
+            Permission is granted to use, copy, modify and distribute the
+            DTD's, schemas and modules in the Commerce One XML Common Business
+            Library Version 3.5 subject to the terms and conditions specified
+            at http://www.xcbl.org/license.html
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType name="SalesRequirement">
+        <xsd:sequence>
+            <xsd:element name="SalesRequirementCoded" type="SalesRequirementCode"/>
+            <xsd:element minOccurs="0" name="SalesRequirementCodedOther" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="SalesRequirement" type="SalesRequirement"/>
+    <xsd:simpleType name="SalesRequirementCode">
+        <xsd:restriction base="xsd:NMTOKEN">
+            <xsd:enumeration value="Other"/>
+            <xsd:enumeration value="AddQuantityToMakeMinimumWeightRequirement"/>
+            <xsd:enumeration value="BackOrderIfItemsAreOutOfStockOrNotYetPublished"/>
+            <xsd:enumeration value="BackOrderIfOutOfStock"/>
+            <xsd:enumeration value="BackOrderOnlyIfNewItem"/>
+            <xsd:enumeration value="BidGuarantee"/>
+            <xsd:enumeration value="CombinedSmallDisadvantagedBusinessAndLaborSurplusAreaSet-Aside"/>
+            <xsd:enumeration value="Consignment"/>
+            <xsd:enumeration value="DoNotPreship"/>
+            <xsd:enumeration value="EqualProductAllowed"/>
+            <xsd:enumeration value="ExcludeImportQuotaInFirstCost"/>
+            <xsd:enumeration value="FactoryShip"/>
+            <xsd:enumeration value="GuaranteedSale"/>
+            <xsd:enumeration value="IncludeImportQuotaInFirstCost"/>
+            <xsd:enumeration value="LaborSurplusAreaSet-Aside"/>
+            <xsd:enumeration value="LargePurchaseSet-AsideForSmallBusiness"/>
+            <xsd:enumeration value="MayPreship"/>
+            <xsd:enumeration value="Multi-yearAward"/>
+            <xsd:enumeration value="NoBackOrder"/>
+            <xsd:enumeration value="NoSubstitutes"/>
+            <xsd:enumeration value="NotifyPriorToShipmentIfQuantitySpecifiedIsNotAvailable"/>
+            <xsd:enumeration value="OnQualifiedBiddersList"/>
+            <xsd:enumeration value="OnQualifiedManufacturersList"/>
+            <xsd:enumeration value="OtherUnlistedSalesCondition"/>
+            <xsd:enumeration value="PartialLaborSurplusAreaSetAside"/>
+            <xsd:enumeration value="RestrictedToApprovedSources"/>
+            <xsd:enumeration value="RestrictedToEducationalInstitutions"/>
+            <xsd:enumeration value="RestrictedToHistoricallyBlackCollegeOrUniversityOrMinorityInstitution"/>
+            <xsd:enumeration value="RestrictedToIndustrialPreparednessProgramParticipants"/>
+            <xsd:enumeration value="RestrictedToQualifiedProductsListProducts"/>
+            <xsd:enumeration value="RestrictedToUSAndCanadianSources"/>
+            <xsd:enumeration value="RestrictedToYoungInvestigatorProgram"/>
+            <xsd:enumeration value="Section8aSet-Aside"/>
+            <xsd:enumeration value="Set-asideForAmericanIndian-ownedBusiness"/>
+            <xsd:enumeration value="ShipAsSoonAsPossible"/>
+            <xsd:enumeration value="ShipComplete"/>
+            <xsd:enumeration value="ShipFullTruckOnly"/>
+            <xsd:enumeration value="ShipIn-Place"/>
+            <xsd:enumeration value="ShipPartial-BalanceBackOrder"/>
+            <xsd:enumeration value="ShipPartialBalanceCancel"/>
+            <xsd:enumeration value="ShipPartialBalanceSubstitute"/>
+            <xsd:enumeration value="ShipPartialCarloadLotsOnly"/>
+            <xsd:enumeration value="ShipPartialItemQtyProportionalToTotalOrder"/>
+            <xsd:enumeration value="ShipPartialTruckloadLotsOnly"/>
+            <xsd:enumeration value="ShipPerRelease"/>
+            <xsd:enumeration value="ShipPerReleaseorBuyerAuthorization"/>
+            <xsd:enumeration value="ShipPerSchedule"/>
+            <xsd:enumeration value="SmallBusinessWithSmallDisadvantagedBusinessConsiderationSet-Aside"/>
+            <xsd:enumeration value="SmallDisadvantagedBusinessSet-Aside"/>
+            <xsd:enumeration value="SmallPurchaseSetAsideForSmallBusinesses"/>
+            <xsd:enumeration value="SmallRemainingBalanceCancellationAllowed"/>
+            <xsd:enumeration value="SmallRemainingBalanceCancellationNotAllowed"/>
+            <xsd:enumeration value="SubstituteItemAllowed"/>
+            <xsd:enumeration value="UnrestrictedProcurement"/>
+            <xsd:enumeration value="WarehouseShip"/>
+            <xsd:enumeration value="Warranty"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+</xsd:schema>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" targetNamespace="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" elementFormDefault="qualified">
+    <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+            XML Common Business Library 3.5
+            Copyright 2000 Commerce One, Inc.
+            Permission is granted to use, copy, modify and distribute the
+            DTD's, schemas and modules in the Commerce One XML Common Business
+            Library Version 3.5 subject to the terms and conditions specified
+            at http://www.xcbl.org/license.html
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType name="GoodsReceiptHeader">
+        <xsd:sequence>
+            <xsd:element name="GoodsReceiptID" type="xsd:string"/>
+            <xsd:element name="GoodsReceiptIssueDate" type="xcblDatetime"/>
+            <xsd:element name="GoodsReceiptPurpose">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Purpose"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="GoodsReceiptTypeCoded" type="GoodsReceiptTypeCode"/>
+            <xsd:element minOccurs="0" name="GoodsReceiptTypeCodedOther" type="xsd:string"/>
+            <xsd:element minOccurs="0" ref="ListOfGoodsCondition"/>
+            <xsd:element minOccurs="0" ref="GoodsReceiptReferences"/>
+            <xsd:element minOccurs="0" name="DeliveryComplete" type="xcblBoolean"/>
+            <xsd:element name="GoodsReceiptLanguage">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Language"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="GoodsReceiptParty">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="ScheduleParty"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="TermsOfDelivery"/>
+            <xsd:element minOccurs="0" ref="ListOfTransportRouting"/>
+            <xsd:element minOccurs="0" name="GoodsReceiptHeaderNote" type="xsd:string"/>
+            <xsd:element minOccurs="0" ref="ListOfStructuredNote"/>
+            <xsd:element minOccurs="0" ref="ListOfNameValueSet"/>
+            <xsd:element minOccurs="0" ref="ListOfAttachment"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="GoodsReceiptHeader" type="GoodsReceiptHeader"/>
+</xsd:schema>

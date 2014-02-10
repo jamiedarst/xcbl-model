@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" targetNamespace="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" elementFormDefault="qualified">
+    <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+            XML Common Business Library 3.5
+            Copyright 2000 Commerce One, Inc.
+            Permission is granted to use, copy, modify and distribute the
+            DTD's, schemas and modules in the Commerce One XML Common Business
+            Library Version 3.5 subject to the terms and conditions specified
+            at http://www.xcbl.org/license.html
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType name="PriceCheckResultHeader">
+        <xsd:sequence>
+            <xsd:element name="PriceCheckResultID">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Reference"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="PriceCheckResultIssueDate" type="xcblDatetime"/>
+            <xsd:element name="SupplierParty">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Party"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="SupplierIDReferenceDate" type="xcblDatetime"/>
+            <xsd:element name="BuyerParty">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Party"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="BuyerIDReferenceDate" type="xcblDatetime"/>
+            <xsd:element name="PriceCheckShipToParty">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Party"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="PriceCheckCurrency">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Currency"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="QuoteDate" type="xcblDatetime"/>
+            <xsd:element minOccurs="0" name="PriceCheckResultLanguage">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Language"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="PriceCheckResultNote" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="ResultListOfAttachment">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="ListOfAttachment"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="PriceCheckResultHeader" type="PriceCheckResultHeader"/>
+</xsd:schema>

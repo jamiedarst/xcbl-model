@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" targetNamespace="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" elementFormDefault="qualified">
+    <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+            XML Common Business Library 3.5
+            Copyright 2000 Commerce One, Inc.
+            Permission is granted to use, copy, modify and distribute the
+            DTD's, schemas and modules in the Commerce One XML Common Business
+            Library Version 3.5 subject to the terms and conditions specified
+            at http://www.xcbl.org/license.html
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:simpleType name="ServiceLevelCode">
+        <xsd:restriction base="xsd:NMTOKEN">
+            <xsd:enumeration value="Other"/>
+            <xsd:enumeration value="BulkCommodityTrain"/>
+            <xsd:enumeration value="PremiumSurface"/>
+            <xsd:enumeration value="ThreeDayService"/>
+            <xsd:enumeration value="9AM"/>
+            <xsd:enumeration value="AirCargo"/>
+            <xsd:enumeration value="AirEconomy"/>
+            <xsd:enumeration value="AM"/>
+            <xsd:enumeration value="BusinessClass"/>
+            <xsd:enumeration value="ConsigneeBillingService"/>
+            <xsd:enumeration value="CourierExpress"/>
+            <xsd:enumeration value="Ground"/>
+            <xsd:enumeration value="ExpressService"/>
+            <xsd:enumeration value="DeliveryScheduledNextDayByCartageAgent"/>
+            <xsd:enumeration value="DeliveryScheduledSecondDayByCartageAgent"/>
+            <xsd:enumeration value="DeliveryScheduledThirdDayByCartageAgent"/>
+            <xsd:enumeration value="DeliveryConfirmation"/>
+            <xsd:enumeration value="DeferredService"/>
+            <xsd:enumeration value="DeliveryConfirmationReturn"/>
+            <xsd:enumeration value="DoorService"/>
+            <xsd:enumeration value="DeliveryNotificationOnly"/>
+            <xsd:enumeration value="ExpeditedService"/>
+            <xsd:enumeration value="ProofOfDeliveryWithSignature"/>
+            <xsd:enumeration value="FirstClass"/>
+            <xsd:enumeration value="StandardService"/>
+            <xsd:enumeration value="ExpressServicePlus"/>
+            <xsd:enumeration value="TrackingGround"/>
+            <xsd:enumeration value="Iata"/>
+            <xsd:enumeration value="ExpeditedServiceWorldwide"/>
+            <xsd:enumeration value="ExpressServiceWorldwide"/>
+            <xsd:enumeration value="Metro"/>
+            <xsd:enumeration value="Multiweight"/>
+            <xsd:enumeration value="NextDayAir"/>
+            <xsd:enumeration value="NextFlightOut"/>
+            <xsd:enumeration value="NextDayHundredWeight"/>
+            <xsd:enumeration value="NextMorning"/>
+            <xsd:enumeration value="NotServed"/>
+            <xsd:enumeration value="Overnight"/>
+            <xsd:enumeration value="PrimaryServiceAreaNextDayBy1030AM"/>
+            <xsd:enumeration value="PriorityMail"/>
+            <xsd:enumeration value="PrimaryServiceAreaNextDayBy930AM"/>
+            <xsd:enumeration value="PriorityMailInsured"/>
+            <xsd:enumeration value="PM"/>
+            <xsd:enumeration value="PrimaryServiceAreaNextDayByNoon"/>
+            <xsd:enumeration value="POBoxZipCode"/>
+            <xsd:enumeration value="PrimaryServiceAreaNextDayBy500PM"/>
+            <xsd:enumeration value="PrimaryServiceAreaSecondDayByNoon"/>
+            <xsd:enumeration value="PassengerService"/>
+            <xsd:enumeration value="QualityIntermodalHighSpeed70MilesPerHour"/>
+            <xsd:enumeration value="OtherIntermodalAndStackService"/>
+            <xsd:enumeration value="60MilesPerHourService"/>
+            <xsd:enumeration value="ManifestFreight"/>
+            <xsd:enumeration value="CircusTrain"/>
+            <xsd:enumeration value="WorkTrain"/>
+            <xsd:enumeration value="CommuterService"/>
+            <xsd:enumeration value="AuthorizedReturnService"/>
+            <xsd:enumeration value="SameDay"/>
+            <xsd:enumeration value="SecondDayAir"/>
+            <xsd:enumeration value="Saturday"/>
+            <xsd:enumeration value="SecondDay"/>
+            <xsd:enumeration value="StandardGround"/>
+            <xsd:enumeration value="SecondDayHundredWeight"/>
+            <xsd:enumeration value="StandardGroundHundredWeight"/>
+            <xsd:enumeration value="SecondMorning"/>
+            <xsd:enumeration value="SaturdayPickup"/>
+            <xsd:enumeration value="StandardClass"/>
+            <xsd:enumeration value="Express"/>
+            <xsd:enumeration value="HighSpeed"/>
+            <xsd:enumeration value="NormalSpeed"/>
+            <xsd:enumeration value="PostService"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+</xsd:schema>

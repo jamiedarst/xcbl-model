@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+<OSNOrder xmlns="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" 
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	  xmlns:osn="http://perfect.com/LiteEnvelope/xcbl" 
+          xsi:schemaLocation="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd osnxcbl35.xsd">
+   <Order>
+      <OrderHeader>
+         <OrderNumber>
+            <BuyerOrderNumber>string of characters</BuyerOrderNumber>
+            <SellerOrderNumber>string of characters</SellerOrderNumber>
+            <ListOfMessageID>
+               <MessageID>
+                  <IDNumber>string of characters</IDNumber>
+                  <IDAssignedBy>
+                     <IDAssignedByCoded>Other</IDAssignedByCoded>
+                     <IDAssignedByCodedOther>string of characters</IDAssignedByCodedOther>
+                  </IDAssignedBy>
+               </MessageID>
+            </ListOfMessageID>
+         </OrderNumber>
+         <OrderIssueDate>20001005T09:35:00</OrderIssueDate>
+         <Purpose>
+            <PurposeCoded>Original</PurposeCoded>
+         </Purpose>
+         <OrderCurrency>
+            <Currency>
+               <CurrencyCoded>USD</CurrencyCoded>
+            </Currency>
+         </OrderCurrency>
+         <OrderLanguage>
+            <Language>
+               <LanguageCoded>en</LanguageCoded>
+            </Language>
+         </OrderLanguage>
+         <OrderParty>
+            <BuyerParty>
+               <Party>
+                  <PartyID>
+                     <Identifier>
+                        <Agency>
+                           <AgencyCoded>AIHA</AgencyCoded>
+                           <AgencyCodedOther>string of characters</AgencyCodedOther>
+                        </Agency>
+                        <Ident>string of characters</Ident>
+                     </Identifier>
+                  </PartyID>
+                  <NameAddress>
+                     <Name1>string of characters</Name1>
+                     <City>string of characters</City>
+                     <Country>
+                        <CountryCoded>US</CountryCoded>
+                        <CountryCodedOther>string of characters</CountryCodedOther>
+                     </Country>
+                     <Timezone>
+                        <TimezoneCoded>09.45</TimezoneCoded>
+                        <TimezoneCodedOther>-09.45</TimezoneCodedOther>
+                     </Timezone>
+                  </NameAddress>
+               </Party>
+            </BuyerParty>
+            <SellerParty>
+               <Party>
+                  <PartyID>
+                     <Identifier>
+                        <Agency>
+                           <AgencyCoded>AIHA</AgencyCoded>
+                           <AgencyCodedOther>string of characters</AgencyCodedOther>
+                           <AgencyDescription>string of characters</AgencyDescription>
+                           <CodeListIdentifierCoded>BalanceTypeCode</CodeListIdentifierCoded>
+                        </Agency>
+                        <Ident>string of characters</Ident>
+                     </Identifier>
+                  </PartyID>
+               </Party>
+            </SellerParty>
+         </OrderParty>
+         <OrderHeaderNote>string of characters</OrderHeaderNote>
+      </OrderHeader>
+      <OrderDetail>
+         <ListOfItemDetail>
+            <ItemDetail>
+               <BaseItemDetail>
+                  <LineItemNum>
+                     <BuyerLineItemNum>55</BuyerLineItemNum>
+                     <SellerLineItemNum>66</SellerLineItemNum>
+                  </LineItemNum>
+               </BaseItemDetail>
+            </ItemDetail>
+         </ListOfItemDetail>
+      </OrderDetail>
+      <OrderSummary>
+         <NumberOfLines>5</NumberOfLines>
+         <SummaryNote>string of characters</SummaryNote>
+      </OrderSummary>
+   </Order>
+ <Envelope>
+   <osn:DocAttributes>
+      <osn:IdentificationAttributes>
+         <osn:Envid>8e25faac-7935-1001-a35c-0afa3d7c0001</osn:Envid>
+      </osn:IdentificationAttributes>
+      <osn:SenderAttributes>
+         <osn:ID>8e25aaac-7935-1000-a30c-0afa3d7c0001</osn:ID>
+      </osn:SenderAttributes>
+      <osn:RecipientAttributes>
+         <osn:ID>d0c3bf0a-77de-1000-a094-ac16042a0001</osn:ID>
+      </osn:RecipientAttributes>
+   </osn:DocAttributes>
+ </Envelope>
+</OSNOrder>

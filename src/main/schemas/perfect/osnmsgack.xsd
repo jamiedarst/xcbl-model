@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+		xmlns="http://perfect.com/LiteEnvelope" 
+		targetNamespace="http://perfect.com/LiteEnvelope" 
+		elementFormDefault="qualified"
+		version="1.0" >
+    <xs:annotation>
+        <xs:documentation xml:lang="en">
+            MessageAcknowledgement document for synchronous replies.
+            Perfect Commerce 2006
+            based on XML Common Business Library 3.5
+            2006/02/03 Adam Swick  version 1.0  created.
+        </xs:documentation>
+    </xs:annotation>
+
+    <xs:simpleType name="UUIDType">
+      <xs:annotation>
+       <xs:documentation>Universal Unique Identifier format follows the IETF UUID/GUID standard rfc 4122.  Further requirements are letters to be lowercase.</xs:documentation>
+      </xs:annotation>
+     <xs:restriction base="xs:string">
+      <xs:pattern value="([a-f0-9]){8}-([a-f0-9]){4}-([a-f0-9]){4}-([a-f0-9]){4}-([a-f0-9]){12}"/>
+     </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="MessageAcknowledgement">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="AcknowledgementLocation" type="xs:string"/>
+            <xs:element name="AcknowledgementReferenceID" type="UUIDType"/>
+            <xs:element name="AcknowledgementNote" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="OSNMessageAcknowledgement" type="MessageAcknowledgement"/>
+</xs:schema>

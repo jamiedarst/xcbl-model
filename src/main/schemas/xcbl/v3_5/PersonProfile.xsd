@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" targetNamespace="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" elementFormDefault="qualified">
+    <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+            XML Common Business Library 3.5
+            Copyright 2000 Commerce One, Inc.
+            Permission is granted to use, copy, modify and distribute the
+            DTD's, schemas and modules in the Commerce One XML Common Business
+            Library Version 3.5 subject to the terms and conditions specified
+            at http://www.xcbl.org/license.html
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType name="PersonProfile">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" ref="Title"/>
+            <xsd:element minOccurs="0" ref="AcademicTitle"/>
+            <xsd:element name="LastName" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="FirstName" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="MiddleName" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="FullName" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="CorrespondenceLanguage">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Language"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="NumberFormat" type="xsd:string"/>
+            <xsd:element minOccurs="0" ref="DateFormat"/>
+            <xsd:element minOccurs="0" name="TimeFormat" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="PersonTimezone">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Timezone"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" ref="ListOfX509Certificate"/>
+            <xsd:element ref="PersonAddress"/>
+            <xsd:element minOccurs="0" name="GeneralNotes" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="PersonProfile" type="PersonProfile"/>
+</xsd:schema>

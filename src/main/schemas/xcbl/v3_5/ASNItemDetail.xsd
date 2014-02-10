@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" targetNamespace="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" elementFormDefault="qualified">
+    <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+            XML Common Business Library 3.5
+            Copyright 2000 Commerce One, Inc.
+            Permission is granted to use, copy, modify and distribute the
+            DTD's, schemas and modules in the Commerce One XML Common Business
+            Library Version 3.5 subject to the terms and conditions specified
+            at http://www.xcbl.org/license.html
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType name="ASNItemDetail">
+        <xsd:sequence>
+            <xsd:element ref="ASNBaseItemDetail"/>
+            <xsd:element minOccurs="0" name="ASNLineItemListOfAllowOrCharge">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="ListOfAllowOrCharge"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="LineItemNote" type="xsd:string"/>
+            <xsd:element minOccurs="0" ref="ListOfStructuredNote"/>
+            <xsd:element minOccurs="0" ref="ListOfNameValueSet"/>
+            <xsd:element minOccurs="0" name="LineItemAttachment">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="ListOfAttachment"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="ASNItemDetail" type="ASNItemDetail"/>
+    <xsd:complexType name="ListOfASNItemDetail">
+        <xsd:sequence>
+            <xsd:element maxOccurs="unbounded" ref="ASNItemDetail"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="ListOfASNItemDetail" type="ListOfASNItemDetail"/>
+    <xsd:complexType name="ASNBaseItemDetail">
+        <xsd:complexContent>
+            <xsd:extension base="BaseItemDetail">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" name="DetailResponseCoded" type="DetailResponseCode"/>
+                    <xsd:element minOccurs="0" name="DetailResponseCodedOther" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="LineItemOrderReference">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element ref="PurchaseOrderReference"/>
+                            </xsd:sequence>
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" name="ASNLineItemReferences">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element ref="ASNReferences"/>
+                            </xsd:sequence>
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" ref="ExceptionQuantities"/>
+                    <xsd:element minOccurs="0" maxOccurs="unbounded" name="ReferenceToPackage">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element ref="ItemPackagingReference"/>
+                            </xsd:sequence>
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" ref="ListOfDestinationRef"/>
+                    <xsd:element minOccurs="0" name="RequestedDeliveryDate" type="xcblDatetime"/>
+                    <xsd:element minOccurs="0" name="ShipByDate" type="xcblDatetime"/>
+                    <xsd:element minOccurs="0" name="OtherItemDates">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element ref="ListOfDateCoded"/>
+                            </xsd:sequence>
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" name="ItemShipToParty">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element ref="Party"/>
+                            </xsd:sequence>
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" name="ItemShipFromParty">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element ref="Party"/>
+                            </xsd:sequence>
+                        </xsd:complexType>
+                    </xsd:element>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:element name="ASNBaseItemDetail" type="ASNBaseItemDetail"/>
+    <xsd:complexType name="DestinationRef">
+        <xsd:sequence>
+            <xsd:element name="RouteID" type="xsd:int"/>
+            <xsd:element name="LocationID" type="xsd:int"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="DestinationRef" type="DestinationRef"/>
+    <xsd:complexType name="ListOfDestinationRef">
+        <xsd:sequence>
+            <xsd:element maxOccurs="unbounded" ref="DestinationRef"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="ListOfDestinationRef" type="ListOfDestinationRef"/>
+</xsd:schema>

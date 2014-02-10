@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" targetNamespace="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" elementFormDefault="qualified">
+    <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+            XML Common Business Library 3.5
+            Copyright 2000 Commerce One, Inc.
+            Permission is granted to use, copy, modify and distribute the
+            DTD's, schemas and modules in the Commerce One XML Common Business
+            Library Version 3.5 subject to the terms and conditions specified
+            at http://www.xcbl.org/license.html
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType name="OrderConfirmationHeader">
+        <xsd:sequence>
+            <xsd:element name="SellerOrderConfirmationNumber" type="xsd:string"/>
+            <xsd:element name="SellerOrderNumber" type="xsd:string"/>
+            <xsd:element name="OrderConfirmationIssueDate" type="xcblDatetime"/>
+            <xsd:element minOccurs="0" ref="OrderConfirmationType"/>
+            <xsd:element minOccurs="0" ref="Language"/>
+            <xsd:element minOccurs="0" ref="Currency"/>
+            <xsd:element minOccurs="0" ref="OrderConfirmationParty"/>
+            <xsd:element minOccurs="0" ref="OrderConfirmationAction"/>
+            <xsd:element minOccurs="0" name="OrderConfirmationHeaderShortDescription" type="AlphaNum40"/>
+            <xsd:element minOccurs="0" name="OrderConfirmationHeaderNote" type="xsd:string"/>
+            <xsd:element minOccurs="0" ref="ListOfStructuredNote"/>
+            <xsd:element minOccurs="0" ref="ListOfNameValueSet"/>
+            <xsd:element minOccurs="0" ref="ListOfAttachment"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="OrderConfirmationHeader" type="OrderConfirmationHeader"/>
+    <xsd:complexType name="OrderConfirmationParty">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="BuyerParty">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Party"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="SellerParty">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Party"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="ShipToParty">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Party"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" ref="ListOfPartyCoded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="OrderConfirmationParty" type="OrderConfirmationParty"/>
+    <xsd:complexType name="OrderConfirmationType">
+        <xsd:sequence>
+            <xsd:element name="OrderConfirmationTypeCoded" type="OrderConfirmationTypeCode"/>
+            <xsd:element minOccurs="0" name="OrderConfirmationTypeCodedOther" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="OrderConfirmationType" type="OrderConfirmationType"/>
+    <xsd:simpleType name="OrderConfirmationTypeCode">
+        <xsd:restriction base="xsd:NMTOKEN">
+            <xsd:enumeration value="Other"/>
+            <xsd:enumeration value="OrderConfirmation"/>
+            <xsd:enumeration value="ReturnDelivery"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:complexType name="OrderConfirmationAction">
+        <xsd:sequence>
+            <xsd:element name="OrderConfirmationActionCoded" type="OrderConfirmationActionCode"/>
+            <xsd:element minOccurs="0" name="OrderConfirmationActionCodedOther" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="OrderConfirmationAction" type="OrderConfirmationAction"/>
+    <xsd:simpleType name="OrderConfirmationActionCode">
+        <xsd:restriction base="xsd:NMTOKEN">
+            <xsd:enumeration value="Other"/>
+            <xsd:enumeration value="Create"/>
+            <xsd:enumeration value="Update"/>
+            <xsd:enumeration value="Delete"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+</xsd:schema>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" targetNamespace="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" elementFormDefault="qualified">
+    <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+            XML Common Business Library 3.5
+            Copyright 2000 Commerce One, Inc.
+            Permission is granted to use, copy, modify and distribute the
+            DTD's, schemas and modules in the Commerce One XML Common Business
+            Library Version 3.5 subject to the terms and conditions specified
+            at http://www.xcbl.org/license.html
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:simpleType name="DiscrepancyCode">
+        <xsd:restriction base="xsd:NMTOKEN">
+            <xsd:enumeration value="Over-Shipped"/>
+            <xsd:enumeration value="DeliveredButNotAdvised"/>
+            <xsd:enumeration value="GoodsDeliveredDamaged"/>
+            <xsd:enumeration value="DeliveredTooLate"/>
+            <xsd:enumeration value="NextHigherPackagingQuantity"/>
+            <xsd:enumeration value="BackOrderedFromPreviousOrder"/>
+            <xsd:enumeration value="ShipmentPartial-BackOrderToFollow"/>
+            <xsd:enumeration value="ShipmentIncludesExtraItemsToMeetPriceBreak"/>
+            <xsd:enumeration value="CancelledFromPreviousOrder"/>
+            <xsd:enumeration value="ShipmentCompleteWithAdditionalQuantity"/>
+            <xsd:enumeration value="NextCarrier"/>
+            <xsd:enumeration value="ShipmentPartial-ConsideredComplete"/>
+            <xsd:enumeration value="ShipmentCompleteWithSubstitution"/>
+            <xsd:enumeration value="ItemCancelled"/>
+            <xsd:enumeration value="ItemRepresentsSubstitutionFromOriginalOrder"/>
+            <xsd:enumeration value="LastShipment"/>
+            <xsd:enumeration value="PurchaseOrderComplete"/>
+            <xsd:enumeration value="SplitShipment"/>
+            <xsd:enumeration value="MutuallyDefined"/>
+            <xsd:enumeration value="ContainerDamaged"/>
+            <xsd:enumeration value="QuantityShort"/>
+            <xsd:enumeration value="QualityProblem"/>
+            <xsd:enumeration value="IncorrectProduct"/>
+            <xsd:enumeration value="Non-standardContainer"/>
+            <xsd:enumeration value="WrongIdentification"/>
+            <xsd:enumeration value="Other"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+</xsd:schema>

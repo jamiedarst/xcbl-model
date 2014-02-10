@@ -1,0 +1,15 @@
+<jxb:bindings xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:jxb="http://java.sun.com/xml/ns/jaxb" version="1.0">
+
+	<!-- Raise theEnumMemberSizeCap limit -->
+	<jxb:bindings>
+		<jxb:globalBindings typesafeEnumMaxMembers="512"/>
+	</jxb:bindings>
+	
+	<jxb:bindings schemaLocation="xcbl/v3_5/SchemaCategory.xsd" version="1.0">
+ 		<jxb:bindings
+			node="//xsd:complexType[@name='SchemaCategory']/xsd:attribute[@name='CategoryID']">
+			<jxb:property name="CategoryIDAttibute" />
+		</jxb:bindings>
+    </jxb:bindings>
+</jxb:bindings>

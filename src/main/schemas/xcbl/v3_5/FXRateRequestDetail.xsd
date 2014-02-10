@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" targetNamespace="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" elementFormDefault="qualified">
+    <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+            XML Common Business Library 3.5
+            Copyright 2000 Commerce One, Inc.
+            Permission is granted to use, copy, modify and distribute the
+            DTD's, schemas and modules in the Commerce One XML Common Business
+            Library Version 3.5 subject to the terms and conditions specified
+            at http://www.xcbl.org/license.html
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType name="ListOfFXRateRequestDetail">
+        <xsd:sequence>
+            <xsd:element maxOccurs="unbounded" ref="FXRateRequestDetail"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="ListOfFXRateRequestDetail" type="ListOfFXRateRequestDetail"/>
+    <xsd:complexType name="FXRateRequestDetail">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="SequenceNumber" type="xsd:int"/>
+            <xsd:element minOccurs="0" name="RateQuoteID">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Reference"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="ReferenceCurrency">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Currency"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="TargetCurrency">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Currency"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="SettlementAmount">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="MonetaryValue"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="DebitAmount">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="MonetaryValue"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="CreditAmount">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="MonetaryValue"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="OriginatingFinancialInstitution">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="FIAccountDetail"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" ref="CardInfo"/>
+            <xsd:element minOccurs="0" name="ComputationalMethodCoded" type="ComputationalMethodCode"/>
+            <xsd:element minOccurs="0" name="ComputationalMethodCodedOther" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="FXQuoteTypeCoded" type="FXQuoteTypeCode"/>
+            <xsd:element minOccurs="0" name="FXQuoteTypeCodedOther" type="xsd:string"/>
+            <xsd:element minOccurs="0" ref="ListOfReference"/>
+            <xsd:element minOccurs="0" name="PayeeParty">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Party"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" ref="PayerParty"/>
+            <xsd:element minOccurs="0" name="FXRateRequestNote" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="FXRateRequestDetail" type="FXRateRequestDetail"/>
+</xsd:schema>

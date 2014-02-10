@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" targetNamespace="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" elementFormDefault="qualified">
+    <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+            XML Common Business Library 3.5
+            Copyright 2000 Commerce One, Inc.
+            Permission is granted to use, copy, modify and distribute the
+            DTD's, schemas and modules in the Commerce One XML Common Business
+            Library Version 3.5 subject to the terms and conditions specified
+            at http://www.xcbl.org/license.html
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType name="FIAccountDetail">
+        <xsd:sequence>
+            <xsd:element ref="AccountDetail"/>
+            <xsd:element ref="FinancialInstitution"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="FIAccountDetail" type="FIAccountDetail"/>
+    <xsd:complexType name="FIAccount">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" ref="AccountDetail"/>
+            <xsd:element ref="FinancialInstitution"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="FIAccount" type="FIAccount"/>
+    <xsd:complexType name="AccountDetail">
+        <xsd:sequence>
+            <xsd:element name="AccountID" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="SecondaryAccountID" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="IBAN" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="AccountControlKey" type="xsd:string"/>
+            <xsd:element name="AccountTypeCoded" type="AccountTypeCode"/>
+            <xsd:element minOccurs="0" name="AccountTypeCodedOther" type="xsd:string"/>
+            <xsd:element name="AccountName1" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="AccountName2" type="xsd:string"/>
+            <xsd:element minOccurs="0" ref="Currency"/>
+            <xsd:element minOccurs="0" name="AccountReferences">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="ListOfReferenceCoded"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="AccountDetail" type="AccountDetail"/>
+    <xsd:complexType name="FinancialInstitution">
+        <xsd:sequence>
+            <xsd:element name="FinancialInstitutionID" type="xsd:string"/>
+            <xsd:element name="FinancialInstitutionName" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="FIBranchID" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="FIBranchName" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="FIBranchStreet" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="FIBranchHouseNumber" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="FIBranchStreetSupplement1" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="FIBranchStreetSupplement2" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="FIBranchPostalCode" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="FIBranchCity" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="FIBranchRegion">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Region"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="FIBranchCountry">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Country"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="FinancialInstitution" type="FinancialInstitution"/>
+    <xsd:simpleType name="AccountTypeCode">
+        <xsd:restriction base="xsd:NMTOKEN">
+            <xsd:enumeration value="Other"/>
+            <xsd:enumeration value="NewBusinessAccount"/>
+            <xsd:enumeration value="GroupNumber"/>
+            <xsd:enumeration value="PolicyNumber"/>
+            <xsd:enumeration value="MoneyMarketFund"/>
+            <xsd:enumeration value="RetirementAccountVestedInterestatMarketValue"/>
+            <xsd:enumeration value="RetirementAccountVestedInterestNetCashValue"/>
+            <xsd:enumeration value="IndividualRetirementAccount-IRA-VestedInterestatMarketValue"/>
+            <xsd:enumeration value="IndividualRetirementAccount-IRA-VestedInterestNetCashValue"/>
+            <xsd:enumeration value="CorporateControlledRetirementAccountVestedInterest"/>
+            <xsd:enumeration value="TimeDeposit"/>
+            <xsd:enumeration value="CheckingAccount"/>
+            <xsd:enumeration value="Stock"/>
+            <xsd:enumeration value="Bond"/>
+            <xsd:enumeration value="LifeInsuranceFaceValue"/>
+            <xsd:enumeration value="RetirementAccount-VestedInterest"/>
+            <xsd:enumeration value="BusinessAccount"/>
+            <xsd:enumeration value="TrustFundAccount"/>
+            <xsd:enumeration value="StocksandBondsAccount"/>
+            <xsd:enumeration value="LifeInsuranceAccount-NetCashValue"/>
+            <xsd:enumeration value="EmployeeRetirementAccount-401K"/>
+            <xsd:enumeration value="Agency"/>
+            <xsd:enumeration value="Application"/>
+            <xsd:enumeration value="BrokerageAccount"/>
+            <xsd:enumeration value="ChargeBackAccountforReturns"/>
+            <xsd:enumeration value="CreditCard"/>
+            <xsd:enumeration value="CashManagement"/>
+            <xsd:enumeration value="DemandDeposit"/>
+            <xsd:enumeration value="DebitCard"/>
+            <xsd:enumeration value="ExistingCarrier"/>
+            <xsd:enumeration value="ReturnItemsonDemandDepositAccount"/>
+            <xsd:enumeration value="ReturnItemsonSavingsAccount"/>
+            <xsd:enumeration value="Savings"/>
+            <xsd:enumeration value="AgencyLocationCode"/>
+            <xsd:enumeration value="Annuity"/>
+            <xsd:enumeration value="ControlledDisbursementMasterAccount"/>
+            <xsd:enumeration value="ControlledDisbursementSubAccount"/>
+            <xsd:enumeration value="CreditUnion"/>
+            <xsd:enumeration value="EnrichedPlanContractNumber"/>
+            <xsd:enumeration value="Long-termDisabilityPolicyNumber"/>
+            <xsd:enumeration value="MutualFund"/>
+            <xsd:enumeration value="PrimaryBank"/>
+            <xsd:enumeration value="RelationshipSummaryAccount"/>
+            <xsd:enumeration value="Safekeeping-CustodyAccount"/>
+            <xsd:enumeration value="ZeroBalanceMasterAccount"/>
+            <xsd:enumeration value="ZeroBalanceAffiliateAccount"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+</xsd:schema>

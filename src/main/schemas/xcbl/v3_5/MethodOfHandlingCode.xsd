@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" targetNamespace="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" elementFormDefault="qualified">
+    <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+            XML Common Business Library 3.5
+            Copyright 2000 Commerce One, Inc.
+            Permission is granted to use, copy, modify and distribute the
+            DTD's, schemas and modules in the Commerce One XML Common Business
+            Library Version 3.5 subject to the terms and conditions specified
+            at http://www.xcbl.org/license.html
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:simpleType name="MethodOfHandlingCode">
+        <xsd:restriction base="xsd:NMTOKEN">
+            <xsd:enumeration value="Other"/>
+            <xsd:enumeration value="BillBack"/>
+            <xsd:enumeration value="OffInvoice"/>
+            <xsd:enumeration value="VendorCheckToCustomer"/>
+            <xsd:enumeration value="CreditCustomerAccount"/>
+            <xsd:enumeration value="ChargeToBePaidByVendor"/>
+            <xsd:enumeration value="ChargeToBePaidByCustomer"/>
+            <xsd:enumeration value="Optional"/>
+            <xsd:enumeration value="OffGrossQuantityInvoiced"/>
+            <xsd:enumeration value="AllowanceToBeIssuedByVendor"/>
+            <xsd:enumeration value="AllowanceToBeIssuedByReseller"/>
+            <xsd:enumeration value="ChargeDeniedByVendor"/>
+            <xsd:enumeration value="CancelAllowance"/>
+            <xsd:enumeration value="ProvideAmount"/>
+            <xsd:enumeration value="InformationOnly"/>
+            <xsd:enumeration value="Non-PayableTax"/>
+            <xsd:enumeration value="AccrualFund"/>
+            <xsd:enumeration value="FlatFund"/>
+            <xsd:enumeration value="CashInAdvance"/>
+            <xsd:enumeration value="CalculateAndAddtoInvoice"/>
+            <xsd:enumeration value="Collect"/>
+            <xsd:enumeration value="Prepaid"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+</xsd:schema>

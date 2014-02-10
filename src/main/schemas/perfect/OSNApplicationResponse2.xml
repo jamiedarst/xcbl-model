@@ -1,0 +1,35 @@
+   <OSNApplicationResponse xmlns="http://perfect.com/LiteEnvelope" 
+                           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	                   xmlns:osn="http://perfect.com/LiteEnvelope" 
+                           xsi:schemaLocation="http://perfect.com/LiteEnvelope osn.xsd">
+    <ApplicationResponse>
+     <ApplicationResponseHeader>
+         <ApplicationResponseIssueDate>2006-10-31T13:20:00.000-05:00</ApplicationResponseIssueDate>
+         <ApplicationResponseTypeCoded>Error</ApplicationResponseTypeCoded>
+         <BusinessDocumentTypeCoded>Order</BusinessDocumentTypeCoded>
+         <DocumentReference>
+            <Reference>
+               <RefNum>PO12345</RefNum>
+               <RefDate>2005-10-02T18:23:28</RefDate>
+            </Reference>
+         </DocumentReference>
+         <DocumentStatusCoded>ProcessFatalError</DocumentStatusCoded>
+         <ApplicationResponseNote>List of errors: 
+[0] pathName=/Order/OrderHeader/OrderCurrency errorCode=VV-005 errorMessage=[ISC.0082.9034] Field is absent, field must exist</ApplicationResponseNote>
+      </ApplicationResponseHeader>
+   </ApplicationResponse>
+ <Envelope>
+   <osn:DocAttributes>
+      <osn:IdentificationAttributes>
+         <osn:Envid>8e25faac-7935-1001-a35c-0afa3d7c0001</osn:Envid>
+         <osn:Convid>8e37faac-7935-1001-a35c-0afa3d7c0001</osn:Convid>
+      </osn:IdentificationAttributes>
+      <osn:SenderAttributes>
+         <osn:ID>8e25aaac-7935-1000-a30c-0afa3d7c0001</osn:ID>
+      </osn:SenderAttributes>
+      <osn:RecipientAttributes>
+         <osn:ID>d0c3bf0a-77de-1000-a094-ac16042a0001</osn:ID>
+      </osn:RecipientAttributes>
+   </osn:DocAttributes>
+ </Envelope>
+</OSNApplicationResponse>

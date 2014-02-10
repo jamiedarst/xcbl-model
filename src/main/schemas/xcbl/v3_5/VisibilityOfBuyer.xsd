@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" targetNamespace="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" elementFormDefault="qualified">
+    <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+            XML Common Business Library 3.5
+            Copyright 2000 Commerce One, Inc.
+            Permission is granted to use, copy, modify and distribute the
+            DTD's, schemas and modules in the Commerce One XML Common Business
+            Library Version 3.5 subject to the terms and conditions specified
+            at http://www.xcbl.org/license.html
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType name="VisibilityOfBuyer">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="BuyerContactName" type="xcblBoolean"/>
+            <xsd:element minOccurs="0" name="ContactPhoneNumber" type="xcblBoolean"/>
+            <xsd:element minOccurs="0" name="ContactMobile" type="xcblBoolean"/>
+            <xsd:element minOccurs="0" name="ContactFaxNumber" type="xcblBoolean"/>
+            <xsd:element minOccurs="0" name="ContactEmail" type="xcblBoolean"/>
+            <xsd:element minOccurs="0" name="AlternativeBuyerContactName" type="xcblBoolean"/>
+            <xsd:element minOccurs="0" name="AlternativeContactPhoneNumber" type="xcblBoolean"/>
+            <xsd:element minOccurs="0" name="AlternativeContactMobile" type="xcblBoolean"/>
+            <xsd:element minOccurs="0" name="AlternativeContactFaxNumber" type="xcblBoolean"/>
+            <xsd:element minOccurs="0" name="AlternativeContactEmail" type="xcblBoolean"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="VisibilityOfBuyer" type="VisibilityOfBuyer"/>
+</xsd:schema>

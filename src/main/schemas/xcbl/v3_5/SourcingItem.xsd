@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" targetNamespace="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" elementFormDefault="qualified">
+    <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+            XML Common Business Library 3.5
+            Copyright 2000 Commerce One, Inc.
+            Permission is granted to use, copy, modify and distribute the
+            DTD's, schemas and modules in the Commerce One XML Common Business
+            Library Version 3.5 subject to the terms and conditions specified
+            at http://www.xcbl.org/license.html
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType name="SourcingItem">
+        <xsd:sequence>
+            <xsd:element name="SourcingItemID" type="xsd:string"/>
+            <xsd:element name="SourcingItemName" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="SourcingItemDescription" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="ItemNumber" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="ParentItemIdentifier" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="BundleName" type="xsd:string"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="SourcingAttribute"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="Formula"/>
+            <xsd:element minOccurs="0" name="SourcingQuantity">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Quantity"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="DeliveryDate" type="xcblDatetime"/>
+            <xsd:element minOccurs="0" ref="UnitPrice"/>
+            <xsd:element minOccurs="0" name="PartialQuoteIndicator" type="xcblBoolean"/>
+            <xsd:element minOccurs="0" ref="PartNumbers"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="SourcingItem" type="SourcingItem"/>
+</xsd:schema>

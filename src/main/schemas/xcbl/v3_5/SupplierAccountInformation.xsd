@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" targetNamespace="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" elementFormDefault="qualified">
+    <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+            XML Common Business Library 3.5
+            Copyright 2000 Commerce One, Inc.
+            Permission is granted to use, copy, modify and distribute the
+            DTD's, schemas and modules in the Commerce One XML Common Business
+            Library Version 3.5 subject to the terms and conditions specified
+            at http://www.xcbl.org/license.html
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType name="SupplierAccountInformation">
+        <xsd:sequence>
+            <xsd:element maxOccurs="unbounded" ref="SupplierAccount"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="SupplierAccountInformation" type="SupplierAccountInformation"/>
+    <xsd:complexType name="SupplierAccount">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" ref="Action"/>
+            <xsd:element minOccurs="0" name="SupplierAccountID" type="xsd:string"/>
+            <xsd:choice>
+                <xsd:element name="BuyerIdentifier">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element ref="Identifier"/>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+                <xsd:element ref="IsPublicAccount"/>
+            </xsd:choice>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="PriceCatalogIDRef" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="SupplierAccount" type="SupplierAccount"/>
+    <xsd:complexType name="IsPublicAccount"/>
+    <xsd:element name="IsPublicAccount" type="IsPublicAccount"/>
+</xsd:schema>

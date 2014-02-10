@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" targetNamespace="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" elementFormDefault="qualified">
+    <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+            XML Common Business Library 3.5
+            Copyright 2000 Commerce One, Inc.
+            Permission is granted to use, copy, modify and distribute the
+            DTD's, schemas and modules in the Commerce One XML Common Business
+            Library Version 3.5 subject to the terms and conditions specified
+            at http://www.xcbl.org/license.html
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType name="MonetaryRange">
+        <xsd:sequence>
+            <xsd:element name="MinimumMonetaryValue" type="Decimal21_6"/>
+            <xsd:element name="MaximumMonetaryValue" type="Decimal21_6"/>
+            <xsd:element ref="Currency"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="MonetaryRange" type="MonetaryRange"/>
+    <xsd:complexType name="BasisMonetaryRange">
+        <xsd:choice>
+            <xsd:element ref="MonetaryRange"/>
+            <xsd:element ref="MonetaryLimit"/>
+        </xsd:choice>
+    </xsd:complexType>
+    <xsd:element name="BasisMonetaryRange" type="BasisMonetaryRange"/>
+    <xsd:complexType name="MonetaryLimit">
+        <xsd:sequence>
+            <xsd:element name="MonetaryLimitValue" type="Decimal21_6"/>
+            <xsd:element ref="Currency"/>
+        </xsd:sequence>
+        <xsd:attribute name="SignificanceCoded" type="SignificanceCode" use="optional"/>
+        <xsd:attribute name="SignificanceCodedOther" type="xsd:string" use="optional"/>
+    </xsd:complexType>
+    <xsd:element name="MonetaryLimit" type="MonetaryLimit"/>
+</xsd:schema>

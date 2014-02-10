@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" targetNamespace="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" elementFormDefault="qualified">
+    <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+            XML Common Business Library 3.5
+            Copyright 2000 Commerce One, Inc.
+            Permission is granted to use, copy, modify and distribute the
+            DTD's, schemas and modules in the Commerce One XML Common Business
+            Library Version 3.5 subject to the terms and conditions specified
+            at http://www.xcbl.org/license.html
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType name="PricingType">
+        <xsd:sequence>
+            <xsd:element name="PriceTypeCoded" type="PriceTypeCode"/>
+            <xsd:element minOccurs="0" name="PriceTypeCodedOther" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="PricingType" type="PricingType"/>
+    <xsd:simpleType name="PriceTypeCode">
+        <xsd:restriction base="xsd:NMTOKEN">
+            <xsd:enumeration value="Other"/>
+            <xsd:enumeration value="CancellationPrice"/>
+            <xsd:enumeration value="PerTon"/>
+            <xsd:enumeration value="MinimumOrderPrice"/>
+            <xsd:enumeration value="ExportPrice"/>
+            <xsd:enumeration value="RangeDependentPrice"/>
+            <xsd:enumeration value="ActiveIngredient"/>
+            <xsd:enumeration value="AsIsQuantity"/>
+            <xsd:enumeration value="CalculationNet"/>
+            <xsd:enumeration value="CalculationGross"/>
+            <xsd:enumeration value="TaxIncludedAllowancesAndChargesNotIncluded"/>
+            <xsd:enumeration value="Actual"/>
+            <xsd:enumeration value="AverageSellingPrice"/>
+            <xsd:enumeration value="InformationPriceTaxIncludedExcludingAllowancesOrCharges"/>
+            <xsd:enumeration value="InformationPriceExcludingAllowancesOrChargesAndTaxes"/>
+            <xsd:enumeration value="AdditiveUnitPriceComponent"/>
+            <xsd:enumeration value="AverageGenericProductPrice"/>
+            <xsd:enumeration value="AlternatePrice"/>
+            <xsd:enumeration value="AverageWholesalePrice"/>
+            <xsd:enumeration value="BaseCharge"/>
+            <xsd:enumeration value="ContractTier1"/>
+            <xsd:enumeration value="ContractTier2"/>
+            <xsd:enumeration value="ContractTier3"/>
+            <xsd:enumeration value="ContractTier4"/>
+            <xsd:enumeration value="ContractTier5"/>
+            <xsd:enumeration value="ContractTier6"/>
+            <xsd:enumeration value="ContractTier7"/>
+            <xsd:enumeration value="ContractTier8"/>
+            <xsd:enumeration value="ContractTier9"/>
+            <xsd:enumeration value="ContractTier10"/>
+            <xsd:enumeration value="ContractTier11"/>
+            <xsd:enumeration value="ContractTier12"/>
+            <xsd:enumeration value="ContractTier13"/>
+            <xsd:enumeration value="ContractTier14"/>
+            <xsd:enumeration value="ContractTier15"/>
+            <xsd:enumeration value="ContractTier16"/>
+            <xsd:enumeration value="ContractTier17"/>
+            <xsd:enumeration value="ContractTier18"/>
+            <xsd:enumeration value="ContractTier19"/>
+            <xsd:enumeration value="ContractTier20"/>
+            <xsd:enumeration value="ContractTier21"/>
+            <xsd:enumeration value="ContractTier22"/>
+            <xsd:enumeration value="ContractTier23"/>
+            <xsd:enumeration value="ContractTier24"/>
+            <xsd:enumeration value="ContractTier25"/>
+            <xsd:enumeration value="ContractTier26"/>
+            <xsd:enumeration value="ContractTier27"/>
+            <xsd:enumeration value="ContractTier28"/>
+            <xsd:enumeration value="ContractTier29"/>
+            <xsd:enumeration value="ContractTier30"/>
+            <xsd:enumeration value="CalculationPrice"/>
+            <xsd:enumeration value="CatalogPrice"/>
+            <xsd:enumeration value="CentralDistributionFacility"/>
+            <xsd:enumeration value="CurrentDomesticValue"/>
+            <xsd:enumeration value="ChangedPrice"/>
+            <xsd:enumeration value="ContractPrice"/>
+            <xsd:enumeration value="ConsumerUnit"/>
+            <xsd:enumeration value="ConfirmedUnitPrice"/>
+            <xsd:enumeration value="DeclaredCustomsUnitValue"/>
+            <xsd:enumeration value="DealerAdjustedPrice"/>
+            <xsd:enumeration value="DistributorsPrice"/>
+            <xsd:enumeration value="DiscountPrice"/>
+            <xsd:enumeration value="DiscountAmountAllowed"/>
+            <xsd:enumeration value="DirectStoreDelivery"/>
+            <xsd:enumeration value="DirectShipProgramPrice"/>
+            <xsd:enumeration value="EcscPrice"/>
+            <xsd:enumeration value="EmergencyDirectShipPriceOriginalEquipmentManufacturer"/>
+            <xsd:enumeration value="EmergencyDirectShipPrice"/>
+            <xsd:enumeration value="EmergencyDirectShipPriceSupplier"/>
+            <xsd:enumeration value="EmergencyDirectShipPriceWarehouse"/>
+            <xsd:enumeration value="EstimatedPrice"/>
+            <xsd:enumeration value="ExpectedUnitPrice"/>
+            <xsd:enumeration value="FlatCharge"/>
+            <xsd:enumeration value="FrequentDeliveryService"/>
+            <xsd:enumeration value="FederalExciseTax"/>
+            <xsd:enumeration value="FreeGoodsPrice"/>
+            <xsd:enumeration value="FederalUpperLimitPriceMaximumAllowableCostPricingForDrugs"/>
+            <xsd:enumeration value="FirmPriceDoNotAdvise"/>
+            <xsd:enumeration value="GovernmentPrice"/>
+            <xsd:enumeration value="UnitPriceThroughQuantity"/>
+            <xsd:enumeration value="IndustrialPrice"/>
+            <xsd:enumeration value="InformationPrice"/>
+            <xsd:enumeration value="InstitutionalPrice"/>
+            <xsd:enumeration value="InvoiceBillingPrice"/>
+            <xsd:enumeration value="ListPrice"/>
+            <xsd:enumeration value="MandatoryToAdviseUnitPrice"/>
+            <xsd:enumeration value="MinimumActivitySurcharge"/>
+            <xsd:enumeration value="MaximumOrderQuantityPrice"/>
+            <xsd:enumeration value="MinimumOrderQuantityPrice"/>
+            <xsd:enumeration value="MinimumCharge"/>
+            <xsd:enumeration value="MinimumReleaseQuantityPrice"/>
+            <xsd:enumeration value="MaximumPriceReduction"/>
+            <xsd:enumeration value="ManufacturersSuggestedRetail"/>
+            <xsd:enumeration value="MaximumReleaseQuantityPrice"/>
+            <xsd:enumeration value="NoncontractTier1"/>
+            <xsd:enumeration value="NoncontractTier2"/>
+            <xsd:enumeration value="NoncontractTier3"/>
+            <xsd:enumeration value="NoncontractTier4"/>
+            <xsd:enumeration value="NoncontractTier5"/>
+            <xsd:enumeration value="NoncontractTier6"/>
+            <xsd:enumeration value="NoncontractTier7"/>
+            <xsd:enumeration value="NoncontractTier8"/>
+            <xsd:enumeration value="NoncontractTier9"/>
+            <xsd:enumeration value="NoncontractTier10"/>
+            <xsd:enumeration value="NoncontractTier11"/>
+            <xsd:enumeration value="NoncontractTier12"/>
+            <xsd:enumeration value="NoncontractTier13"/>
+            <xsd:enumeration value="NoncontractTier14"/>
+            <xsd:enumeration value="NoncontractTier15"/>
+            <xsd:enumeration value="NoncontractTier16"/>
+            <xsd:enumeration value="NoncontractTier17"/>
+            <xsd:enumeration value="NoncontractTier18"/>
+            <xsd:enumeration value="NoncontractTier19"/>
+            <xsd:enumeration value="NoncontractTier20"/>
+            <xsd:enumeration value="NoncontractTier21"/>
+            <xsd:enumeration value="NoncontractTier22"/>
+            <xsd:enumeration value="NoncontractTier23"/>
+            <xsd:enumeration value="NoncontractTier24"/>
+            <xsd:enumeration value="NoncontractTier25"/>
+            <xsd:enumeration value="NoncontractTier26"/>
+            <xsd:enumeration value="NoncontractTier27"/>
+            <xsd:enumeration value="NoncontractTier28"/>
+            <xsd:enumeration value="NoncontractTier29"/>
+            <xsd:enumeration value="NoncontractTier30"/>
+            <xsd:enumeration value="NetItemPrice"/>
+            <xsd:enumeration value="NetWeight"/>
+            <xsd:enumeration value="OptionalToAdviseUnitPrice"/>
+            <xsd:enumeration value="OriginalPurchaseOrderPrice"/>
+            <xsd:enumeration value="PriceBreakQuantity"/>
+            <xsd:enumeration value="UnitPriceBeginningQuantity"/>
+            <xsd:enumeration value="PriceBreakPurchaseOrderCount"/>
+            <xsd:enumeration value="PriceCatalogue"/>
+            <xsd:enumeration value="PerEach"/>
+            <xsd:enumeration value="PriceInEffectAtTimeOfShipment"/>
+            <xsd:enumeration value="PerKilogram"/>
+            <xsd:enumeration value="PerLiter"/>
+            <xsd:enumeration value="PrepaidFreightCharges"/>
+            <xsd:enumeration value="ProfessionalPrice"/>
+            <xsd:enumeration value="ProducersPrice"/>
+            <xsd:enumeration value="PromotionalPrice"/>
+            <xsd:enumeration value="PerTonne"/>
+            <xsd:enumeration value="SpecifiedUnit"/>
+            <xsd:enumeration value="ProvisionalPrice"/>
+            <xsd:enumeration value="GrossWeight"/>
+            <xsd:enumeration value="Purchase"/>
+            <xsd:enumeration value="QuotePrice"/>
+            <xsd:enumeration value="Resale"/>
+            <xsd:enumeration value="Retail"/>
+            <xsd:enumeration value="SuggestedDealerNetPrice"/>
+            <xsd:enumeration value="SuggestedFleetPrice"/>
+            <xsd:enumeration value="ShipAndDebit"/>
+            <xsd:enumeration value="SuggestedListPrice"/>
+            <xsd:enumeration value="SpecialPrice"/>
+            <xsd:enumeration value="SinglePriceFactorsEqualized"/>
+            <xsd:enumeration value="SuggestedRetail"/>
+            <xsd:enumeration value="StandardPrice"/>
+            <xsd:enumeration value="SumOfLineItems"/>
+            <xsd:enumeration value="SuggestedWholesalePrice"/>
+            <xsd:enumeration value="ToBeNegotiated"/>
+            <xsd:enumeration value="ThresholdPrice"/>
+            <xsd:enumeration value="TotalInvoiceAmountDue"/>
+            <xsd:enumeration value="Transfer"/>
+            <xsd:enumeration value="TradedUnit"/>
+            <xsd:enumeration value="TheoreticalWeight"/>
+            <xsd:enumeration value="UnitCostPrice"/>
+            <xsd:enumeration value="Wholesale"/>
+            <xsd:enumeration value="ZonePrice"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+</xsd:schema>

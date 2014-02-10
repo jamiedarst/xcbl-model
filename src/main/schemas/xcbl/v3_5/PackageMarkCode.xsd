@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" targetNamespace="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" elementFormDefault="qualified">
+    <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+            XML Common Business Library 3.5
+            Copyright 2000 Commerce One, Inc.
+            Permission is granted to use, copy, modify and distribute the
+            DTD's, schemas and modules in the Commerce One XML Common Business
+            Library Version 3.5 subject to the terms and conditions specified
+            at http://www.xcbl.org/license.html
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:simpleType name="PackageMarkCode">
+        <xsd:restriction base="xsd:NMTOKEN">
+            <xsd:enumeration value="Other"/>
+            <xsd:enumeration value="BuyersInstructions"/>
+            <xsd:enumeration value="Carrier-AssignedPackageIdNumber"/>
+            <xsd:enumeration value="CarriersInstructions"/>
+            <xsd:enumeration value="DoNotMarkSuppliersCompanyName"/>
+            <xsd:enumeration value="EntireShipment"/>
+            <xsd:enumeration value="IndustryInstructions"/>
+            <xsd:enumeration value="LegalRequirements"/>
+            <xsd:enumeration value="LineItemOnly"/>
+            <xsd:enumeration value="MarkAdditionallyCustomersArticleDescription"/>
+            <xsd:enumeration value="MarkArticleNumberCustomer"/>
+            <xsd:enumeration value="MarkBatchNumber"/>
+            <xsd:enumeration value="MarkCaseNumber"/>
+            <xsd:enumeration value="MarkCustomersCompanyName"/>
+            <xsd:enumeration value="MarkCustomersReferences"/>
+            <xsd:enumeration value="MarkDateOfProduction"/>
+            <xsd:enumeration value="MarkExclusivelyCustomersArticleDescription"/>
+            <xsd:enumeration value="MarkExpiryDate"/>
+            <xsd:enumeration value="MarkFreeText"/>
+            <xsd:enumeration value="MarkGrossWeight"/>
+            <xsd:enumeration value="MarkNetWeight"/>
+            <xsd:enumeration value="MarkPackagesDimensions"/>
+            <xsd:enumeration value="MarkRunningNumberOfPackages"/>
+            <xsd:enumeration value="MarkSerialShippingContainerCode"/>
+            <xsd:enumeration value="MarkSupplierNumber"/>
+            <xsd:enumeration value="MarkTareWeight"/>
+            <xsd:enumeration value="MasterCartonNumber"/>
+            <xsd:enumeration value="OriginatorAssigned"/>
+            <xsd:enumeration value="PalletConfigurationNumber"/>
+            <xsd:enumeration value="PalletNumber"/>
+            <xsd:enumeration value="PreMarkedByBuyer"/>
+            <xsd:enumeration value="ReceiverAssignedDropZone"/>
+            <xsd:enumeration value="Self-IdentifyingContainerViaRadioFrequencyIdDevice"/>
+            <xsd:enumeration value="SellersInstructions"/>
+            <xsd:enumeration value="ShipperAssigned"/>
+            <xsd:enumeration value="Shipper-AssignedCaseNumber"/>
+            <xsd:enumeration value="ShipperAssignedRollNumber"/>
+            <xsd:enumeration value="ShipperAssignedSkidNumber"/>
+            <xsd:enumeration value="SSCC-18"/>
+            <xsd:enumeration value="SSCC-18AndApplicationIdentifier"/>
+            <xsd:enumeration value="UPCShippingContainerCode"/>
+            <xsd:enumeration value="UCCOrEAN128ApplicationIdentifierAndData"/>
+            <xsd:enumeration value="UniformCodeCouncilFormat"/>
+            <xsd:enumeration value="UPCConsumerPackageCode-1-5-5-1"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+</xsd:schema>

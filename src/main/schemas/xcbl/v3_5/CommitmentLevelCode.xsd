@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" targetNamespace="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" elementFormDefault="qualified">
+    <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+            XML Common Business Library 3.5
+            Copyright 2000 Commerce One, Inc.
+            Permission is granted to use, copy, modify and distribute the
+            DTD's, schemas and modules in the Commerce One XML Common Business
+            Library Version 3.5 subject to the terms and conditions specified
+            at http://www.xcbl.org/license.html
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:simpleType name="CommitmentLevelCode">
+        <xsd:restriction base="xsd:NMTOKEN">
+            <xsd:enumeration value="Other"/>
+            <xsd:enumeration value="Immediate"/>
+            <xsd:enumeration value="Pilot-Prevolume"/>
+            <xsd:enumeration value="Firm"/>
+            <xsd:enumeration value="Planning"/>
+            <xsd:enumeration value="RoundedContainerQuantity"/>
+            <xsd:enumeration value="PotentialOrderIncrease"/>
+            <xsd:enumeration value="AveragePlantUsage"/>
+            <xsd:enumeration value="FirstTimeReportedFirm"/>
+            <xsd:enumeration value="FinalModelYearRequirementsOrOrders"/>
+            <xsd:enumeration value="EngineeringChangePending"/>
+            <xsd:enumeration value="MaximumToolingCapacity"/>
+            <xsd:enumeration value="NormalToolingCapacity"/>
+            <xsd:enumeration value="Prototype"/>
+            <xsd:enumeration value="OrderReleaseAuthorization"/>
+            <xsd:enumeration value="StrikeProtection"/>
+            <xsd:enumeration value="RequiredToolingCapacity"/>
+            <xsd:enumeration value="CooperativeLogisticsPlanning"/>
+            <xsd:enumeration value="CooperativeLogisticsFirm"/>
+            <xsd:enumeration value="Cancellation"/>
+            <xsd:enumeration value="Modification"/>
+            <xsd:enumeration value="CommitmentForManufacturingAndMaterial"/>
+            <xsd:enumeration value="CommitmentForMaterial"/>
+            <xsd:enumeration value="PlanningForecast"/>
+            <xsd:enumeration value="ShortDeliveredOnPreviousDelivery"/>
+            <xsd:enumeration value="CapacityAvailable"/>
+            <xsd:enumeration value="DeliverToSchedule"/>
+            <xsd:enumeration value="AwaitManualPull"/>
+            <xsd:enumeration value="ReferenceToCommercialAgreementBetweenPartners"/>
+            <xsd:enumeration value="Proposed"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+</xsd:schema>

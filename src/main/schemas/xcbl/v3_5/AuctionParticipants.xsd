@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" targetNamespace="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" elementFormDefault="qualified">
+    <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+            XML Common Business Library 3.5
+            Copyright 2000 Commerce One, Inc.
+            Permission is granted to use, copy, modify and distribute the
+            DTD's, schemas and modules in the Commerce One XML Common Business
+            Library Version 3.5 subject to the terms and conditions specified
+            at http://www.xcbl.org/license.html
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType name="AuctionParticipants">
+        <xsd:sequence>
+            <xsd:element name="InitiatingParty">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Party"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="CommunityID" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="ListToInform">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="ListOfParty"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element ref="ListOfAuctionPartners"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="AuctionParticipants" type="AuctionParticipants"/>
+    <xsd:complexType name="ListOfAuctionPartners">
+        <xsd:sequence>
+            <xsd:element maxOccurs="unbounded" ref="AuctionPartners"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="ListOfAuctionPartners" type="ListOfAuctionPartners"/>
+    <xsd:complexType name="AuctionPartners">
+        <xsd:complexContent>
+            <xsd:extension base="Party">
+                <xsd:sequence>
+                    <xsd:element name="GroupIndicator" type="xcblBoolean"/>
+                    <xsd:element minOccurs="0" ref="ListOfKeyVal"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:element name="AuctionPartners" type="AuctionPartners"/>
+</xsd:schema>

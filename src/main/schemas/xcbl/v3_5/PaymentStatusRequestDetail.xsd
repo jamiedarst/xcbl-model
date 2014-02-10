@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" targetNamespace="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" elementFormDefault="qualified">
+    <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+            XML Common Business Library 3.5
+            Copyright 2000 Commerce One, Inc.
+            Permission is granted to use, copy, modify and distribute the
+            DTD's, schemas and modules in the Commerce One XML Common Business
+            Library Version 3.5 subject to the terms and conditions specified
+            at http://www.xcbl.org/license.html
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType name="ListOfPaymentStatusRequestDetail">
+        <xsd:sequence>
+            <xsd:element maxOccurs="unbounded" ref="PaymentStatusRequestDetail"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="ListOfPaymentStatusRequestDetail" type="ListOfPaymentStatusRequestDetail"/>
+    <xsd:complexType name="PaymentStatusRequestDetail">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="SequenceNumber" type="xsd:int"/>
+            <xsd:choice>
+                <xsd:element name="PaymentRequestID">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element ref="Reference"/>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+                <xsd:element name="ConfirmationID" type="xsd:string"/>
+                <xsd:element name="PaymentDateRange">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element ref="ValidityDates"/>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+                <xsd:element ref="PaymentDates"/>
+            </xsd:choice>
+            <xsd:element minOccurs="0" name="SettlementAmount">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="MonetaryValue"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="ListOfPaymentRequestReferences">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="ListOfReference"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="PaymentStatusRequestDetail" type="PaymentStatusRequestDetail"/>
+</xsd:schema>

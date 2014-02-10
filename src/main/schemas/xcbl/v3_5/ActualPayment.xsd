@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" targetNamespace="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" elementFormDefault="qualified">
+    <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+            XML Common Business Library 3.5
+            Copyright 2000 Commerce One, Inc.
+            Permission is granted to use, copy, modify and distribute the
+            DTD's, schemas and modules in the Commerce One XML Common Business
+            Library Version 3.5 subject to the terms and conditions specified
+            at http://www.xcbl.org/license.html
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType name="ListOfActualPayment">
+        <xsd:sequence>
+            <xsd:element maxOccurs="unbounded" ref="ActualPayment"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="ListOfActualPayment" type="ListOfActualPayment"/>
+    <xsd:complexType name="ActualPayment">
+        <xsd:sequence>
+            <xsd:element ref="PaymentAmount"/>
+            <xsd:element name="PaymentDate" type="xcblDatetime"/>
+            <xsd:element ref="PaymentMean"/>
+            <xsd:element minOccurs="0" ref="PaymentRecord"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="OtherPaymentInfo" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="ActualPayment" type="ActualPayment"/>
+    <xsd:complexType name="PaymentAmount">
+        <xsd:sequence>
+            <xsd:element name="InvoiceCurrencyAmt">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="MonetaryValue"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="ForeignCurrencyPayment">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="MonetaryValue"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="PaymentAmount" type="PaymentAmount"/>
+    <xsd:complexType name="PaymentMean">
+        <xsd:sequence>
+            <xsd:element name="PaymentMeanCoded" type="PaymentMeanCode"/>
+            <xsd:element minOccurs="0" name="PaymentCodedMeanOther" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="PaymentMean" type="PaymentMean"/>
+    <xsd:complexType name="PaymentRecord">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="PaymentRef">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Reference"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:choice>
+                <xsd:element minOccurs="0" ref="CardInfo"/>
+                <xsd:element minOccurs="0" ref="FITransfer"/>
+            </xsd:choice>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="PaymentRecord" type="PaymentRecord"/>
+    <xsd:complexType name="FITransfer">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="FromFITransfer">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="FIAccount"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="ToFITransfer">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="FIAccount"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="PaymentRecordOther" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="FITransfer" type="FITransfer"/>
+    <xsd:simpleType name="CardTypeCode">
+        <xsd:restriction base="xsd:NMTOKEN">
+            <xsd:enumeration value="Other"/>
+            <xsd:enumeration value="AMEX"/>
+            <xsd:enumeration value="VISA"/>
+            <xsd:enumeration value="MC"/>
+            <xsd:enumeration value="Discover"/>
+            <xsd:enumeration value="JCB"/>
+            <xsd:enumeration value="Diners"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:complexType name="CardInfo">
+        <xsd:sequence>
+            <xsd:element name="CardNum" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="CardAuthCode" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="CardRefNum" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="CardExpirationDate" type="xcblDatetime"/>
+            <xsd:element minOccurs="0" name="CardType" type="CardTypeCode"/>
+            <xsd:element minOccurs="0" name="CardTypeOther" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="CardHolderName" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="CardInfo" type="CardInfo"/>
+</xsd:schema>

@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+		xmlns="http://perfect.com/LiteEnvelope" 
+		targetNamespace="http://perfect.com/LiteEnvelope" 
+		elementFormDefault="qualified"
+		version="1.0" >
+ <xs:annotation>
+     <xs:documentation xml:lang="en">
+         Defines OSN LiteEnvelope schema simple types for all documents
+         Perfect Commerce 2006
+         2006/02/03 Adam Swick  version 1.0  created.
+     </xs:documentation>
+ </xs:annotation>
+
+<!-- define simple types -->
+
+ <xs:simpleType name="StringType">
+  <xs:restriction base="xs:string"/>
+ </xs:simpleType>
+
+ <xs:simpleType name="SchemaType">
+  <xs:annotation>
+   <xs:documentation>Possible values are xCBL, EDI, XI, CXML.</xs:documentation>
+  </xs:annotation>
+  <xs:restriction base="xs:string">
+    <xs:enumeration value="xCBL"/>
+    <xs:enumeration value="EDI"/>
+    <xs:enumeration value="XI"/>
+    <xs:enumeration value="CXML"/>
+  </xs:restriction>
+ </xs:simpleType>
+
+ <xs:simpleType name="SchemaVersionType">
+  <xs:annotation>
+   <xs:documentation>Allowable values are 2.0, 2.2, 3.0 and 3.5.</xs:documentation>
+  </xs:annotation>
+  <xs:restriction base="xs:string">
+    <xs:enumeration value="2.0"/>
+    <xs:enumeration value="2.2"/>
+    <xs:enumeration value="3.0"/>
+    <xs:enumeration value="3.5"/>
+    <xs:enumeration value="4010"/>
+  </xs:restriction>
+ </xs:simpleType>
+
+ <xs:simpleType name="DocumentTypeType">
+  <xs:annotation>
+   <xs:documentation>Examples include Order, PurchaseOrder, PurchaseOrderRequest.</xs:documentation>
+  </xs:annotation>
+  <xs:restriction base="xs:string">
+    <xs:enumeration value="Order"/>
+    <xs:enumeration value="PurchaseOrder"/>
+  </xs:restriction>
+ </xs:simpleType>
+
+ <xs:simpleType name="DateType">
+  <xs:annotation>
+   <xs:documentation>Conforms to w3c dateTime format (yyyy-mm-ddThh:mm:ss('Z' or offset)</xs:documentation>
+  </xs:annotation>
+  <xs:restriction base="xs:dateTime"/>
+ </xs:simpleType>
+
+<xs:simpleType name="UUIDType">
+  <xs:annotation>
+   <xs:documentation>Universal Unique Identifier format follows the IETF UUID/GUID standard rfc 4122.  Further requirements are letters to be lowercase.</xs:documentation>
+  </xs:annotation>
+ <xs:restriction base="xs:string">
+  <xs:pattern value="([a-f0-9]){8}-([a-f0-9]){4}-([a-f0-9]){4}-([a-f0-9]){4}-([a-f0-9]){12}"/>
+ </xs:restriction>
+</xs:simpleType>
+
+ <xs:simpleType name="ProtocolType">
+  <xs:annotation>
+   <xs:documentation>Examples include HTTPS, SFTP.</xs:documentation>
+  </xs:annotation>
+  <xs:restriction base="xs:string">
+    <xs:enumeration value="HTTPS"/>
+  </xs:restriction>
+ </xs:simpleType>
+
+ <xs:simpleType name="HeaderTypeType">
+  <xs:annotation>
+   <xs:documentation>Examples include 'RawXML', 'XCCLite1.0'.</xs:documentation>
+  </xs:annotation>
+  <xs:restriction base="xs:string">
+    <xs:enumeration value="RawXML"/>
+    <xs:enumeration value="XCCLite1.0"/>
+  </xs:restriction>
+ </xs:simpleType>
+
+ <xs:simpleType name="TransHeaderType">
+  <xs:annotation>
+   <xs:documentation>HTTP header info.</xs:documentation>
+  </xs:annotation>
+  <xs:restriction base="xs:string" />
+ </xs:simpleType>
+
+ <xs:simpleType name="AttachmentURIType">
+  <xs:annotation>
+   <xs:documentation>URI definition for a single attachment.</xs:documentation>
+  </xs:annotation>
+  <xs:restriction base="xs:string" />
+ </xs:simpleType>
+
+ <xs:simpleType name="AttachmentContentType">
+  <xs:annotation>
+   <xs:documentation>Base64-encoded attachment data..</xs:documentation>
+  </xs:annotation>
+  <xs:restriction base="xs:string" />
+ </xs:simpleType>
+
+ <xs:simpleType name="AttachmentContentTypeType">
+  <xs:annotation>
+   <xs:documentation>Content-Type</xs:documentation>
+  </xs:annotation>
+  <xs:restriction base="xs:string" />
+ </xs:simpleType>
+
+
+<!-- Reusable structures are defined below.  Can be overridden in children -->
+
+ <xs:complexType name="IdentificationAttributesType">
+  <xs:annotation>
+   <xs:documentation>Contains payload identification attributes.</xs:documentation>
+  </xs:annotation>
+  <xs:sequence>
+   <xs:element name="Schema" type="SchemaType" minOccurs="0">
+    <xs:annotation>
+     <xs:documentation>Schema Standard.</xs:documentation>
+    </xs:annotation>
+   </xs:element>
+   <xs:element name="SchemaVersion" type="SchemaVersionType" minOccurs="0">
+    <xs:annotation>
+     <xs:documentation>Version of the Schema Standard.</xs:documentation>
+    </xs:annotation>
+   </xs:element>
+   <xs:element name="DocType" type="DocumentTypeType" minOccurs="0">
+    <xs:annotation>
+     <xs:documentation>Schema Document Type.</xs:documentation>
+    </xs:annotation>
+   </xs:element>
+   <xs:element name="Envid" type="UUIDType">
+    <xs:annotation>
+     <xs:documentation>Identifier for the Envelope.</xs:documentation>
+    </xs:annotation>
+   </xs:element>
+   <xs:element name="Convid" type="UUIDType" minOccurs="0">
+    <xs:annotation>
+     <xs:documentation>Identifier for the business conversation.  Also known as Correlation ID.</xs:documentation>
+    </xs:annotation>
+   </xs:element>
+  </xs:sequence>
+ </xs:complexType>
+
+ <xs:complexType name="TransmissionAttributesType">
+  <xs:annotation>
+   <xs:documentation>Contains transmission-related attributes.</xs:documentation>
+  </xs:annotation>
+  <xs:sequence>
+   <xs:element name="Protocol" type="ProtocolType" minOccurs="0">
+    <xs:annotation>
+     <xs:documentation>Protocol used.</xs:documentation>
+    </xs:annotation>
+   </xs:element>
+   <xs:element name="HeaderType" type="HeaderTypeType" minOccurs="0">
+    <xs:annotation>
+     <xs:documentation>Defines header set sent in envelope.</xs:documentation>
+    </xs:annotation>
+   </xs:element>
+   <xs:element name="TransDatetime" type="DateType" minOccurs="0">
+    <xs:annotation>
+     <xs:documentation>Date transmission was sent.</xs:documentation>
+    </xs:annotation>
+   </xs:element>
+  </xs:sequence>
+ <xs:attribute name="TransmissionHeaders" type="TransHeaderType" use="optional">
+   <xs:annotation>
+    <xs:documentation>URL-encoded values of envelope header set.</xs:documentation>
+   </xs:annotation>
+  </xs:attribute>
+ </xs:complexType>
+
+ <xs:complexType name="TradingPartnerAttributesType">
+  <xs:annotation>
+   <xs:documentation>Contains transmission-related attributes.</xs:documentation>
+  </xs:annotation>
+  <xs:sequence>
+   <xs:element name="ID" type="UUIDType">
+    <xs:annotation>
+     <xs:documentation>Identifier for the trading partner.</xs:documentation>
+    </xs:annotation>
+   </xs:element>
+  </xs:sequence>
+ </xs:complexType>
+
+ <xs:complexType name="DocAttributesType">
+  <xs:sequence>
+   <xs:element name="IdentificationAttributes" type="IdentificationAttributesType" />
+   <xs:element name="TransmissionAttributes" type="TransmissionAttributesType" minOccurs="0" />
+   <xs:element name="SenderAttributes" type="TradingPartnerAttributesType" />
+   <xs:element name="RecipientAttributes" type="TradingPartnerAttributesType" />
+  </xs:sequence>
+ </xs:complexType>
+
+ <xs:complexType name="AttachmentAttributesType">
+  <xs:sequence>
+   <xs:element name="AttachmentURI" type="AttachmentURIType" />
+   <xs:element name="AttachmentContent" type="AttachmentContentType" />
+   <xs:element name="AttachmentContentType" type="AttachmentContentTypeType" />
+  </xs:sequence>
+ </xs:complexType>
+
+ <xs:complexType name="AttachmentType">
+  <xs:sequence>
+   <xs:element name="Attachment" type="AttachmentAttributesType" maxOccurs="unbounded" />
+  </xs:sequence>
+ </xs:complexType>
+
+ <xs:complexType name="DocAttachmentType">
+  <xs:sequence>
+   <xs:element name="AttachmentList" type="AttachmentType" />
+  </xs:sequence>
+ </xs:complexType>
+
+ <xs:complexType name="EnvelopeType">
+  <xs:annotation>
+   <xs:documentation>Envelope structure for all documents.</xs:documentation>
+  </xs:annotation>
+  <xs:sequence>
+   <xs:element name="DocAttributes" type="DocAttributesType" />
+   <xs:element name="DocAttachment" type="DocAttachmentType" minOccurs="0" />
+  </xs:sequence>
+ </xs:complexType>
+
+<xs:element name="Envelope" type="EnvelopeType" />
+
+</xs:schema>

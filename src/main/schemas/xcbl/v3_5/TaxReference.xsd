@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" targetNamespace="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" elementFormDefault="qualified">
+    <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+            XML Common Business Library 3.5
+            Copyright 2000 Commerce One, Inc.
+            Permission is granted to use, copy, modify and distribute the
+            DTD's, schemas and modules in the Commerce One XML Common Business
+            Library Version 3.5 subject to the terms and conditions specified
+            at http://www.xcbl.org/license.html
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType name="TaxReference">
+        <xsd:complexContent>
+            <xsd:extension base="Tax">
+                <xsd:sequence>
+                    <xsd:element name="TaxTreatmentCoded" type="TaxTreatmentCode"/>
+                    <xsd:element minOccurs="0" name="TaxTreatmentCodedOther" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:element name="TaxReference" type="TaxReference"/>
+    <xsd:simpleType name="TaxTreatmentCode">
+        <xsd:restriction base="xsd:NMTOKEN">
+            <xsd:enumeration value="Other"/>
+            <xsd:enumeration value="NoTaxApplies"/>
+            <xsd:enumeration value="NetInvoiceLevel"/>
+            <xsd:enumeration value="GrossInvoiceLevel"/>
+            <xsd:enumeration value="NetLineLevel"/>
+            <xsd:enumeration value="GrossLineLevel"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+</xsd:schema>

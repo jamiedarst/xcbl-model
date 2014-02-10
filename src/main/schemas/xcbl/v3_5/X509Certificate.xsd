@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" targetNamespace="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" elementFormDefault="qualified">
+    <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+            XML Common Business Library 3.5
+            Copyright 2000 Commerce One, Inc.
+            Permission is granted to use, copy, modify and distribute the
+            DTD's, schemas and modules in the Commerce One XML Common Business
+            Library Version 3.5 subject to the terms and conditions specified
+            at http://www.xcbl.org/license.html
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType name="X509Certificate">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="ListOfCertificatePurpose"/>
+            <xsd:choice>
+                <xsd:element name="X509Cert" type="xsd:string"/>
+                <xsd:element ref="X509CertificateInfo"/>
+            </xsd:choice>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="X509Certificate" type="X509Certificate"/>
+    <xsd:complexType name="ListOfX509Certificate">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="X509Certificate"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="ListOfX509Certificate" type="ListOfX509Certificate"/>
+    <xsd:complexType name="ListOfCertificatePurpose">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="CertificatePurpose"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="ListOfCertificatePurpose" type="ListOfCertificatePurpose"/>
+    <xsd:complexType name="CertificatePurpose">
+        <xsd:sequence>
+            <xsd:element name="CertificatePurposeCoded" type="CertificatePurposeCode"/>
+            <xsd:element minOccurs="0" name="CertificatePurposeCodedOther" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="CertificatePurpose" type="CertificatePurpose"/>
+    <xsd:simpleType name="CertificatePurposeCode">
+        <xsd:restriction base="xsd:NMTOKEN">
+            <xsd:enumeration value="Other"/>
+            <xsd:enumeration value="LogonCertificate"/>
+            <xsd:enumeration value="DigitalSignature"/>
+            <xsd:enumeration value="Encryption"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:complexType name="X509CertificateInfo">
+        <xsd:sequence>
+            <xsd:element name="X509Subject" type="xsd:string"/>
+            <xsd:element name="X509Issuer" type="xsd:string"/>
+            <xsd:element name="X509SerialNumber" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="X509CertificateInfo" type="X509CertificateInfo"/>
+</xsd:schema>

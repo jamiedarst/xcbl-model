@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" targetNamespace="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" elementFormDefault="qualified">
+    <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+            XML Common Business Library 3.5
+            Copyright 2000 Commerce One, Inc.
+            Permission is granted to use, copy, modify and distribute the
+            DTD's, schemas and modules in the Commerce One XML Common Business
+            Library Version 3.5 subject to the terms and conditions specified
+            at http://www.xcbl.org/license.html
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:simpleType name="DateTimeRefCode">
+        <xsd:restriction base="xsd:NMTOKEN">
+            <xsd:enumeration value="Other"/>
+            <xsd:enumeration value="AnticipatedDeliveryDate"/>
+            <xsd:enumeration value="ApprovalOfGageDate"/>
+            <xsd:enumeration value="ApprovalOfSampleDate"/>
+            <xsd:enumeration value="CompletionAndAcceptanceDate"/>
+            <xsd:enumeration value="CustomsClearanceDateExport"/>
+            <xsd:enumeration value="CustomsClearanceDateImport"/>
+            <xsd:enumeration value="DateCreditNoteReceived"/>
+            <xsd:enumeration value="DateExWorks"/>
+            <xsd:enumeration value="DateGoodsHandedOverForShipmentBySellerOrAgent"/>
+            <xsd:enumeration value="DateGoodsReceivedByBuyer"/>
+            <xsd:enumeration value="DateGoodsReceivedByBuyersAgent"/>
+            <xsd:enumeration value="DateGoodsReceivedByCarrier"/>
+            <xsd:enumeration value="DateInvoiceReceived"/>
+            <xsd:enumeration value="DateOfAcceptanceOfFirstSamplesProducedUnderProductionConditions"/>
+            <xsd:enumeration value="DateOfAcceptanceOfNegotiableInstrument"/>
+            <xsd:enumeration value="DateOfAcceptanceOfTooling"/>
+            <xsd:enumeration value="DateOfArrivalOfTransport"/>
+            <xsd:enumeration value="DateOfBillOfLadingConsignmentNoteOrOtherTransportDocument"/>
+            <xsd:enumeration value="DateOfCertificateOfFinalAcceptance"/>
+            <xsd:enumeration value="DateOfCertificateOfPreliminaryAcceptance"/>
+            <xsd:enumeration value="DateOfConfirmation"/>
+            <xsd:enumeration value="DateOfConfirmationOfOrderReceived"/>
+            <xsd:enumeration value="DateOfContract"/>
+            <xsd:enumeration value="DateOfCreditNote"/>
+            <xsd:enumeration value="DeliveryDate"/>
+            <xsd:enumeration value="DateOfDeliveryOfGoodsToEstablishmentsDomicileSite"/>
+            <xsd:enumeration value="DateOfDeliveryToBuyerOfDocumentsRepresentingGoods"/>
+            <xsd:enumeration value="DateOfDeliveryToBuyersAgentOfDocumentsRepresentingGoods"/>
+            <xsd:enumeration value="DateOfDeliveryToCarrierOfDocumentsRepresentingGoods"/>
+            <xsd:enumeration value="DateOfDeliveryToIntermediaryBankOfDocumentsRepresentingGood"/>
+            <xsd:enumeration value="DateOfEndOfWork"/>
+            <xsd:enumeration value="DateOfFinalAcceptanceOfWork"/>
+            <xsd:enumeration value="DateOfInvoice"/>
+            <xsd:enumeration value="DateOfInwardFrontierCrossing"/>
+            <xsd:enumeration value="DateOfIssueOfTransportDocument"/>
+            <xsd:enumeration value="DateOfNegotiableInstrumentDraftPromissoryNoteBank"/>
+            <xsd:enumeration value="DateOfOrder"/>
+            <xsd:enumeration value="DateOfOutwardFrontierCrossing"/>
+            <xsd:enumeration value="DateOfPresentationOfDocuments"/>
+            <xsd:enumeration value="DateOfPresentationOfNegotiableInstrument"/>
+            <xsd:enumeration value="DateOfPresentDocument"/>
+            <xsd:enumeration value="DateOfProvisionalReceptionOfWork"/>
+            <xsd:enumeration value="DateOfReceiptForLoadingMatesReceipt"/>
+            <xsd:enumeration value="DateOfReceiptOfToolDependentInitialSamplesPlusUnlimitedAbsoluteBankGuaranteePlusValueAddedTax"/>
+            <xsd:enumeration value="DateOfReceiptOfTooling"/>
+            <xsd:enumeration value="DateOfResaleByBuyer"/>
+            <xsd:enumeration value="DateOfSalaryPayment"/>
+            <xsd:enumeration value="ShipDate"/>
+            <xsd:enumeration value="DateOfShipmentAsEvidencedByTheTransportDocument"/>
+            <xsd:enumeration value="DateOfSignatureOfContract"/>
+            <xsd:enumeration value="DateOfStartOfWork"/>
+            <xsd:enumeration value="DatePresentDocumentReceived"/>
+            <xsd:enumeration value="DateProceedsOfResaleCollectedByBuyer"/>
+            <xsd:enumeration value="DraftAtDaysAfterDateOfIssuanceOfTransportDocument"/>
+            <xsd:enumeration value="DraftAtDaysAfterDateOfPresentationOfDocuments"/>
+            <xsd:enumeration value="DraftAtDaysDate"/>
+            <xsd:enumeration value="DraftAtDaysSight"/>
+            <xsd:enumeration value="DueDateOfNegotiableInstrument"/>
+            <xsd:enumeration value="EffectiveDate"/>
+            <xsd:enumeration value="InvoiceDate"/>
+            <xsd:enumeration value="InvoiceReceiptDate"/>
+            <xsd:enumeration value="InvoiceTransmissionDate"/>
+            <xsd:enumeration value="InvoiceVerificationDate"/>
+            <xsd:enumeration value="OtherReferenceDateAgreedUponBetweenTheParties"/>
+            <xsd:enumeration value="PaymentDate"/>
+            <xsd:enumeration value="PaymentDueDate"/>
+            <xsd:enumeration value="PurchaseOrderDate"/>
+            <xsd:enumeration value="QualityApprovalDate"/>
+            <xsd:enumeration value="QuarterStartDate"/>
+            <xsd:enumeration value="ReceiptOfGoods"/>
+            <xsd:enumeration value="RequestedDateOfDelivery"/>
+            <xsd:enumeration value="SpecifiedDate"/>
+            <xsd:enumeration value="SpecifiedDraftDate"/>
+            <xsd:enumeration value="StipulatedDateForAcceptanceOfDocumentaryCredit"/>
+            <xsd:enumeration value="StipulatedDateForNegotiationOfDocumentaryCredit"/>
+            <xsd:enumeration value="StipulatedDateForPaymentOfDocumentaryCredit"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+</xsd:schema>

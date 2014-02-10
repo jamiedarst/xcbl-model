@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" targetNamespace="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" elementFormDefault="qualified">
+    <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+            XML Common Business Library 3.5
+            Copyright 2000 Commerce One, Inc.
+            Permission is granted to use, copy, modify and distribute the
+            DTD's, schemas and modules in the Commerce One XML Common Business
+            Library Version 3.5 subject to the terms and conditions specified
+            at http://www.xcbl.org/license.html
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType name="PaymentTerm">
+        <xsd:sequence>
+            <xsd:element name="PaymentTermCoded" type="PaymentTermCode"/>
+            <xsd:element minOccurs="0" name="PaymentTermCodedOther" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="PaymentTermValue" type="xsd:int"/>
+            <xsd:element minOccurs="0" name="PaymentTermDetails">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Discounts"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="PaymentTerm" type="PaymentTerm"/>
+    <xsd:simpleType name="PaymentTermCode">
+        <xsd:restriction base="xsd:NMTOKEN">
+            <xsd:enumeration value="Other"/>
+            <xsd:enumeration value="10DaysAfterEndOfMonth"/>
+            <xsd:enumeration value="AdjustmentPayment"/>
+            <xsd:enumeration value="AdvancedPayment"/>
+            <xsd:enumeration value="Anticipation"/>
+            <xsd:enumeration value="AvailableByAcceptance"/>
+            <xsd:enumeration value="AvailableByDeferredPayment"/>
+            <xsd:enumeration value="AvailableByNegotiation"/>
+            <xsd:enumeration value="AvailableByNegotiationByNamedBank"/>
+            <xsd:enumeration value="AvailableByNegotiationWithAnyBank"/>
+            <xsd:enumeration value="AvailableByNegotiationWithAnyBankin"/>
+            <xsd:enumeration value="AvailableBySightPayment"/>
+            <xsd:enumeration value="BankTransfer"/>
+            <xsd:enumeration value="Basic"/>
+            <xsd:enumeration value="BasicCommissionTerms"/>
+            <xsd:enumeration value="BasicDiscountOffered"/>
+            <xsd:enumeration value="BillOfExchange"/>
+            <xsd:enumeration value="BillToBill"/>
+            <xsd:enumeration value="CancellationOption"/>
+            <xsd:enumeration value="Cash"/>
+            <xsd:enumeration value="CashAccount"/>
+            <xsd:enumeration value="CashAgainstDocuments"/>
+            <xsd:enumeration value="CashByStateLaw"/>
+            <xsd:enumeration value="CashDiscountTermsApply"/>
+            <xsd:enumeration value="CashonAdvance"/>
+            <xsd:enumeration value="CashonArrival"/>
+            <xsd:enumeration value="CashOnDelivery"/>
+            <xsd:enumeration value="CashPerVendorRequest"/>
+            <xsd:enumeration value="CashWithOrder"/>
+            <xsd:enumeration value="CertifiedCheck"/>
+            <xsd:enumeration value="ChargeCard"/>
+            <xsd:enumeration value="CompletePayment"/>
+            <xsd:enumeration value="Consignment"/>
+            <xsd:enumeration value="ContractBasis"/>
+            <xsd:enumeration value="CostPlus"/>
+            <xsd:enumeration value="CreditControlled"/>
+            <xsd:enumeration value="DatingGiven"/>
+            <xsd:enumeration value="DeferredOrInstallment"/>
+            <xsd:enumeration value="DepositRequired"/>
+            <xsd:enumeration value="Discount"/>
+            <xsd:enumeration value="DiscountNotApplicable"/>
+            <xsd:enumeration value="DiscountWithAdvancePayment"/>
+            <xsd:enumeration value="DiscountWithPromptPay"/>
+            <xsd:enumeration value="DocumentsAgainstAcceptance"/>
+            <xsd:enumeration value="DocumentsAgainstPayment"/>
+            <xsd:enumeration value="Elective"/>
+            <xsd:enumeration value="EndOfMonth"/>
+            <xsd:enumeration value="Extended"/>
+            <xsd:enumeration value="FastPay"/>
+            <xsd:enumeration value="FixedDate"/>
+            <xsd:enumeration value="FixedDateLatePaymentPenaltyApplies"/>
+            <xsd:enumeration value="FixedFee"/>
+            <xsd:enumeration value="InstallmentPaymentsAreDueAnnually"/>
+            <xsd:enumeration value="InstallmentPaymentsAreDueMonthly"/>
+            <xsd:enumeration value="InstallmentPaymentsAreDueQuarterly"/>
+            <xsd:enumeration value="InstallmentPaymentsAreDueSemiAnnually"/>
+            <xsd:enumeration value="Instant"/>
+            <xsd:enumeration value="InterCompanyAccount"/>
+            <xsd:enumeration value="IrrevocableLetterOfCredit"/>
+            <xsd:enumeration value="LatePayment"/>
+            <xsd:enumeration value="LeaseAgreement"/>
+            <xsd:enumeration value="LetterOfCredit"/>
+            <xsd:enumeration value="LetterOfCreditAtSight"/>
+            <xsd:enumeration value="Liquidation"/>
+            <xsd:enumeration value="LumpSum"/>
+            <xsd:enumeration value="Mixed"/>
+            <xsd:enumeration value="NetMonthFollowingInvoice"/>
+            <xsd:enumeration value="NoCharge"/>
+            <xsd:enumeration value="NonStandard"/>
+            <xsd:enumeration value="NotYetDefined"/>
+            <xsd:enumeration value="PaidAgainstStatement"/>
+            <xsd:enumeration value="PartialAdvance"/>
+            <xsd:enumeration value="PaymentByInstalment"/>
+            <xsd:enumeration value="PaymentByinstalmentsAccordingToProgressAA"/>
+            <xsd:enumeration value="PaymentByInstalmentsAccordingToProgressTBA"/>
+            <xsd:enumeration value="PaymentDueUponReceiptOfInvoice"/>
+            <xsd:enumeration value="PaymentOrderThroughBank"/>
+            <xsd:enumeration value="PaymentTermsDefinedInConsolidatedInvoice"/>
+            <xsd:enumeration value="PaymentUponCompletion"/>
+            <xsd:enumeration value="PenaltyTerms"/>
+            <xsd:enumeration value="Prepayment"/>
+            <xsd:enumeration value="PreviouslyAgreedUpon"/>
+            <xsd:enumeration value="ProgressPayment"/>
+            <xsd:enumeration value="PromissoryNotes"/>
+            <xsd:enumeration value="PromptPaymentAct"/>
+            <xsd:enumeration value="Proximo"/>
+            <xsd:enumeration value="SecuredAccount"/>
+            <xsd:enumeration value="SellByNote"/>
+            <xsd:enumeration value="SellerToAdviseBuyer"/>
+            <xsd:enumeration value="SpecialProximo"/>
+            <xsd:enumeration value="SupplierFloorPlan"/>
+            <xsd:enumeration value="TenorPaymentTerms"/>
+            <xsd:enumeration value="TermsNotApplicable"/>
+            <xsd:enumeration value="TradeAcceptance"/>
+            <xsd:enumeration value="Ultimo"/>
+            <xsd:enumeration value="UnitedStatesFundsRequired"/>
+            <xsd:enumeration value="Unknown"/>
+            <xsd:enumeration value="UsanceBill"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+</xsd:schema>

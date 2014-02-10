@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" targetNamespace="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" elementFormDefault="qualified">
+    <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+            XML Common Business Library 3.5
+            Copyright 2000 Commerce One, Inc.
+            Permission is granted to use, copy, modify and distribute the
+            DTD's, schemas and modules in the Commerce One XML Common Business
+            Library Version 3.5 subject to the terms and conditions specified
+            at http://www.xcbl.org/license.html
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType name="InvoiceTotals">
+        <xsd:sequence>
+            <xsd:element name="NetValue">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="MonetaryValue"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="GrossValue">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="MonetaryValue"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="TaxValue">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="MonetaryValue"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="TaxValueInTaxAccountingCurrency">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="MonetaryValue"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="ChargeTotal">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="MonetaryValue"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="TotalAmountPayable">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="MonetaryValue"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="PrepaidAmount">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="MonetaryValue"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="TotalDiscount">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="MonetaryValue"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="TotalTaxAmount">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="MonetaryValue"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="TotalAmountMinusDiscount">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="MonetaryValue"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="InvoiceTotals" type="InvoiceTotals"/>
+</xsd:schema>

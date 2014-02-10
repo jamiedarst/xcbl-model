@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" targetNamespace="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" elementFormDefault="qualified">
+    <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+            XML Common Business Library 3.5
+            Copyright 2000 Commerce One, Inc.
+            Permission is granted to use, copy, modify and distribute the
+            DTD's, schemas and modules in the Commerce One XML Common Business
+            Library Version 3.5 subject to the terms and conditions specified
+            at http://www.xcbl.org/license.html
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType name="Attachment">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="AttachmentActionCoded" type="AttachmentActionCode"/>
+            <xsd:element minOccurs="0" name="AttachmentActionCodedOther" type="xsd:string"/>
+            <xsd:element name="AttachmentPurpose" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="FileName" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="AttachmentTitle" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="AttachmentDescription" type="xsd:string"/>
+            <xsd:element minOccurs="0" ref="Language"/>
+            <xsd:element minOccurs="0" name="MIMEType" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="ReplacementFile" type="xcblBoolean"/>
+            <xsd:element name="AttachmentLocation" type="xsd:anyURI"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="Attachment" type="Attachment"/>
+    <xsd:complexType name="ListOfAttachment">
+        <xsd:sequence>
+            <xsd:element maxOccurs="unbounded" ref="Attachment"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="ListOfAttachment" type="ListOfAttachment"/>
+    <xsd:simpleType name="AttachmentActionCode">
+        <xsd:restriction base="xsd:NMTOKEN">
+            <xsd:enumeration value="Other"/>
+            <xsd:enumeration value="Add"/>
+            <xsd:enumeration value="Update"/>
+            <xsd:enumeration value="Delete"/>
+            <xsd:enumeration value="NoChange"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+</xsd:schema>

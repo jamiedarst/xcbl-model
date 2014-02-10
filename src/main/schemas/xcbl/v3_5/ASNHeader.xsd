@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" targetNamespace="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" elementFormDefault="qualified">
+    <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+            XML Common Business Library 3.5
+            Copyright 2000 Commerce One, Inc.
+            Permission is granted to use, copy, modify and distribute the
+            DTD's, schemas and modules in the Commerce One XML Common Business
+            Library Version 3.5 subject to the terms and conditions specified
+            at http://www.xcbl.org/license.html
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType name="ASNHeader">
+        <xsd:sequence>
+            <xsd:element name="ASNNumber">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Reference"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="ASNIssueDate" type="xcblDatetime"/>
+            <xsd:element maxOccurs="unbounded" ref="ASNOrderNumber"/>
+            <xsd:element minOccurs="0" ref="ASNReferences"/>
+            <xsd:element ref="ASNPurpose"/>
+            <xsd:element minOccurs="0" ref="ASNType"/>
+            <xsd:element minOccurs="0" ref="ASNStatus"/>
+            <xsd:element minOccurs="0" name="ASNCurrency">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Currency"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="ASNLanguage">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Language"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element ref="ASNDates"/>
+            <xsd:element name="ASNParty">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="OrderParty"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" ref="ListOfTransportRouting"/>
+            <xsd:element minOccurs="0" name="ASNTermsOfDelivery">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="TermsOfDelivery"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="ASNPaymentInstructions">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="PaymentInstructions"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="ASNAllowancesOrCharges">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="ListOfAllowOrCharge"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="ASNHeaderNote" type="xsd:string"/>
+            <xsd:element minOccurs="0" ref="ListOfStructuredNote"/>
+            <xsd:element minOccurs="0" ref="ListOfNameValueSet"/>
+            <xsd:element minOccurs="0" name="ASNHeaderAttachments">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="ListOfAttachment"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="ASNHeader" type="ASNHeader"/>
+</xsd:schema>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" targetNamespace="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" elementFormDefault="qualified">
+    <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+            XML Common Business Library 3.5
+            Copyright 2000 Commerce One, Inc.
+            Permission is granted to use, copy, modify and distribute the
+            DTD's, schemas and modules in the Commerce One XML Common Business
+            Library Version 3.5 subject to the terms and conditions specified
+            at http://www.xcbl.org/license.html
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:simpleType name="TransportLegCode">
+        <xsd:restriction base="xsd:NMTOKEN">
+            <xsd:enumeration value="Other"/>
+            <xsd:enumeration value="InlandTransport"/>
+            <xsd:enumeration value="AtTheStatisticalTerritoryLimit"/>
+            <xsd:enumeration value="Pre-CarriageTransport"/>
+            <xsd:enumeration value="AtBorder"/>
+            <xsd:enumeration value="AtDeparture"/>
+            <xsd:enumeration value="AtDestination"/>
+            <xsd:enumeration value="MainCarriage-FourthCarrier"/>
+            <xsd:enumeration value="MainCarriage-FifthCarrier"/>
+            <xsd:enumeration value="MainCarriage-SixthCarrier"/>
+            <xsd:enumeration value="MainCarriage-SeventhCarrier"/>
+            <xsd:enumeration value="MainCarriage-EighthCarrier"/>
+            <xsd:enumeration value="Main-CarriageTransport"/>
+            <xsd:enumeration value="MainCarriage-FirstCarrier"/>
+            <xsd:enumeration value="MaiCarriage-SecondCarrier"/>
+            <xsd:enumeration value="MainCarriage-ThirdCarrier"/>
+            <xsd:enumeration value="InlandWaterwayTransport"/>
+            <xsd:enumeration value="DeliveryCarrierAllTransport"/>
+            <xsd:enumeration value="SecondPre-CarriageTransport"/>
+            <xsd:enumeration value="Pre-AcceptanceTransport"/>
+            <xsd:enumeration value="SecondOn-CarriageTransport"/>
+            <xsd:enumeration value="MainCarriage-NinthCarrier"/>
+            <xsd:enumeration value="On-CarriageTransport"/>
+            <xsd:enumeration value="MainCarriage-TenthCarrier"/>
+            <xsd:enumeration value="MainCarriage-EleventhCarrier"/>
+            <xsd:enumeration value="MainCarriage-TwelfthCarrier"/>
+            <xsd:enumeration value="1stCarrierAfterOriginCarrier"/>
+            <xsd:enumeration value="2ndCarrierAfterOriginCarrier"/>
+            <xsd:enumeration value="3rdCarrierAfterOriginCarrier"/>
+            <xsd:enumeration value="4thCarrierAfterOriginCarrier"/>
+            <xsd:enumeration value="5thCarrierAfterOriginCarrier"/>
+            <xsd:enumeration value="6thCarrierAfterOriginCarrier"/>
+            <xsd:enumeration value="7thCarrierAfterOriginCarrier"/>
+            <xsd:enumeration value="8thCarrierAfterOriginCarrier"/>
+            <xsd:enumeration value="9thCarrierAfterOriginCarrier"/>
+            <xsd:enumeration value="AgentsRoutingOriginCarrier"/>
+            <xsd:enumeration value="OriginDeliveryCarrier"/>
+            <xsd:enumeration value="DELY"/>
+            <xsd:enumeration value="HaulageRightsCarrierAndJunction"/>
+            <xsd:enumeration value="OriginSwitchCarrier"/>
+            <xsd:enumeration value="HaulageMovementCarrierAndJunction"/>
+            <xsd:enumeration value="OriginCarrierAirMotorOrOcean"/>
+            <xsd:enumeration value="OriginCarrierRule11Shipment"/>
+            <xsd:enumeration value="ShippersRoutingOriginCarrier"/>
+            <xsd:enumeration value="IntermediateSwitchCarrier"/>
+            <xsd:enumeration value="LastCarrierInRouteOnReturnRouteMove"/>
+            <xsd:enumeration value="JunctionSettlementCarrierFollowing"/>
+            <xsd:enumeration value="JunctionSettlementCarrierPredecessor"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+</xsd:schema>

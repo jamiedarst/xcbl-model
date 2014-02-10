@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" targetNamespace="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" elementFormDefault="qualified">
+    <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+            XML Common Business Library 3.5
+            Copyright 2000 Commerce One, Inc.
+            Permission is granted to use, copy, modify and distribute the
+            DTD's, schemas and modules in the Commerce One XML Common Business
+            Library Version 3.5 subject to the terms and conditions specified
+            at http://www.xcbl.org/license.html
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType name="Transport">
+        <xsd:sequence>
+            <xsd:element name="TransportID" type="xsd:int"/>
+            <xsd:element minOccurs="0" ref="TransportMode"/>
+            <xsd:element minOccurs="0" ref="TransportMeans"/>
+            <xsd:element minOccurs="0" name="CarrierName" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="CarrierID">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Identifier"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="CustShippingContractNum" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="ServiceLevelCoded" type="ServiceLevelCode"/>
+            <xsd:element minOccurs="0" name="ServiceLevelCodedOther" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="ShippingInstructions" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="TransportLegCoded" type="TransportLegCode"/>
+            <xsd:element minOccurs="0" name="TransportLegCodedOther" type="xsd:string"/>
+            <xsd:element minOccurs="0" ref="ListOfTransportEquipment"/>
+            <xsd:element minOccurs="0" ref="TransitDirection"/>
+            <xsd:element minOccurs="0" name="TransportNote" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="Transport" type="Transport"/>
+    <xsd:complexType name="ListOfTransport">
+        <xsd:sequence>
+            <xsd:element maxOccurs="unbounded" ref="Transport"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="ListOfTransport" type="ListOfTransport"/>
+</xsd:schema>

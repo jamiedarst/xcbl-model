@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" targetNamespace="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" elementFormDefault="qualified">
+    <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+            XML Common Business Library 3.5
+            Copyright 2000 Commerce One, Inc.
+            Permission is granted to use, copy, modify and distribute the
+            DTD's, schemas and modules in the Commerce One XML Common Business
+            Library Version 3.5 subject to the terms and conditions specified
+            at http://www.xcbl.org/license.html
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:import schemaLocation="http://www.w3.org/2001/xml.xsd" namespace="http://www.w3.org/XML/1998/namespace"/>
+    <xsd:complexType name="Product">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" ref="Action"/>
+            <xsd:element ref="ProductID"/>
+            <xsd:element minOccurs="0" name="BaseProductNumber" type="xsd:string"/>
+            <xsd:element minOccurs="0" ref="SchemaCategoryRefList"/>
+            <xsd:element minOccurs="0" name="ProductIDExtension" type="xsd:string"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="ExternalItemRef"/>
+            <xsd:element minOccurs="0" ref="ProductIDStandard"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="ProductName"/>
+            <xsd:element minOccurs="0" ref="UOM"/>
+            <xsd:element minOccurs="0" name="ComparableUOM">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="UOM"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="ComparableUOMConversionFactor" type="xsd:decimal"/>
+            <xsd:element minOccurs="0" ref="Manufacturer"/>
+            <xsd:element minOccurs="0" name="ManuPartNumber" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="LeadTime" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="LeadTimeUOM">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="UOM"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="ValidFrom" type="xcblDate"/>
+            <xsd:element minOccurs="0" name="ValidUntil" type="xcblDate"/>
+            <xsd:element minOccurs="0" name="CountryOfOrigin">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Country"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="MinOrder" type="xsd:int"/>
+            <xsd:element minOccurs="0" name="LotSize" type="xsd:decimal"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="ExternalCategory" type="xsd:string"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="ShortDescription"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="LongDescription"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="CatalogContract"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="ProductPrice"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="ProductVendorData"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="ProductAttachment"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="RelatedProduct"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="ObjectAttribute"/>
+        </xsd:sequence>
+        <xsd:attribute name="Type" type="ProductTypeCoded" use="optional" default="Good"/>
+        <xsd:attribute name="SchemaCategoryRef" type="xsd:IDREFS" use="optional"/>
+    </xsd:complexType>
+    <xsd:element name="Product" type="Product"/>
+    <xsd:complexType name="Action">
+        <xsd:attribute name="Value" type="ActionValueCode" use="optional" default="Add"/>
+    </xsd:complexType>
+    <xsd:element name="Action" type="Action"/>
+    <xsd:simpleType name="ActionValueCode">
+        <xsd:restriction base="xsd:NMTOKEN">
+            <xsd:enumeration value="Add"/>
+            <xsd:enumeration value="Update"/>
+            <xsd:enumeration value="Delete"/>
+            <xsd:enumeration value="Replace"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:complexType name="ProductID">
+        <xsd:simpleContent>
+            <xsd:extension base="xsd:string">
+                <xsd:attribute name="Type" type="BuyerSupplierCode" use="optional" default="Supplier"/>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    <xsd:element name="ProductID" type="ProductID"/>
+    <xsd:complexType name="ProductIDStandard">
+        <xsd:simpleContent>
+            <xsd:extension base="xsd:string">
+                <xsd:attribute name="Agency" type="ProductIDStandardCode" use="optional" default="Other"/>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    <xsd:element name="ProductIDStandard" type="ProductIDStandard"/>
+    <xsd:complexType name="ProductName">
+        <xsd:simpleContent>
+            <xsd:extension base="xsd:string">
+                <xsd:attribute ref="xml:lang" use="optional" default="en"/>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    <xsd:element name="ProductName" type="ProductName"/>
+    <xsd:complexType name="Manufacturer">
+        <xsd:simpleContent>
+            <xsd:extension base="xsd:string">
+                <xsd:attribute name="PartnerRef" type="xsd:IDREF" use="optional"/>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    <xsd:element name="Manufacturer" type="Manufacturer"/>
+    <xsd:complexType name="RelatedProduct">
+        <xsd:simpleContent>
+            <xsd:extension base="xsd:string">
+                <xsd:attribute name="TargetType" type="TargetTypeCode" use="optional" default="Component"/>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    <xsd:element name="RelatedProduct" type="RelatedProduct"/>
+    <xsd:simpleType name="ProductTypeCoded">
+        <xsd:restriction base="xsd:NMTOKEN">
+            <xsd:enumeration value="Other"/>
+            <xsd:enumeration value="Good"/>
+            <xsd:enumeration value="Service"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="ProductIDStandardCode">
+        <xsd:restriction base="xsd:NMTOKEN">
+            <xsd:enumeration value="Other"/>
+            <xsd:enumeration value="GTIN"/>
+            <xsd:enumeration value="EAN"/>
+            <xsd:enumeration value="UCC"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="TargetTypeCode">
+        <xsd:restriction base="xsd:NMTOKEN">
+            <xsd:enumeration value="Component"/>
+            <xsd:enumeration value="Substitute"/>
+            <xsd:enumeration value="Alternative"/>
+            <xsd:enumeration value="Accessory"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:complexType name="UOM">
+        <xsd:sequence>
+            <xsd:element name="UOMCoded" type="UOMCode"/>
+            <xsd:element minOccurs="0" name="UOMCodedOther" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="UOM" type="UOM"/>
+    <xsd:complexType name="SchemaCategoryRefList">
+        <xsd:sequence>
+            <xsd:element maxOccurs="unbounded" name="CategoryIDRef" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="SchemaCategoryRefList" type="SchemaCategoryRefList"/>
+    <xsd:complexType name="ExternalItemRef">
+        <xsd:choice>
+            <xsd:sequence>
+                <xsd:element name="CatalogProviderIDRef" type="xsd:string"/>
+                <xsd:element name="CatalogIDRef" type="xsd:string"/>
+                <xsd:element name="ProductIDRef" type="xsd:string"/>
+            </xsd:sequence>
+            <xsd:element name="ItemGUID" type="xsd:string"/>
+        </xsd:choice>
+    </xsd:complexType>
+    <xsd:element name="ExternalItemRef" type="ExternalItemRef"/>
+</xsd:schema>

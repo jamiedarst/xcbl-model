@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" targetNamespace="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" elementFormDefault="qualified">
+    <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+            XML Common Business Library 3.5
+            Copyright 2000 Commerce One, Inc.
+            Permission is granted to use, copy, modify and distribute the
+            DTD's, schemas and modules in the Commerce One XML Common Business
+            Library Version 3.5 subject to the terms and conditions specified
+            at http://www.xcbl.org/license.html
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType name="PartNum">
+        <xsd:sequence>
+            <xsd:element name="PartID" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="PartIDExt" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="RevisionNumber" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="PartNum" type="PartNum"/>
+    <xsd:complexType name="ListOfPartNum">
+        <xsd:sequence>
+            <xsd:element maxOccurs="unbounded" ref="PartNum"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="ListOfPartNum" type="ListOfPartNum"/>
+    <xsd:complexType name="ProductIdentifierCoded">
+        <xsd:sequence>
+            <xsd:element name="ProductIdentifierQualifierCoded" type="ProductIdentifierQualifierCode"/>
+            <xsd:element minOccurs="0" name="ProductIdentifierQualifierCodedOther" type="xsd:string"/>
+            <xsd:element name="ProductIdentifier" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="ProductIdentifierExt" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="ProductIdentifierCoded" type="ProductIdentifierCoded"/>
+    <xsd:complexType name="ListOfProductIdentifierCoded">
+        <xsd:sequence>
+            <xsd:element maxOccurs="unbounded" ref="ProductIdentifierCoded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="ListOfProductIdentifierCoded" type="ListOfProductIdentifierCoded"/>
+    <xsd:complexType name="ItemIdentifiers">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" ref="PartNumbers"/>
+            <xsd:element minOccurs="0" name="Service" type="xcblBoolean"/>
+            <xsd:element minOccurs="0" name="ItemDescription" type="xsd:string"/>
+            <xsd:element minOccurs="0" ref="ListOfItemCharacteristic"/>
+            <xsd:element minOccurs="0" name="CommodityCode">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Identifier"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" ref="Category"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="ItemIdentifiers" type="ItemIdentifiers"/>
+    <xsd:complexType name="PartNumbers">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="SellerPartNumber">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="PartNum"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="BuyerPartNumber">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="PartNum"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" ref="ManufacturerPartNumber"/>
+            <xsd:element minOccurs="0" name="StandardPartNumber">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="ProductIdentifierCoded"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="SubstitutePartNumbers">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="ListOfProductIdentifierCoded"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="OtherItemIdentifiers">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="ListOfProductIdentifierCoded"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="PartNumbers" type="PartNumbers"/>
+    <xsd:complexType name="ManufacturerPartNumber">
+        <xsd:complexContent>
+            <xsd:extension base="PartNum">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" name="ManufacturerID">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element ref="Identifier"/>
+                            </xsd:sequence>
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" name="ManufacturerName" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:element name="ManufacturerPartNumber" type="ManufacturerPartNumber"/>
+</xsd:schema>

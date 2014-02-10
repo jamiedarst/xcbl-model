@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" targetNamespace="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" elementFormDefault="qualified">
+    <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+            XML Common Business Library 3.5
+            Copyright 2000 Commerce One, Inc.
+            Permission is granted to use, copy, modify and distribute the
+            DTD's, schemas and modules in the Commerce One XML Common Business
+            Library Version 3.5 subject to the terms and conditions specified
+            at http://www.xcbl.org/license.html
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType name="TransportRouting">
+        <xsd:sequence>
+            <xsd:element name="TransportRouteID" type="xsd:int"/>
+            <xsd:element minOccurs="0" ref="TransportMode"/>
+            <xsd:element minOccurs="0" ref="TransportMeans"/>
+            <xsd:element minOccurs="0" name="TransportMeansIdentifier">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Identifier"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="TransportMeansReference">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Identifier"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="TransportRequirementCoded" type="TransportRequirementCode"/>
+            <xsd:element minOccurs="0" name="TransportRequirementCodedOther" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="CarrierName" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="CarrierID">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Identifier"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" ref="TransportQuantities"/>
+            <xsd:element minOccurs="0" name="CustShippingContractNum" type="xsd:string"/>
+            <xsd:element minOccurs="0" ref="ServiceLevel"/>
+            <xsd:element minOccurs="0" name="ShippingInstructions" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="TransportLegCoded" type="TransportLegCode"/>
+            <xsd:element minOccurs="0" name="TransportLegCodedOther" type="xsd:string"/>
+            <xsd:element minOccurs="0" ref="ListOfTransportEquipment"/>
+            <xsd:element minOccurs="0" ref="TransitDirection"/>
+            <xsd:element ref="TransportLocationList"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="TransportRouting" type="TransportRouting"/>
+    <xsd:simpleType name="TransportRequirementCode">
+        <xsd:restriction base="xsd:NMTOKEN">
+            <xsd:enumeration value="Other"/>
+            <xsd:enumeration value="SpecifiedFlagRequired"/>
+            <xsd:enumeration value="MustComply"/>
+            <xsd:enumeration value="ForwarderOption"/>
+            <xsd:enumeration value="RollBookingtoAnotherVessel"/>
+            <xsd:enumeration value="SubstitutionOK"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:complexType name="TransportLocationList">
+        <xsd:sequence>
+            <xsd:element name="StartTransportLocation">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="TransportLocation"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="InterimTransportLocation">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="TransportLocation"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="EndTransportLocation">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="TransportLocation"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="TransportLocationList" type="TransportLocationList"/>
+    <xsd:complexType name="TransportLocation">
+        <xsd:sequence>
+            <xsd:element ref="Location"/>
+            <xsd:element name="LocationID" type="xsd:int"/>
+            <xsd:element minOccurs="0" name="Sequence" type="xsd:int"/>
+            <xsd:element minOccurs="0" name="EstimatedArrivalDate" type="xcblDatetime"/>
+            <xsd:element minOccurs="0" name="ActualArrivalDate" type="xcblDatetime"/>
+            <xsd:element minOccurs="0" name="EstimatedDepartureDate" type="xcblDatetime"/>
+            <xsd:element minOccurs="0" name="ActualDepartureDate" type="xcblDatetime"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="TransportLocation" type="TransportLocation"/>
+    <xsd:complexType name="TransportQuantities">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="LadingQuantity">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Quantity"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" ref="ListOfQuantityCoded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="TransportQuantities" type="TransportQuantities"/>
+    <xsd:complexType name="ServiceLevel">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="ServiceLevelCoded" type="ServiceLevelCode"/>
+            <xsd:element minOccurs="0" name="ServiceLevelCodedOther" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="ServiceLevelReasonCoded" type="ServiceLevelReasonCode"/>
+            <xsd:element minOccurs="0" name="ServiceLevelReasonCodedOther" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="ServiceLevelResponsibilityCoded" type="ServiceLevelResponsibilityCode"/>
+            <xsd:element minOccurs="0" name="ServiceLevelResponsibilityCodedOther" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="ServiceLevel" type="ServiceLevel"/>
+    <xsd:simpleType name="ServiceLevelReasonCode">
+        <xsd:restriction base="xsd:NMTOKEN">
+            <xsd:enumeration value="Other"/>
+            <xsd:enumeration value="ScheduleIncreaseForecastChangeOrSpecialCarOrder"/>
+            <xsd:enumeration value="EngineeringChangeOrLateRelease"/>
+            <xsd:enumeration value="SpecificationError-Overbuilding"/>
+            <xsd:enumeration value="ShipmentTracingDelay"/>
+            <xsd:enumeration value="PlantInventoryLoss"/>
+            <xsd:enumeration value="BuildingAheadOfSchedule"/>
+            <xsd:enumeration value="VendorBehindSchedule"/>
+            <xsd:enumeration value="FailedToIncludeInLastShipmentorUnauthorizedPremium"/>
+            <xsd:enumeration value="CarrierLossClaim"/>
+            <xsd:enumeration value="TransportationFailure"/>
+            <xsd:enumeration value="InsufficientWeightForCarload"/>
+            <xsd:enumeration value="RejectorDiscrepancy"/>
+            <xsd:enumeration value="TransportationDelay"/>
+            <xsd:enumeration value="LackOfRailCarOrRailroadEquipment"/>
+            <xsd:enumeration value="ReleasingError"/>
+            <xsd:enumeration value="RecordErrorOrLateReportedDiscrepancyReport"/>
+            <xsd:enumeration value="CommonOrPeculiarPartScheduleIncrease"/>
+            <xsd:enumeration value="AlternateSupplierShippingForResponsibleSupplier"/>
+            <xsd:enumeration value="DirectScheduleOrLocallyControlled"/>
+            <xsd:enumeration value="PurchasingWaiverApproval"/>
+            <xsd:enumeration value="AuthorizationCodeToBeDetermined"/>
+            <xsd:enumeration value="PilotMaterialSamplesOrPre-Production"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="ServiceLevelResponsibilityCode">
+        <xsd:restriction base="xsd:NMTOKEN">
+            <xsd:enumeration value="Other"/>
+            <xsd:enumeration value="CustomerPlant"/>
+            <xsd:enumeration value="MaterialReleaseIssuer"/>
+            <xsd:enumeration value="SupplierAuthority"/>
+            <xsd:enumeration value="ResponsibilityToBeDetermined"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:complexType name="ListOfTransportRouting">
+        <xsd:sequence>
+            <xsd:element maxOccurs="unbounded" ref="TransportRouting"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="ListOfTransportRouting" type="ListOfTransportRouting"/>
+</xsd:schema>

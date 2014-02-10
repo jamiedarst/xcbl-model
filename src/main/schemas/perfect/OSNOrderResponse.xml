@@ -1,0 +1,161 @@
+<?xml version="1.0"?>
+<OSNOrderResponse xmlns="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" 
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	  xmlns:osn="http://perfect.com/LiteEnvelope/xcbl" 
+          xsi:schemaLocation="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd osnxcbl35.xsd">
+   <OrderResponse>
+      <OrderResponseHeader>
+         <OrderResponseNumber>
+            <BuyerOrderResponseNumber>string of characters</BuyerOrderResponseNumber>
+            <SellerOrderResponseNumber>string of characters</SellerOrderResponseNumber>
+            <ListOfMessageID>
+               <MessageID>
+                  <IDNumber>string of characters</IDNumber>
+                  <IDAssignedBy>
+                     <IDAssignedByCoded>Other</IDAssignedByCoded>
+                  </IDAssignedBy>
+                  <IDAssignedDate>20001006T11:30:00</IDAssignedDate>
+               </MessageID>
+            </ListOfMessageID>
+         </OrderResponseNumber>
+         <OrderResponseIssueDate>20001006T11:38:00</OrderResponseIssueDate>
+         <OrderResponseDocTypeCoded>Other</OrderResponseDocTypeCoded>
+         <OrderResponseDocTypeCodedOther>string of characters</OrderResponseDocTypeCodedOther>
+         <OrderReference>
+            <Reference>
+               <RefNum>556</RefNum>
+               <RefDate>20001023T17:43:00</RefDate>
+            </Reference>
+         </OrderReference>
+         <ChangeOrderReference>
+            <Reference>
+               <RefNum>556</RefNum>
+               <RefDate>20001006T13:40:00</RefDate>
+            </Reference>
+         </ChangeOrderReference>
+         <SellerParty>
+            <Party>
+               <PartyID>
+                  <Identifier>
+                     <Agency>
+                        <AgencyCoded>ACORD</AgencyCoded>
+                        <AgencyCodedOther>string of characters</AgencyCodedOther>
+                     </Agency>
+                     <Ident>string of characters</Ident>
+                  </Identifier>
+               </PartyID>
+               <OrderContact>
+                  <Contact>
+                     <ContactName>John Doe</ContactName>
+                     <ContactFunction>
+                        <ContactFunctionCoded>Advisor</ContactFunctionCoded>
+                     </ContactFunction>
+                     <ListOfContactNumber>
+                        <ContactNumber>
+                           <ContactNumberValue>666-666-6666</ContactNumberValue>
+                           <ContactNumberTypeCoded>PagerNumber</ContactNumberTypeCoded>
+                        </ContactNumber>
+                     </ListOfContactNumber>
+                  </Contact>
+               </OrderContact>
+               <CorrespondenceLanguage>
+                  <Language>
+                     <LanguageCoded>fr</LanguageCoded>
+                     <LocaleCoded>Other</LocaleCoded>
+                  </Language>
+               </CorrespondenceLanguage>
+            </Party>
+         </SellerParty>
+         <BuyerParty>
+            <Party>
+               <PartyID>
+                  <Identifier>
+                     <Agency>
+                        <AgencyCoded>ACORD</AgencyCoded>
+                        <AgencyCodedOther>string of characters</AgencyCodedOther>
+                     </Agency>
+                     <Ident>string of characters</Ident>
+                  </Identifier>
+               </PartyID>
+            </Party>
+         </BuyerParty>
+         <Purpose>
+            <PurposeCoded>Other</PurposeCoded>
+         </Purpose>
+         <ResponseType>
+            <ResponseTypeCoded>Other</ResponseTypeCoded>
+         </ResponseType>
+         <OrderResponseHeaderNote>string of characters</OrderResponseHeaderNote>
+      </OrderResponseHeader>
+      <OrderResponseDetail></OrderResponseDetail>
+      <OrderResponseSummary>
+         <OriginalOrderSummary>
+            <OrderSummary>
+               <NumberOfLines>5</NumberOfLines>
+               <TotalAmount>
+                  <MonetaryValue>
+                     <MonetaryAmount>000000000000000.000</MonetaryAmount>
+                     <Currency>
+                        <CurrencyCoded>USD</CurrencyCoded>
+                     </Currency>
+                  </MonetaryValue>
+               </TotalAmount>
+               <TransportPackagingTotals>
+                  <TotalTransport>5</TotalTransport>
+                  <GrossVolume>
+                     <Measurement>
+                        <MeasurementValue SignificanceCoded="TrueValue" SignificanceCodedOther="string" ConditionsCoded="Actual" ConditionsCodedOther="string">150</MeasurementValue>
+                        <UnitOfMeasurement>
+                           <UOMCoded>10</UOMCoded>
+                        </UnitOfMeasurement>
+                     </Measurement>
+                  </GrossVolume>
+               </TransportPackagingTotals>
+               <SummaryNote>string of characters</SummaryNote>
+            </OrderSummary>
+         </OriginalOrderSummary>
+         <RevisedOrderSummary>
+            <OrderSummary>
+               <NumberOfLines>5</NumberOfLines>
+               <TotalAmount>
+                  <MonetaryValue>
+                     <MonetaryAmount>000000000000000.000</MonetaryAmount>
+                     <Currency>
+                        <CurrencyCoded>USD</CurrencyCoded>
+                     </Currency>
+                  </MonetaryValue>
+               </TotalAmount>
+               <TransportPackagingTotals>
+                  <TotalTransport>5</TotalTransport>
+                  <GrossVolume>
+                     <Measurement>
+                        <MeasurementValue SignificanceCoded="TrueValue" SignificanceCodedOther="string" ConditionsCoded="Actual" ConditionsCodedOther="string">250</MeasurementValue>
+                        <UnitOfMeasurement>
+                           <UOMCoded>10</UOMCoded>
+                        </UnitOfMeasurement>
+                     </Measurement>
+                  </GrossVolume>
+               </TransportPackagingTotals>
+               <SummaryNote>string of characters</SummaryNote>
+            </OrderSummary>
+         </RevisedOrderSummary>
+      </OrderResponseSummary>
+   </OrderResponse>
+   <Envelope>
+     <osn:DocAttributes>
+        <osn:IdentificationAttributes>
+           <osn:Envid>8e25faac-7935-1001-a35c-0afa3d7c0001</osn:Envid>
+           <osn:Convid>8e25faac-7935-1001-a35c-0afa3d7c0001</osn:Convid>
+        </osn:IdentificationAttributes>
+        <osn:TransmissionAttributes>
+           <osn:TransDatetime>2006-01-19T14:20:00Z</osn:TransDatetime>
+        </osn:TransmissionAttributes>
+        <osn:SenderAttributes>
+           <osn:ID>8e25aaac-7935-1000-a30c-0afa3d7c0001</osn:ID>
+        </osn:SenderAttributes>
+        <osn:RecipientAttributes>
+           <osn:ID>d0c3bf0a-77de-1000-a094-ac16042a0001</osn:ID>
+        </osn:RecipientAttributes>
+     </osn:DocAttributes>
+   </Envelope>
+</OSNOrderResponse>

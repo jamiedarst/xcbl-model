@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" targetNamespace="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" elementFormDefault="qualified">
+    <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+            XML Common Business Library 3.5
+            Copyright 2000 Commerce One, Inc.
+            Permission is granted to use, copy, modify and distribute the
+            DTD's, schemas and modules in the Commerce One XML Common Business
+            Library Version 3.5 subject to the terms and conditions specified
+            at http://www.xcbl.org/license.html
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType name="TransportMode">
+        <xsd:sequence>
+            <xsd:element name="TransportModeCoded" type="TransportModeCode"/>
+            <xsd:element minOccurs="0" name="TransportModeCodedOther" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="TransportMode" type="TransportMode"/>
+    <xsd:simpleType name="TransportModeCode">
+        <xsd:restriction base="xsd:NMTOKEN">
+            <xsd:enumeration value="Other"/>
+            <xsd:enumeration value="Air"/>
+            <xsd:enumeration value="AirCharter"/>
+            <xsd:enumeration value="AirExpress"/>
+            <xsd:enumeration value="AirFreight"/>
+            <xsd:enumeration value="AirFrieghtForwarder"/>
+            <xsd:enumeration value="AirTaxi"/>
+            <xsd:enumeration value="AirTransport"/>
+            <xsd:enumeration value="ArmedForcesCourierService"/>
+            <xsd:enumeration value="Backhaul"/>
+            <xsd:enumeration value="Barge"/>
+            <xsd:enumeration value="BestWay-ShippersOption"/>
+            <xsd:enumeration value="BookPostal"/>
+            <xsd:enumeration value="Bus"/>
+            <xsd:enumeration value="CabOrTaxi"/>
+            <xsd:enumeration value="CommonIrregularCarrier"/>
+            <xsd:enumeration value="Consolidation"/>
+            <xsd:enumeration value="ContainerizedOcean"/>
+            <xsd:enumeration value="ContractCarrier"/>
+            <xsd:enumeration value="ConventionalOcean"/>
+            <xsd:enumeration value="CustomerPickup"/>
+            <xsd:enumeration value="CustomerPickupOrCustomersExpense"/>
+            <xsd:enumeration value="Driveaway"/>
+            <xsd:enumeration value="DriveawayService"/>
+            <xsd:enumeration value="EuropeanOrPacificDistributionSystem"/>
+            <xsd:enumeration value="ExpeditedTruck"/>
+            <xsd:enumeration value="FixedTransportInstallation"/>
+            <xsd:enumeration value="Flyaway"/>
+            <xsd:enumeration value="GeographicReceiving"/>
+            <xsd:enumeration value="GeographicReceivingOrShipping"/>
+            <xsd:enumeration value="GeographicShipping"/>
+            <xsd:enumeration value="InlandWaterTransport"/>
+            <xsd:enumeration value="InlandWaterway"/>
+            <xsd:enumeration value="Intermodal-Piggyback"/>
+            <xsd:enumeration value="LessThanTrailerLoad"/>
+            <xsd:enumeration value="Logair"/>
+            <xsd:enumeration value="Mail"/>
+            <xsd:enumeration value="MaritimeTransport"/>
+            <xsd:enumeration value="MilitaryIntratheaterAirliftService"/>
+            <xsd:enumeration value="MilitaryOfficialMail"/>
+            <xsd:enumeration value="ModeUnknown"/>
+            <xsd:enumeration value="Motor"/>
+            <xsd:enumeration value="Motor-BulkCarrier"/>
+            <xsd:enumeration value="Motor-CommonCarrier"/>
+            <xsd:enumeration value="Motor-Flatbed"/>
+            <xsd:enumeration value="Motor-PackageCarrier"/>
+            <xsd:enumeration value="Motor-Van"/>
+            <xsd:enumeration value="MutimodalTransport"/>
+            <xsd:enumeration value="Ocean"/>
+            <xsd:enumeration value="OceanConferenceCarrier"/>
+            <xsd:enumeration value="OceanNon-ConferenceCarrier"/>
+            <xsd:enumeration value="ParcelPost"/>
+            <xsd:enumeration value="Pipeline"/>
+            <xsd:enumeration value="PooledAir"/>
+            <xsd:enumeration value="PooledPiggyback"/>
+            <xsd:enumeration value="PooledRail"/>
+            <xsd:enumeration value="PooledTruck"/>
+            <xsd:enumeration value="PoolToPool"/>
+            <xsd:enumeration value="PrivateCarrier"/>
+            <xsd:enumeration value="PrivateParcelService"/>
+            <xsd:enumeration value="PrivateVessel"/>
+            <xsd:enumeration value="Quicktrans"/>
+            <xsd:enumeration value="Rail"/>
+            <xsd:enumeration value="RailTransport"/>
+            <xsd:enumeration value="Roadrailer"/>
+            <xsd:enumeration value="RoadTransport"/>
+            <xsd:enumeration value="SeaOrAir"/>
+            <xsd:enumeration value="ShipperAgent"/>
+            <xsd:enumeration value="ShipperAgent-Truck"/>
+            <xsd:enumeration value="ShipperAssociation"/>
+            <xsd:enumeration value="StackTrain"/>
+            <xsd:enumeration value="Steamship"/>
+            <xsd:enumeration value="SupplierTruck"/>
+            <xsd:enumeration value="TowawayService"/>
+            <xsd:enumeration value="Vessel"/>
+            <xsd:enumeration value="WaterOrPipelineIntermodalMovement"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+</xsd:schema>

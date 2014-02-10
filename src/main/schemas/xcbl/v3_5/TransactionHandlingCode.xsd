@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" targetNamespace="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" elementFormDefault="qualified">
+    <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+            XML Common Business Library 3.5
+            Copyright 2000 Commerce One, Inc.
+            Permission is granted to use, copy, modify and distribute the
+            DTD's, schemas and modules in the Commerce One XML Common Business
+            Library Version 3.5 subject to the terms and conditions specified
+            at http://www.xcbl.org/license.html
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:simpleType name="TransactionHandlingCode">
+        <xsd:restriction base="xsd:NMTOKEN">
+            <xsd:enumeration value="Other"/>
+            <xsd:enumeration value="OffInvoiceDeductionFromOriginalInvoice"/>
+            <xsd:enumeration value="DebitCreditAdviceNoRemittanceDetail"/>
+            <xsd:enumeration value="PaymentAccompaniesRemittanceAdvice"/>
+            <xsd:enumeration value="MakePaymentOnly"/>
+            <xsd:enumeration value="DebitCreditAdviceWithRemittanceDetail"/>
+            <xsd:enumeration value="PlanAndSubmitSuggestedPurchaseOrder"/>
+            <xsd:enumeration value="PlanOrderAndShipProduct"/>
+            <xsd:enumeration value="NotificationOnly"/>
+            <xsd:enumeration value="RemittanceInformationOnly"/>
+            <xsd:enumeration value="PaymentRequestedAdjustmentToAccount"/>
+            <xsd:enumeration value="ReimbursementToFollow"/>
+            <xsd:enumeration value="ApplyOnAccount"/>
+            <xsd:enumeration value="MemoAdditionalRemittanceDetail"/>
+            <xsd:enumeration value="CheckIssuanceNotice"/>
+            <xsd:enumeration value="DeductFromNextRemittance"/>
+            <xsd:enumeration value="PrenotificationOfFutureTransfers"/>
+            <xsd:enumeration value="PaymentBeingIssuedCreditDue"/>
+            <xsd:enumeration value="RecurringDebitAuthorization"/>
+            <xsd:enumeration value="SingleDebitAuthorization"/>
+            <xsd:enumeration value="AdjustmentRequested"/>
+            <xsd:enumeration value="SplitPaymentAndRemittance"/>
+            <xsd:enumeration value="HandlingPartysOptionToSplitPaymentAndRemittance"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+</xsd:schema>

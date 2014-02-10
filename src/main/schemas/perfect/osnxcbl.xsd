@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+		xmlns="http://perfect.com/LiteEnvelope/xcbl" 
+		xmlns:osn="http://perfect.com/LiteEnvelope" 
+		targetNamespace="http://perfect.com/LiteEnvelope/xcbl" 
+		elementFormDefault="qualified"
+		version="1.0" >
+<xs:import namespace="http://perfect.com/LiteEnvelope" schemaLocation="osn.xsd" />
+ <xs:annotation>
+     <xs:documentation xml:lang="en">
+         Defines OSN LiteEnvelope schema for xCBL-based documents
+         Perfect Commerce 2006
+         2006/02/03 Adam Swick  version 1.0  created.
+     </xs:documentation>
+ </xs:annotation>
+
+
+<!-- Type overrides follow. -->
+
+ <xs:simpleType name="SchemaType">
+  <xs:annotation>
+   <xs:documentation>xCBL only here.</xs:documentation>
+  </xs:annotation>
+  <xs:restriction base="xs:string">
+    <xs:enumeration value="xCBL"/>
+  </xs:restriction>
+ </xs:simpleType>
+
+ <xs:complexType name="IdentificationAttributesType">
+  <xs:sequence>
+   <xs:element name="Envid" type="osn:UUIDType" />
+   <xs:element name="Convid" type="osn:UUIDType" minOccurs="0">
+    <xs:annotation>
+     <xs:documentation>Conversation ID will default to Envid if not submitted.</xs:documentation>
+    </xs:annotation>
+   </xs:element>
+  </xs:sequence>
+ </xs:complexType>
+
+ <xs:complexType name="TransmissionAttributesType">
+  <xs:sequence>
+   <xs:element name="TransDatetime" type="osn:DateType" minOccurs="0">
+    <xs:annotation>
+     <xs:documentation>Transaction Date Time will default to current time if not submitted.</xs:documentation>
+    </xs:annotation>
+   </xs:element>
+  </xs:sequence>
+ </xs:complexType>
+
+ <xs:complexType name="TradingPartnerAttributesType">
+  <xs:sequence>
+   <xs:element name="ID" type="osn:UUIDType" />
+  </xs:sequence>
+ </xs:complexType>
+
+ <xs:complexType name="AttachmentAttributesType">
+  <xs:sequence>
+   <xs:element name="AttachmentURI" type="osn:AttachmentURIType" />
+   <xs:element name="AttachmentContentType" type="osn:AttachmentContentTypeType" />
+  </xs:sequence>
+ </xs:complexType>
+
+ <xs:complexType name="AttachmentListType">
+  <xs:sequence>
+    <xs:element name="Attachment" type="AttachmentAttributesType" maxOccurs="unbounded" />
+  </xs:sequence>
+ </xs:complexType>
+
+ <xs:complexType name="EnvelopeType">
+  <xs:annotation>
+   <xs:documentation>Envelope structure for xCBL document.</xs:documentation>
+  </xs:annotation>
+  <xs:sequence>
+   <xs:element name="DocAttributes">
+    <xs:complexType>
+     <xs:sequence>
+      <xs:element name="IdentificationAttributes" type="IdentificationAttributesType" />
+      <xs:element name="TransmissionAttributes" type="TransmissionAttributesType" minOccurs="0" />
+      <xs:element name="SenderAttributes" type="TradingPartnerAttributesType" />
+      <xs:element name="RecipientAttributes" type="TradingPartnerAttributesType" />
+     </xs:sequence>
+    </xs:complexType>
+   </xs:element>
+   <xs:element name="DocAttachment" minOccurs="0">
+    <xs:complexType>
+     <xs:sequence>
+      <xs:element name="AttachmentList" type="AttachmentListType">
+      </xs:element>
+     </xs:sequence>
+    </xs:complexType>
+   </xs:element>
+  </xs:sequence>
+ </xs:complexType>
+
+<xs:element name="Envelope" type="EnvelopeType" />
+
+</xs:schema>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" targetNamespace="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" elementFormDefault="qualified">
+    <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+            XML Common Business Library 3.5
+            Copyright 2000 Commerce One, Inc.
+            Permission is granted to use, copy, modify and distribute the
+            DTD's, schemas and modules in the Commerce One XML Common Business
+            Library Version 3.5 subject to the terms and conditions specified
+            at http://www.xcbl.org/license.html
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:simpleType name="PaymentReasonCode">
+        <xsd:restriction base="xsd:NMTOKEN">
+            <xsd:enumeration value="Other"/>
+            <xsd:enumeration value="PaymentTerms"/>
+            <xsd:enumeration value="MedicalServices"/>
+            <xsd:enumeration value="MultipleTypesOfService"/>
+            <xsd:enumeration value="NotOtherwiseSpecified"/>
+            <xsd:enumeration value="VisionCare"/>
+            <xsd:enumeration value="HomeHealthCare"/>
+            <xsd:enumeration value="HospitalCare"/>
+            <xsd:enumeration value="IntermediateCareFacility"/>
+            <xsd:enumeration value="Long-TermCareFacility"/>
+            <xsd:enumeration value="ConvalescentCareFacility"/>
+            <xsd:enumeration value="AnesthesiaService"/>
+            <xsd:enumeration value="DentalServices"/>
+            <xsd:enumeration value="DurableMedicalEquipment"/>
+            <xsd:enumeration value="BusinessExpenses"/>
+            <xsd:enumeration value="AdvancePayment"/>
+            <xsd:enumeration value="AgriculturalTransfer"/>
+            <xsd:enumeration value="Alimony"/>
+            <xsd:enumeration value="ChildBenefit"/>
+            <xsd:enumeration value="Unemployment-Disability-Benefit"/>
+            <xsd:enumeration value="Bonus"/>
+            <xsd:enumeration value="CashManagementTransfer"/>
+            <xsd:enumeration value="CapitalBuildingFringeFortune"/>
+            <xsd:enumeration value="CommodityTransfer"/>
+            <xsd:enumeration value="CommercialCreditPayment"/>
+            <xsd:enumeration value="CommissionPayment"/>
+            <xsd:enumeration value="Costs"/>
+            <xsd:enumeration value="CopyrightPayment"/>
+            <xsd:enumeration value="DividendPayment"/>
+            <xsd:enumeration value="ForeignExchange"/>
+            <xsd:enumeration value="PurchasingAndSellingOfGoods"/>
+            <xsd:enumeration value="GovernmentPayment"/>
+            <xsd:enumeration value="InstalmentOrHire-PurchaseAgreement"/>
+            <xsd:enumeration value="InsurancePremium"/>
+            <xsd:enumeration value="InterestPayment"/>
+            <xsd:enumeration value="LicenceFeesPayment"/>
+            <xsd:enumeration value="Loan"/>
+            <xsd:enumeration value="LoanRepayment"/>
+            <xsd:enumeration value="Netting"/>
+            <xsd:enumeration value="PensionPayment"/>
+            <xsd:enumeration value="Refunding"/>
+            <xsd:enumeration value="Rent"/>
+            <xsd:enumeration value="RoyaltiesPayment"/>
+            <xsd:enumeration value="SalaryPayment"/>
+            <xsd:enumeration value="PurchasingAndSellingOfServices"/>
+            <xsd:enumeration value="Securities"/>
+            <xsd:enumeration value="SocialSecurityBenefit"/>
+            <xsd:enumeration value="Subscription"/>
+            <xsd:enumeration value="TaxPayment"/>
+            <xsd:enumeration value="ValueAddedTaxPayment"/>
+            <xsd:enumeration value="VendorPayment"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+</xsd:schema>

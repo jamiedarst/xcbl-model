@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" targetNamespace="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" elementFormDefault="qualified">
+    <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+            XML Common Business Library 3.5
+            Copyright 2000 Commerce One, Inc.
+            Permission is granted to use, copy, modify and distribute the
+            DTD's, schemas and modules in the Commerce One XML Common Business
+            Library Version 3.5 subject to the terms and conditions specified
+            at http://www.xcbl.org/license.html
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType name="InvoiceItemDetail">
+        <xsd:sequence>
+            <xsd:element ref="InvoiceBaseItemDetail"/>
+            <xsd:element ref="InvoicePricingDetail"/>
+            <xsd:element minOccurs="0" name="LineItemDates">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="InvoiceDates"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" ref="OtherInvoiceParties"/>
+            <xsd:element minOccurs="0" ref="DeliveryDetail"/>
+            <xsd:element minOccurs="0" name="LineItemNote" type="xsd:string"/>
+            <xsd:element minOccurs="0" ref="ListOfStructuredNote"/>
+            <xsd:element minOccurs="0" ref="ListOfNameValueSet"/>
+            <xsd:element minOccurs="0" name="LineItemAttachments">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="ListOfAttachment"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="InvoiceItemDetail" type="InvoiceItemDetail"/>
+    <xsd:complexType name="ListOfInvoiceItemDetail">
+        <xsd:sequence>
+            <xsd:element maxOccurs="unbounded" ref="InvoiceItemDetail"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="ListOfInvoiceItemDetail" type="ListOfInvoiceItemDetail"/>
+    <xsd:complexType name="InvoiceBaseItemDetail">
+        <xsd:complexContent>
+            <xsd:extension base="BaseItemDetail">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" name="LineItemReferences">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element ref="InvoiceReferences"/>
+                            </xsd:sequence>
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" ref="ExceptionQuantities"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:element name="InvoiceBaseItemDetail" type="InvoiceBaseItemDetail"/>
+    <xsd:complexType name="ExceptionQuantities">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="Ordered">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Quantity"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="Damaged">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Quantity"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="Unusable">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Quantity"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="Returned">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Quantity"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="ShippedToDate">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Quantity"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="ExceptionQuantities" type="ExceptionQuantities"/>
+    <xsd:complexType name="InvoicePricingDetail">
+        <xsd:complexContent>
+            <xsd:extension base="PricingDetail">
+                <xsd:sequence>
+                    <xsd:element name="InvoiceCurrencyTotalValue">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element ref="MonetaryValue"/>
+                            </xsd:sequence>
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" name="PaymentCurrencyTotalValue">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element ref="MonetaryValue"/>
+                            </xsd:sequence>
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" name="TaxAccountingSubTotalValue">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element ref="MonetaryValue"/>
+                            </xsd:sequence>
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" ref="ActualPaymentStatus"/>
+                    <xsd:element minOccurs="0" name="TotalTaxAmount">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element ref="MonetaryValue"/>
+                            </xsd:sequence>
+                        </xsd:complexType>
+                    </xsd:element>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:element name="InvoicePricingDetail" type="InvoicePricingDetail"/>
+    <xsd:complexType name="OtherInvoiceParties">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="BillToParty">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Party"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="RemitToParty">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Party"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" ref="ListOfPartyCoded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="OtherInvoiceParties" type="OtherInvoiceParties"/>
+</xsd:schema>

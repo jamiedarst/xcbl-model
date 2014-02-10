@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" targetNamespace="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" elementFormDefault="qualified">
+    <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+            XML Common Business Library 3.5
+            Copyright 2000 Commerce One, Inc.
+            Permission is granted to use, copy, modify and distribute the
+            DTD's, schemas and modules in the Commerce One XML Common Business
+            Library Version 3.5 subject to the terms and conditions specified
+            at http://www.xcbl.org/license.html
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType name="Package">
+        <xsd:sequence>
+            <xsd:element name="PackageID" type="xsd:int"/>
+            <xsd:element minOccurs="0" name="ListOfItemReference">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="ListOfOrderReferences"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" ref="ListOfPackageMark"/>
+            <xsd:element minOccurs="0" ref="ListOfPackageCharacteristic"/>
+            <xsd:element minOccurs="0" ref="ListOfDimension"/>
+            <xsd:element minOccurs="0" ref="ListOfPackageDescription"/>
+            <xsd:element minOccurs="0" name="TransportReference" type="xsd:int"/>
+            <xsd:element minOccurs="0" ref="SpecialHandling"/>
+            <xsd:element minOccurs="0" name="HazardousPackaging">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Hazardous"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" ref="AssociatedDocuments"/>
+            <xsd:element minOccurs="0" name="ShippingInstructions" type="xsd:string"/>
+            <xsd:element minOccurs="0" ref="ReturnableContainerInfo"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="PackageDetail"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="Package" type="Package"/>
+    <xsd:complexType name="PackageCharacteristic">
+        <xsd:sequence>
+            <xsd:element name="PackageCharacteristicCoded" type="PackageCharacteristicCode"/>
+            <xsd:element minOccurs="0" name="PackageCharacteristicCodedOther" type="xsd:string"/>
+            <xsd:element name="PackageCharacteristicDescription">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Identifier"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="PackageCharacteristic" type="PackageCharacteristic"/>
+    <xsd:complexType name="PackageMark">
+        <xsd:sequence>
+            <xsd:element name="PackageMarkCoded" type="PackageMarkCode"/>
+            <xsd:element minOccurs="0" name="PackageMarkCodedOther" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="PackageMarkValue" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="PackageMark" type="PackageMark"/>
+    <xsd:complexType name="ListOfPackageCharacteristic">
+        <xsd:sequence>
+            <xsd:element maxOccurs="unbounded" ref="PackageCharacteristic"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="ListOfPackageCharacteristic" type="ListOfPackageCharacteristic"/>
+    <xsd:complexType name="ListOfPackageMark">
+        <xsd:sequence>
+            <xsd:element maxOccurs="unbounded" ref="PackageMark"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="ListOfPackageMark" type="ListOfPackageMark"/>
+    <xsd:complexType name="AssociatedDocuments">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" ref="ListOfDocumentLoose"/>
+            <xsd:element minOccurs="0" ref="ListOfDocumentAttached"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="AssociatedDocuments" type="AssociatedDocuments"/>
+    <xsd:complexType name="ListOfDocumentLoose">
+        <xsd:sequence>
+            <xsd:element maxOccurs="unbounded" name="DocumentLoose">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="PackageDoc"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="ListOfDocumentLoose" type="ListOfDocumentLoose"/>
+    <xsd:complexType name="ListOfDocumentAttached">
+        <xsd:sequence>
+            <xsd:element maxOccurs="unbounded" name="DocumentAttached">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="PackageDoc"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="ListOfDocumentAttached" type="ListOfDocumentAttached"/>
+    <xsd:complexType name="PackageDoc">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="DocumentTitle" type="xsd:string"/>
+        </xsd:sequence>
+        <xsd:attribute name="DocumentTypeCoded" type="DocumentTypeCode" use="required"/>
+        <xsd:attribute name="DocumentTypeCodedOther" type="xsd:string" use="optional"/>
+    </xsd:complexType>
+    <xsd:element name="PackageDoc" type="PackageDoc"/>
+    <xsd:complexType name="ListOfPackage">
+        <xsd:sequence>
+            <xsd:element maxOccurs="unbounded" ref="Package"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="ListOfPackage" type="ListOfPackage"/>
+</xsd:schema>

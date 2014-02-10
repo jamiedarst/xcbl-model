@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" targetNamespace="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" elementFormDefault="qualified">
+    <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+            XML Common Business Library 3.5
+            Copyright 2000 Commerce One, Inc.
+            Permission is granted to use, copy, modify and distribute the
+            DTD's, schemas and modules in the Commerce One XML Common Business
+            Library Version 3.5 subject to the terms and conditions specified
+            at http://www.xcbl.org/license.html
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:simpleType name="OrderInvoiceMediumTypeCode">
+        <xsd:restriction base="xsd:NMTOKEN">
+            <xsd:enumeration value="Other"/>
+            <xsd:enumeration value="Circuitswitching"/>
+            <xsd:enumeration value="SITA"/>
+            <xsd:enumeration value="ARINC"/>
+            <xsd:enumeration value="Courier"/>
+            <xsd:enumeration value="CableAddress"/>
+            <xsd:enumeration value="EDITransmission"/>
+            <xsd:enumeration value="ElectronicMail"/>
+            <xsd:enumeration value="Extension"/>
+            <xsd:enumeration value="FileTransferAccessMethod"/>
+            <xsd:enumeration value="TeleFax"/>
+            <xsd:enumeration value="GEISMailbox"/>
+            <xsd:enumeration value="IBMInformationExchange"/>
+            <xsd:enumeration value="InternalMail"/>
+            <xsd:enumeration value="Mail"/>
+            <xsd:enumeration value="PostBoxNo"/>
+            <xsd:enumeration value="PacketSwitching"/>
+            <xsd:enumeration value="SWIFT"/>
+            <xsd:enumeration value="Telephone"/>
+            <xsd:enumeration value="Telegraph"/>
+            <xsd:enumeration value="Telex"/>
+            <xsd:enumeration value="TeleMail"/>
+            <xsd:enumeration value="TeleText"/>
+            <xsd:enumeration value="TWX"/>
+            <xsd:enumeration value="X.400"/>
+            <xsd:enumeration value="NotRequired"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+</xsd:schema>

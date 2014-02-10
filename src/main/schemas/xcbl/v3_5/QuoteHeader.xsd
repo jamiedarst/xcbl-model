@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" targetNamespace="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" elementFormDefault="qualified">
+    <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+            XML Common Business Library 3.5
+            Copyright 2000 Commerce One, Inc.
+            Permission is granted to use, copy, modify and distribute the
+            DTD's, schemas and modules in the Commerce One XML Common Business
+            Library Version 3.5 subject to the terms and conditions specified
+            at http://www.xcbl.org/license.html
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType name="QuoteHeader">
+        <xsd:sequence>
+            <xsd:element name="QuoteIssueDate" type="xcblDatetime"/>
+            <xsd:element name="QuoteID">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Reference"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" ref="QuotationRequestReference"/>
+            <xsd:element minOccurs="0" ref="QuoteType"/>
+            <xsd:element minOccurs="0" ref="Purpose"/>
+            <xsd:element name="QuoteParty">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="OrderParty"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="QuoteTransport">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="TransportRouting"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="QuoteCurrency">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Currency"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="QuoteAllowanceOrCharge">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="ListOfAllowOrCharge"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="QuoteTermsOfPayment">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="PaymentInstructions"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="QuoteTermsOfDelivery">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="TermsOfDelivery"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="QuoteTax">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="TaxReference"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="QuoteLanguage">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Language"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="GeneralNotes" type="xsd:string"/>
+            <xsd:element minOccurs="0" ref="ListOfStructuredNote"/>
+            <xsd:element minOccurs="0" name="QuoteListOfAttachment">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="ListOfAttachment"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="QuoteHeader" type="QuoteHeader"/>
+</xsd:schema>

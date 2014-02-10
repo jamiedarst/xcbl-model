@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" targetNamespace="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" elementFormDefault="qualified">
+    <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+            XML Common Business Library 3.5
+            Copyright 2000 Commerce One, Inc.
+            Permission is granted to use, copy, modify and distribute the
+            DTD's, schemas and modules in the Commerce One XML Common Business
+            Library Version 3.5 subject to the terms and conditions specified
+            at http://www.xcbl.org/license.html
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType name="ListOfAccountAssignment">
+        <xsd:sequence>
+            <xsd:element maxOccurs="unbounded" ref="AccountAssignment"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="ListOfAccountAssignment" type="ListOfAccountAssignment"/>
+    <xsd:complexType name="AccountAssignment">
+        <xsd:sequence>
+            <xsd:element name="AccountAssignmentID" type="xsd:string"/>
+            <xsd:element name="DistributionPercentage" type="xsd:decimal"/>
+            <xsd:element minOccurs="0" name="GLAccount" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="CostCenter" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="AccountAssignmentOrderNumber" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="OperationNumber" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="SalesOrderReference" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="BusinessArea" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="ControllingArea" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="ProfitCenter" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="WorkBreakdownStructure" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="Network" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="FixedAsset" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="FixedAssetSub" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="FundsCenter" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="Fund" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="CommitmentItem" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="FunctionalArea" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="GenericAccounting" type="xsd:string"/>
+            <xsd:element minOccurs="0" ref="ListOfNameValueSet"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="AccountAssignment" type="AccountAssignment"/>
+</xsd:schema>

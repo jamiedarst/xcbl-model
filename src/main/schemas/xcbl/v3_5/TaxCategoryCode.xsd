@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" targetNamespace="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" elementFormDefault="qualified">
+    <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+            XML Common Business Library 3.5
+            Copyright 2000 Commerce One, Inc.
+            Permission is granted to use, copy, modify and distribute the
+            DTD's, schemas and modules in the Commerce One XML Common Business
+            Library Version 3.5 subject to the terms and conditions specified
+            at http://www.xcbl.org/license.html
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:simpleType name="TaxCategoryCode">
+        <xsd:restriction base="xsd:NMTOKEN">
+            <xsd:enumeration value="Other"/>
+            <xsd:enumeration value="Agriculture"/>
+            <xsd:enumeration value="DirectPayID"/>
+            <xsd:enumeration value="Disabled"/>
+            <xsd:enumeration value="DisabledVeteran"/>
+            <xsd:enumeration value="DutyPaidBySupplier"/>
+            <xsd:enumeration value="ExemptForExport"/>
+            <xsd:enumeration value="ExemptForResale"/>
+            <xsd:enumeration value="ExemptfromCountyPropertyTax"/>
+            <xsd:enumeration value="ExemptfromLocalPropertyTax"/>
+            <xsd:enumeration value="ExemptfromSchoolPropertyTax"/>
+            <xsd:enumeration value="ExemptfromStatePropertyTax"/>
+            <xsd:enumeration value="ExemptFromTax"/>
+            <xsd:enumeration value="ExemptGoodsandServicesTax"/>
+            <xsd:enumeration value="ExemptLetterOnFile"/>
+            <xsd:enumeration value="ExemptLocalService"/>
+            <xsd:enumeration value="ExemptNotForResale"/>
+            <xsd:enumeration value="Exempt-PerStateLaw"/>
+            <xsd:enumeration value="ExemptProvincialSalesTax"/>
+            <xsd:enumeration value="ExemptSaleToUSGovernment"/>
+            <xsd:enumeration value="ExemptTollService"/>
+            <xsd:enumeration value="FreeExportItemTaxNotCharged"/>
+            <xsd:enumeration value="HigherRate"/>
+            <xsd:enumeration value="Homestead"/>
+            <xsd:enumeration value="LaborTaxableMaterialExempt"/>
+            <xsd:enumeration value="LowerRate"/>
+            <xsd:enumeration value="MaterialTaxableLaborExempt"/>
+            <xsd:enumeration value="MixedTaxRate"/>
+            <xsd:enumeration value="Non-Homestead"/>
+            <xsd:enumeration value="No-NotTaxExempt"/>
+            <xsd:enumeration value="NotExemptForResale"/>
+            <xsd:enumeration value="NotExemptNotForResale"/>
+            <xsd:enumeration value="NotTaxable"/>
+            <xsd:enumeration value="OpenSpace"/>
+            <xsd:enumeration value="OtherPropertyTaxExemption"/>
+            <xsd:enumeration value="Over65"/>
+            <xsd:enumeration value="RecurringExempt"/>
+            <xsd:enumeration value="ServicesOutsideScopeOfTax"/>
+            <xsd:enumeration value="StandardRate"/>
+            <xsd:enumeration value="TotallyExempt"/>
+            <xsd:enumeration value="Transferred"/>
+            <xsd:enumeration value="UsageExempt"/>
+            <xsd:enumeration value="ValueAddedTaxDueFromAPreviousInvoice"/>
+            <xsd:enumeration value="ValueAddedTaxNotNowDueForPayment"/>
+            <xsd:enumeration value="WorkingFarm"/>
+            <xsd:enumeration value="Yes-TaxExempt"/>
+            <xsd:enumeration value="ZeroRatedGoods"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+</xsd:schema>

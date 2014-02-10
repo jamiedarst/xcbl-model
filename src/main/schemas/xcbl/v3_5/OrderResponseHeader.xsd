@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" targetNamespace="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" elementFormDefault="qualified">
+    <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+            XML Common Business Library 3.5
+            Copyright 2000 Commerce One, Inc.
+            Permission is granted to use, copy, modify and distribute the
+            DTD's, schemas and modules in the Commerce One XML Common Business
+            Library Version 3.5 subject to the terms and conditions specified
+            at http://www.xcbl.org/license.html
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType name="OrderResponseHeader">
+        <xsd:sequence>
+            <xsd:element ref="OrderResponseNumber"/>
+            <xsd:element name="OrderResponseIssueDate" type="xcblDatetime"/>
+            <xsd:element name="OrderResponseDocTypeCoded" type="OrderResponseDocTypeCode"/>
+            <xsd:element minOccurs="0" name="OrderResponseDocTypeCodedOther" type="xsd:string"/>
+            <xsd:element name="OrderReference">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Reference"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="ChangeOrderReference">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Reference"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="SellerParty">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Party"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="BuyerParty">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Party"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="TrackingURL" type="xsd:anyURI"/>
+            <xsd:element minOccurs="0" ref="ListOfReferenceCoded"/>
+            <xsd:element ref="Purpose"/>
+            <xsd:element ref="ResponseType"/>
+            <xsd:element minOccurs="0" name="OrderStatus">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Status"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" ref="ShipmentStatusEvent"/>
+            <xsd:element minOccurs="0" name="PaymentStatusEvent">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Status"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:choice minOccurs="0">
+                <xsd:element name="OriginalOrderHeader">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element ref="OrderHeader"/>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+                <xsd:element ref="ChangeOrderHeader"/>
+            </xsd:choice>
+            <xsd:element minOccurs="0" name="OrderHeaderChanges">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="OrderHeader"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="OrderResponseHeaderNote" type="xsd:string"/>
+            <xsd:element minOccurs="0" ref="ListOfStructuredNote"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="OrderResponseHeader" type="OrderResponseHeader"/>
+    <xsd:complexType name="OrderResponseNumber">
+        <xsd:sequence>
+            <xsd:element name="BuyerOrderResponseNumber" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="SellerOrderResponseNumber" type="xsd:string"/>
+            <xsd:element minOccurs="0" ref="ListOfMessageID"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="OrderResponseNumber" type="OrderResponseNumber"/>
+    <xsd:simpleType name="OrderResponseDocTypeCode">
+        <xsd:restriction base="xsd:NMTOKEN">
+            <xsd:enumeration value="Other"/>
+            <xsd:enumeration value="OrderResponse"/>
+            <xsd:enumeration value="ChangeOrderResponse"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+</xsd:schema>

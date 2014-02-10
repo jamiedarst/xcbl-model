@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" targetNamespace="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" elementFormDefault="qualified">
+    <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+            XML Common Business Library 3.5
+            Copyright 2000 Commerce One, Inc.
+            Permission is granted to use, copy, modify and distribute the
+            DTD's, schemas and modules in the Commerce One XML Common Business
+            Library Version 3.5 subject to the terms and conditions specified
+            at http://www.xcbl.org/license.html
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType name="Status">
+        <xsd:sequence>
+            <xsd:element ref="StatusEvent"/>
+            <xsd:element minOccurs="0" ref="ListOfStatusReason"/>
+            <xsd:element minOccurs="0" name="StatusNote" type="xsd:string"/>
+            <xsd:element minOccurs="0" ref="ErrorInfo"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="Status" type="Status"/>
+    <xsd:complexType name="StatusEvent">
+        <xsd:sequence>
+            <xsd:element name="StatusEventCoded" type="StatusEventCode"/>
+            <xsd:element minOccurs="0" name="StatusEventCodedOther" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="StatusEvent" type="StatusEvent"/>
+    <xsd:simpleType name="StatusEventCode">
+        <xsd:restriction base="xsd:NMTOKEN">
+            <xsd:enumeration value="Pending"/>
+            <xsd:enumeration value="Accepted"/>
+            <xsd:enumeration value="AcceptedWithChanges"/>
+            <xsd:enumeration value="NotAccepted"/>
+            <xsd:enumeration value="Despatched"/>
+            <xsd:enumeration value="NotApplicable"/>
+            <xsd:enumeration value="CreditReviewInProcess"/>
+            <xsd:enumeration value="CreditApproved"/>
+            <xsd:enumeration value="PrepaymentRequired"/>
+            <xsd:enumeration value="CardCharged"/>
+            <xsd:enumeration value="Invoiced"/>
+            <xsd:enumeration value="PaymentReceived"/>
+            <xsd:enumeration value="AutomatedPaymentInitiated"/>
+            <xsd:enumeration value="PaidInFull"/>
+            <xsd:enumeration value="PartiallyCharged"/>
+            <xsd:enumeration value="NotYetShipped"/>
+            <xsd:enumeration value="BackOrdered"/>
+            <xsd:enumeration value="BackOrderShipped"/>
+            <xsd:enumeration value="ReadyForPickup"/>
+            <xsd:enumeration value="InTransit"/>
+            <xsd:enumeration value="PartiallyShipped"/>
+            <xsd:enumeration value="PartiallyDelivered"/>
+            <xsd:enumeration value="ShipmentComplete"/>
+            <xsd:enumeration value="Delivered"/>
+            <xsd:enumeration value="NoInfo"/>
+            <xsd:enumeration value="NewOrder"/>
+            <xsd:enumeration value="ChangeOrder"/>
+            <xsd:enumeration value="Processing"/>
+            <xsd:enumeration value="Cancelled"/>
+            <xsd:enumeration value="Completed"/>
+            <xsd:enumeration value="ItemOnHold"/>
+            <xsd:enumeration value="Other"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="OrderStatusEventCode">
+        <xsd:restriction base="xsd:NMTOKEN">
+            <xsd:enumeration value="Other"/>
+            <xsd:enumeration value="NoInfo"/>
+            <xsd:enumeration value="NewOrder"/>
+            <xsd:enumeration value="Accepted"/>
+            <xsd:enumeration value="NotAccepted"/>
+            <xsd:enumeration value="Processing"/>
+            <xsd:enumeration value="Completed"/>
+            <xsd:enumeration value="Cancelled"/>
+            <xsd:enumeration value="PrepaymentRequired"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="ItemStatusEventCode">
+        <xsd:restriction base="xsd:NMTOKEN">
+            <xsd:enumeration value="Other"/>
+            <xsd:enumeration value="NoInfo"/>
+            <xsd:enumeration value="NewOrder"/>
+            <xsd:enumeration value="Accepted"/>
+            <xsd:enumeration value="NotAccepted"/>
+            <xsd:enumeration value="Processing"/>
+            <xsd:enumeration value="Completed"/>
+            <xsd:enumeration value="Cancelled"/>
+            <xsd:enumeration value="PrepaymentRequired"/>
+            <xsd:enumeration value="AcceptedWithChanges"/>
+            <xsd:enumeration value="ItemOnHold"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="PaymentStatusEventCode">
+        <xsd:restriction base="xsd:NMTOKEN">
+            <xsd:enumeration value="Other"/>
+            <xsd:enumeration value="NotApplicable"/>
+            <xsd:enumeration value="CreditReviewInProcess"/>
+            <xsd:enumeration value="CreditApproved"/>
+            <xsd:enumeration value="PrepaymentRequired"/>
+            <xsd:enumeration value="CardCharged"/>
+            <xsd:enumeration value="Invoiced"/>
+            <xsd:enumeration value="PaymentReceived"/>
+            <xsd:enumeration value="AutomatedPaymentInitiated"/>
+            <xsd:enumeration value="PaidInFull"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="ShipmentStatusEventCode">
+        <xsd:restriction base="xsd:NMTOKEN">
+            <xsd:enumeration value="Other"/>
+            <xsd:enumeration value="NotApplicable"/>
+            <xsd:enumeration value="NotYetShipped"/>
+            <xsd:enumeration value="BackOrdered"/>
+            <xsd:enumeration value="BackOrderShipped"/>
+            <xsd:enumeration value="ReadyForPickup"/>
+            <xsd:enumeration value="InTransit"/>
+            <xsd:enumeration value="PartiallyShipped"/>
+            <xsd:enumeration value="PartiallyDelivered"/>
+            <xsd:enumeration value="ShipmentComplete"/>
+            <xsd:enumeration value="Delivered"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+</xsd:schema>

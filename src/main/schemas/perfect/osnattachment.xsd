@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="http://perfect.com/LiteEnvelope"
+                xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  	        xmlns:osn="http://perfect.com/LiteEnvelope" 
+		targetNamespace="http://perfect.com/LiteEnvelope" 
+		elementFormDefault="qualified"
+		version="1.0" >
+<xs:include schemaLocation="osn.xsd" />
+    <xs:annotation>
+        <xs:documentation xml:lang="en">
+            Attachment document for use in same transmission as business document.
+            Perfect Commerce 2006
+            2006/02/03 Adam Swick  version 1.0  created.
+        </xs:documentation>
+    </xs:annotation>
+
+    <xs:element name="OSNAttachment" type="osn:AttachmentAttributesType" />
+</xs:schema>

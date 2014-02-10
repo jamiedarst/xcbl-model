@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" targetNamespace="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" elementFormDefault="qualified">
+    <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+            XML Common Business Library 3.5
+            Copyright 2000 Commerce One, Inc.
+            Permission is granted to use, copy, modify and distribute the
+            DTD's, schemas and modules in the Commerce One XML Common Business
+            Library Version 3.5 subject to the terms and conditions specified
+            at http://www.xcbl.org/license.html
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType name="InvoiceType">
+        <xsd:sequence>
+            <xsd:element name="InvoiceTypeCoded" type="InvoiceTypeCode"/>
+            <xsd:element minOccurs="0" name="InvoiceTypeCodedOther" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="InvoiceType" type="InvoiceType"/>
+    <xsd:simpleType name="InvoiceTypeCode">
+        <xsd:restriction base="xsd:NMTOKEN">
+            <xsd:enumeration value="Other"/>
+            <xsd:enumeration value="MeteredServicesInvoice"/>
+            <xsd:enumeration value="CreditNoteFinancialAdjustment"/>
+            <xsd:enumeration value="DebitNoteFinancialAdjustment"/>
+            <xsd:enumeration value="InvoicingDataSheet"/>
+            <xsd:enumeration value="ProformaInvoice"/>
+            <xsd:enumeration value="CommercialInvoice"/>
+            <xsd:enumeration value="CreditNoteGoodsAndServices"/>
+            <xsd:enumeration value="DebitNoteGoodsAndServices"/>
+            <xsd:enumeration value="CommissionNote"/>
+            <xsd:enumeration value="CorrectedInvoice"/>
+            <xsd:enumeration value="ConsolidatedInvoice"/>
+            <xsd:enumeration value="PrepaymentInvoice"/>
+            <xsd:enumeration value="SelfBilledInvoice"/>
+            <xsd:enumeration value="DelcredereInvoice"/>
+            <xsd:enumeration value="FactoredInvoice"/>
+            <xsd:enumeration value="CreditInvoice"/>
+            <xsd:enumeration value="CreditMemo"/>
+            <xsd:enumeration value="DetourBilling"/>
+            <xsd:enumeration value="ThirdPartyConsolidatedInvoice"/>
+            <xsd:enumeration value="DebitInvoice"/>
+            <xsd:enumeration value="DebitMemo"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+</xsd:schema>

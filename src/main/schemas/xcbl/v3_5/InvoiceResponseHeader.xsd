@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" targetNamespace="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" elementFormDefault="qualified">
+    <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+            XML Common Business Library 3.5
+            Copyright 2000 Commerce One, Inc.
+            Permission is granted to use, copy, modify and distribute the
+            DTD's, schemas and modules in the Commerce One XML Common Business
+            Library Version 3.5 subject to the terms and conditions specified
+            at http://www.xcbl.org/license.html
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType name="InvoiceResponseHeader">
+        <xsd:sequence>
+            <xsd:element name="BuyerInvoiceNumber" type="xsd:string"/>
+            <xsd:element name="InvoiceReference">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Reference"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="InvoiceResponseIssueDate" type="xcblDatetime"/>
+            <xsd:element ref="InvoiceType"/>
+            <xsd:element ref="Language"/>
+            <xsd:element name="InvoiceResponseCoded" type="BasicResponseCode"/>
+            <xsd:element minOccurs="0" name="InvoiceResponseCodedOther" type="xsd:string"/>
+            <xsd:element ref="InvoiceResponseParty"/>
+            <xsd:element minOccurs="0" name="InvoiceResponseHeaderNote" type="xsd:string"/>
+            <xsd:element minOccurs="0" ref="ListOfStructuredNote"/>
+            <xsd:element minOccurs="0" ref="ErrorInfo"/>
+            <xsd:element minOccurs="0" ref="ListOfNameValueSet"/>
+            <xsd:element minOccurs="0" ref="ListOfAttachment"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="InvoiceResponseHeader" type="InvoiceResponseHeader"/>
+    <xsd:complexType name="InvoiceResponseParty">
+        <xsd:sequence>
+            <xsd:element name="InvoicingParty">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Party"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="BillToParty">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Party"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="RemitToParty">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Party"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" ref="ListOfPartyCoded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="InvoiceResponseParty" type="InvoiceResponseParty"/>
+</xsd:schema>

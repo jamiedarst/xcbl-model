@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" targetNamespace="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" elementFormDefault="qualified">
+    <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+            XML Common Business Library 3.5
+            Copyright 2000 Commerce One, Inc.
+            Permission is granted to use, copy, modify and distribute the
+            DTD's, schemas and modules in the Commerce One XML Common Business
+            Library Version 3.5 subject to the terms and conditions specified
+            at http://www.xcbl.org/license.html
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType name="ReceivingFISpecificID">
+        <xsd:sequence>
+            <xsd:element ref="Party"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="ReceivingFISpecificID" type="ReceivingFISpecificID"/>
+    <xsd:complexType name="PaymentRequestDetail">
+        <xsd:sequence>
+            <xsd:element name="PaymentDocumentID">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Reference"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="PaymentSequenceNo" type="xsd:int"/>
+            <xsd:element minOccurs="0" ref="PaymentDates"/>
+            <xsd:choice>
+                <xsd:element ref="FinancialInstitutionDetail"/>
+                <xsd:sequence>
+                    <xsd:element name="OriginatingFinancialInstitution">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element ref="FIAccountDetail"/>
+                            </xsd:sequence>
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element ref="ReceivingFISpecificID"/>
+                </xsd:sequence>
+                <xsd:sequence>
+                    <xsd:element name="OriginatingFISpecificID">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element ref="Party"/>
+                            </xsd:sequence>
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:choice>
+                        <xsd:element name="ReceivingFinancialInstitution">
+                            <xsd:complexType>
+                                <xsd:sequence>
+                                    <xsd:element ref="FIAccountDetail"/>
+                                </xsd:sequence>
+                            </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element ref="ReceivingFISpecificID"/>
+                    </xsd:choice>
+                </xsd:sequence>
+                <xsd:element ref="CardInfo"/>
+            </xsd:choice>
+            <xsd:element name="SettlementAmount">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="MonetaryValue"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="SettlementCurrency">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Currency"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element ref="PaymentRequestParty"/>
+            <xsd:element minOccurs="0" ref="LegalReportingInformation"/>
+            <xsd:element minOccurs="0" name="PaymentReasonCoded" type="PaymentReasonCode"/>
+            <xsd:element minOccurs="0" name="PaymentReasonCodedOther" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="PaymentUrgencyCoded" type="PaymentUrgencyCode"/>
+            <xsd:element minOccurs="0" name="PaymentUrgencyCodedOther" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="InternationalPaymentIndicator" type="xcblBoolean"/>
+            <xsd:element minOccurs="0" name="IntraCompanyPaymentIndicator" type="xcblBoolean"/>
+            <xsd:element name="PaymentMeanCoded" type="PaymentMeanCode"/>
+            <xsd:element minOccurs="0" name="PaymentMeanCodedOther" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="PaymentMeanReference">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Reference"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="PaymentSystemCoded" type="PaymentSystemCode"/>
+            <xsd:element minOccurs="0" name="PaymentSystemCodedOther" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="PaymentReference">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="ListOfReferenceCoded"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="AcceptFXMarketRate" type="xcblBoolean"/>
+            <xsd:element minOccurs="0" ref="ListOfRateOfExchangeDetail"/>
+            <xsd:element minOccurs="0" name="PaymentDetailAttachment">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Attachment"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="PaymentInstructionNotes" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="IsCredit" type="xcblBoolean"/>
+            <xsd:element minOccurs="0" name="RepetitiveCode" type="xsd:string"/>
+            <xsd:element minOccurs="0" ref="FinancialChargesAllocation"/>
+            <xsd:element minOccurs="0" ref="ListOfPaymentDocumentDetail"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="PaymentRequestDetail" type="PaymentRequestDetail"/>
+    <xsd:complexType name="ListOfPaymentDocumentDetail">
+        <xsd:sequence>
+            <xsd:element maxOccurs="unbounded" name="PaymentDocumentDetail">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="RemittanceAdviceDetail"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="ListOfPaymentDocumentDetail" type="ListOfPaymentDocumentDetail"/>
+</xsd:schema>

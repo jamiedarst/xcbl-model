@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" targetNamespace="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" elementFormDefault="qualified">
+    <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+            XML Common Business Library 3.5
+            Copyright 2000 Commerce One, Inc.
+            Permission is granted to use, copy, modify and distribute the
+            DTD's, schemas and modules in the Commerce One XML Common Business
+            Library Version 3.5 subject to the terms and conditions specified
+            at http://www.xcbl.org/license.html
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType name="BasePlanningDetail">
+        <xsd:complexContent>
+            <xsd:extension base="BaseItemDetail">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" name="RecordKeepingYear" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="ItemScheduleReference">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element ref="ScheduleReferences"/>
+                            </xsd:sequence>
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="ForecastFrequencyCoded" type="ForecastFrequencyCode"/>
+                    <xsd:element minOccurs="0" name="ForecastFrequencyCodedOther" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="ItemQuantities">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element ref="ListOfQuantityCoded"/>
+                            </xsd:sequence>
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" name="ItemReleaseStatusCoded" type="ItemReleaseStatusCode"/>
+                    <xsd:element minOccurs="0" name="ItemReleaseStatusCodedOther" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:element name="BasePlanningDetail" type="BasePlanningDetail"/>
+</xsd:schema>

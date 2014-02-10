@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" targetNamespace="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" elementFormDefault="qualified">
+    <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+            XML Common Business Library 3.5
+            Copyright 2000 Commerce One, Inc.
+            Permission is granted to use, copy, modify and distribute the
+            DTD's, schemas and modules in the Commerce One XML Common Business
+            Library Version 3.5 subject to the terms and conditions specified
+            at http://www.xcbl.org/license.html
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType name="ChangeType">
+        <xsd:sequence>
+            <xsd:element name="ChangeTypeCoded" type="ChangeTypeCode"/>
+            <xsd:element minOccurs="0" name="ChangeTypeCodedOther" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="ChangeType" type="ChangeType"/>
+    <xsd:simpleType name="ChangeTypeCode">
+        <xsd:restriction base="xsd:NMTOKEN">
+            <xsd:enumeration value="Other"/>
+            <xsd:enumeration value="AddAdditionalItems"/>
+            <xsd:enumeration value="ChangeInDetailSection"/>
+            <xsd:enumeration value="ChangeInHeadingSection"/>
+            <xsd:enumeration value="ChangeOfDates"/>
+            <xsd:enumeration value="ChangeOfDateTerms"/>
+            <xsd:enumeration value="ChangesToItemLevelAllowanceAndCharges"/>
+            <xsd:enumeration value="ChangesToLineItems"/>
+            <xsd:enumeration value="ChangesToTotalLevelAllowanceAndCharges"/>
+            <xsd:enumeration value="CorrectionOfError"/>
+            <xsd:enumeration value="LineItemsNumbersChanged"/>
+            <xsd:enumeration value="PreviousPaymentDecisionReversed"/>
+            <xsd:enumeration value="PriceChange"/>
+            <xsd:enumeration value="QuantityDecrease"/>
+            <xsd:enumeration value="QuantityIncrease"/>
+            <xsd:enumeration value="ReplaceAllDates"/>
+            <xsd:enumeration value="ReplaceAllValues"/>
+            <xsd:enumeration value="ReplaceHeadingSectionOnly"/>
+            <xsd:enumeration value="ReplaceItemDetailAndSummaryOnly"/>
+            <xsd:enumeration value="ReplaceModeOfShipment"/>
+            <xsd:enumeration value="Reschedule"/>
+            <xsd:enumeration value="ReversalForCancellation"/>
+            <xsd:enumeration value="ReversalOfACredit"/>
+            <xsd:enumeration value="ReversalOfADebit"/>
+            <xsd:enumeration value="SellerInitiatedChange"/>
+            <xsd:enumeration value="TermsChangedForNewTerms"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+</xsd:schema>

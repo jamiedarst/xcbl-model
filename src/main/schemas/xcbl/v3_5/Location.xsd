@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" targetNamespace="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" elementFormDefault="qualified">
+    <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+            XML Common Business Library 3.5
+            Copyright 2000 Commerce One, Inc.
+            Permission is granted to use, copy, modify and distribute the
+            DTD's, schemas and modules in the Commerce One XML Common Business
+            Library Version 3.5 subject to the terms and conditions specified
+            at http://www.xcbl.org/license.html
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType name="Location">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="LocationQualifierCoded" type="LocationQualifierCode"/>
+            <xsd:element minOccurs="0" name="LocationQualifierCodedOther" type="xsd:string"/>
+            <xsd:choice>
+                <xsd:element ref="LocationIdentifier"/>
+                <xsd:element name="ExternalAddressID" type="xsd:string"/>
+                <xsd:element ref="NameAddress"/>
+            </xsd:choice>
+            <xsd:element minOccurs="0" ref="GPSCooridinates"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="Location" type="Location"/>
+    <xsd:complexType name="GPSCooridinates">
+        <xsd:sequence>
+            <xsd:element name="GPSSystem" type="xsd:string"/>
+            <xsd:element name="Latitude" type="xsd:string"/>
+            <xsd:element name="Longitude" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="GPSCooridinates" type="GPSCooridinates"/>
+    <xsd:complexType name="LocationIdentifier">
+        <xsd:sequence>
+            <xsd:element name="LocID">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Identifier"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="LocationDescription" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="LocationIdentifier" type="LocationIdentifier"/>
+    <xsd:complexType name="ListOfLocation">
+        <xsd:sequence>
+            <xsd:element maxOccurs="unbounded" ref="Location"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="ListOfLocation" type="ListOfLocation"/>
+</xsd:schema>

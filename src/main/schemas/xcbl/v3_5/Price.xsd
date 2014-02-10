@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" targetNamespace="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" elementFormDefault="qualified">
+    <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+            XML Common Business Library 3.5
+            Copyright 2000 Commerce One, Inc.
+            Permission is granted to use, copy, modify and distribute the
+            DTD's, schemas and modules in the Commerce One XML Common Business
+            Library Version 3.5 subject to the terms and conditions specified
+            at http://www.xcbl.org/license.html
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType name="Price">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" ref="PricingType"/>
+            <xsd:element ref="UnitPrice"/>
+            <xsd:element minOccurs="0" name="PriceBasisQuantity">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Quantity"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="CalculatedPriceBasisQuantity">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Quantity"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" ref="ValidityDates"/>
+            <xsd:element minOccurs="0" name="PriceQuantityRange">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Quantity"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" ref="PriceMultiplier"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="Price" type="Price"/>
+    <xsd:complexType name="UnitPrice">
+        <xsd:sequence>
+            <xsd:element name="UnitPriceValue" type="Decimal21_6"/>
+            <xsd:element minOccurs="0" ref="Currency"/>
+            <xsd:element minOccurs="0" ref="UnitOfMeasurement"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="UnitPrice" type="UnitPrice"/>
+    <xsd:complexType name="PriceMultiplier">
+        <xsd:sequence>
+            <xsd:element name="PriceMultiplierCoded" type="PriceMultiplierCode"/>
+            <xsd:element minOccurs="0" name="PriceMultiplierCodedOther" type="xsd:string"/>
+            <xsd:element name="Multiplier" type="xsd:decimal"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="PriceMultiplier" type="PriceMultiplier"/>
+    <xsd:simpleType name="PriceMultiplierCode">
+        <xsd:restriction base="xsd:NMTOKEN">
+            <xsd:enumeration value="Other"/>
+            <xsd:enumeration value="CostMarkupMultiplier-OriginalCost"/>
+            <xsd:enumeration value="CostMarkupMultiplier-RetailCost"/>
+            <xsd:enumeration value="DiscountMultiplier"/>
+            <xsd:enumeration value="CostMarkupMultiplier-WholesaleCost"/>
+            <xsd:enumeration value="PercentSolutionMultiplier"/>
+            <xsd:enumeration value="SellingMultiplier"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:complexType name="ListOfPrice">
+        <xsd:sequence>
+            <xsd:element maxOccurs="unbounded" ref="Price"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="ListOfPrice" type="ListOfPrice"/>
+</xsd:schema>

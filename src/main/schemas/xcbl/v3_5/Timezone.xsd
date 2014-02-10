@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" targetNamespace="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" elementFormDefault="qualified">
+    <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+            XML Common Business Library 3.5
+            Copyright 2000 Commerce One, Inc.
+            Permission is granted to use, copy, modify and distribute the
+            DTD's, schemas and modules in the Commerce One XML Common Business
+            Library Version 3.5 subject to the terms and conditions specified
+            at http://www.xcbl.org/license.html
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType name="Timezone">
+        <xsd:sequence>
+            <xsd:element name="TimezoneCoded" type="TimezoneCode"/>
+            <xsd:element minOccurs="0" name="TimezoneCodedOther" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="Timezone" type="Timezone"/>
+    <xsd:simpleType name="TimezoneCode">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Other"/>
+            <xsd:enumeration value="12.00"/>
+            <xsd:enumeration value="11.45"/>
+            <xsd:enumeration value="11.30"/>
+            <xsd:enumeration value="11.15"/>
+            <xsd:enumeration value="11.00"/>
+            <xsd:enumeration value="10.45"/>
+            <xsd:enumeration value="10.30"/>
+            <xsd:enumeration value="10.15"/>
+            <xsd:enumeration value="10.00"/>
+            <xsd:enumeration value="09.45"/>
+            <xsd:enumeration value="09.30"/>
+            <xsd:enumeration value="09.15"/>
+            <xsd:enumeration value="09.00"/>
+            <xsd:enumeration value="08.45"/>
+            <xsd:enumeration value="08.30"/>
+            <xsd:enumeration value="08.15"/>
+            <xsd:enumeration value="08.00"/>
+            <xsd:enumeration value="07.45"/>
+            <xsd:enumeration value="07.30"/>
+            <xsd:enumeration value="07.15"/>
+            <xsd:enumeration value="07.00"/>
+            <xsd:enumeration value="06.45"/>
+            <xsd:enumeration value="06.30"/>
+            <xsd:enumeration value="06.15"/>
+            <xsd:enumeration value="06.00"/>
+            <xsd:enumeration value="05.45"/>
+            <xsd:enumeration value="05.30"/>
+            <xsd:enumeration value="05.15"/>
+            <xsd:enumeration value="05.00"/>
+            <xsd:enumeration value="04.45"/>
+            <xsd:enumeration value="04.30"/>
+            <xsd:enumeration value="04.15"/>
+            <xsd:enumeration value="04.00"/>
+            <xsd:enumeration value="03.45"/>
+            <xsd:enumeration value="03.30"/>
+            <xsd:enumeration value="03.15"/>
+            <xsd:enumeration value="03.00"/>
+            <xsd:enumeration value="02.45"/>
+            <xsd:enumeration value="02.30"/>
+            <xsd:enumeration value="02.15"/>
+            <xsd:enumeration value="02.00"/>
+            <xsd:enumeration value="01.45"/>
+            <xsd:enumeration value="01.30"/>
+            <xsd:enumeration value="01.15"/>
+            <xsd:enumeration value="01.00"/>
+            <xsd:enumeration value="00.45"/>
+            <xsd:enumeration value="00.30"/>
+            <xsd:enumeration value="00.15"/>
+            <xsd:enumeration value="00.00"/>
+            <xsd:enumeration value="-00.15"/>
+            <xsd:enumeration value="-00.30"/>
+            <xsd:enumeration value="-00.45"/>
+            <xsd:enumeration value="-01.00"/>
+            <xsd:enumeration value="-01.15"/>
+            <xsd:enumeration value="-01.30"/>
+            <xsd:enumeration value="-01.45"/>
+            <xsd:enumeration value="-02.00"/>
+            <xsd:enumeration value="-02.15"/>
+            <xsd:enumeration value="-02.30"/>
+            <xsd:enumeration value="-02.45"/>
+            <xsd:enumeration value="-03.00"/>
+            <xsd:enumeration value="-03.15"/>
+            <xsd:enumeration value="-03.30"/>
+            <xsd:enumeration value="-03.45"/>
+            <xsd:enumeration value="-04.00"/>
+            <xsd:enumeration value="-04.15"/>
+            <xsd:enumeration value="-04.30"/>
+            <xsd:enumeration value="-04.45"/>
+            <xsd:enumeration value="-05.00"/>
+            <xsd:enumeration value="-05.15"/>
+            <xsd:enumeration value="-05.30"/>
+            <xsd:enumeration value="-05.45"/>
+            <xsd:enumeration value="-06.00"/>
+            <xsd:enumeration value="-06.15"/>
+            <xsd:enumeration value="-06.30"/>
+            <xsd:enumeration value="-06.45"/>
+            <xsd:enumeration value="-07.00"/>
+            <xsd:enumeration value="-07.15"/>
+            <xsd:enumeration value="-07.30"/>
+            <xsd:enumeration value="-07.45"/>
+            <xsd:enumeration value="-08.00"/>
+            <xsd:enumeration value="-08.15"/>
+            <xsd:enumeration value="-08.30"/>
+            <xsd:enumeration value="-08.45"/>
+            <xsd:enumeration value="-09.00"/>
+            <xsd:enumeration value="-09.15"/>
+            <xsd:enumeration value="-09.30"/>
+            <xsd:enumeration value="-09.45"/>
+            <xsd:enumeration value="-10.00"/>
+            <xsd:enumeration value="-10.15"/>
+            <xsd:enumeration value="-10.30"/>
+            <xsd:enumeration value="-10.45"/>
+            <xsd:enumeration value="-11.00"/>
+            <xsd:enumeration value="-11.15"/>
+            <xsd:enumeration value="-11.30"/>
+            <xsd:enumeration value="-11.45"/>
+            <xsd:enumeration value="-12.00"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:complexType name="ListOfTimezone">
+        <xsd:sequence>
+            <xsd:element maxOccurs="unbounded" ref="Timezone"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="ListOfTimezone" type="ListOfTimezone"/>
+</xsd:schema>

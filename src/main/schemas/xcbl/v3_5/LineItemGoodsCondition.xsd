@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" targetNamespace="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" elementFormDefault="qualified">
+    <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+            XML Common Business Library 3.5
+            Copyright 2000 Commerce One, Inc.
+            Permission is granted to use, copy, modify and distribute the
+            DTD's, schemas and modules in the Commerce One XML Common Business
+            Library Version 3.5 subject to the terms and conditions specified
+            at http://www.xcbl.org/license.html
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType name="LineItemGoodsCondition">
+        <xsd:sequence>
+            <xsd:element ref="Quantity"/>
+            <xsd:element ref="GoodsCondition"/>
+            <xsd:element minOccurs="0" name="DiscrepancyCoded" type="DiscrepancyCode"/>
+            <xsd:element minOccurs="0" name="DiscrepancyCodedOther" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="LineItemGoodsCondition" type="LineItemGoodsCondition"/>
+    <xsd:complexType name="ListOfLineItemGoodsCondition">
+        <xsd:sequence>
+            <xsd:element maxOccurs="unbounded" ref="LineItemGoodsCondition"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="ListOfLineItemGoodsCondition" type="ListOfLineItemGoodsCondition"/>
+</xsd:schema>

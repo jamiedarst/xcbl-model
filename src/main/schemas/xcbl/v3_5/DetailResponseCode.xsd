@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" targetNamespace="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" elementFormDefault="qualified">
+    <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+            XML Common Business Library 3.5
+            Copyright 2000 Commerce One, Inc.
+            Permission is granted to use, copy, modify and distribute the
+            DTD's, schemas and modules in the Commerce One XML Common Business
+            Library Version 3.5 subject to the terms and conditions specified
+            at http://www.xcbl.org/license.html
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:simpleType name="DetailResponseCode">
+        <xsd:restriction base="xsd:NMTOKEN">
+            <xsd:enumeration value="Other"/>
+            <xsd:enumeration value="AcceptedWithAmendment"/>
+            <xsd:enumeration value="AcceptedWithAmendmentNoConfirmationRequired"/>
+            <xsd:enumeration value="AcknowledgeHoldStatus"/>
+            <xsd:enumeration value="AcknowledgeNoDetailOrChange"/>
+            <xsd:enumeration value="AcknowledgeOnlyChanges"/>
+            <xsd:enumeration value="AcknowledgeProductReplenishment"/>
+            <xsd:enumeration value="AcknowledgeWhenError"/>
+            <xsd:enumeration value="AcknowledgeWithDetailAndChange"/>
+            <xsd:enumeration value="AcknowledgeWithDetailNoChange"/>
+            <xsd:enumeration value="AddAdditionalItems"/>
+            <xsd:enumeration value="AdditionalSubOrdinateStructureWillFollow"/>
+            <xsd:enumeration value="AdditionalSubOrdinateStructureWillNotFollow"/>
+            <xsd:enumeration value="Agreed"/>
+            <xsd:enumeration value="AlreadyDelivered"/>
+            <xsd:enumeration value="ApprovedAsAmended"/>
+            <xsd:enumeration value="ApprovedAsSubmitted"/>
+            <xsd:enumeration value="Audited"/>
+            <xsd:enumeration value="BuyerClaimsAgainstInvoice"/>
+            <xsd:enumeration value="BuyerHasDeductedAmount"/>
+            <xsd:enumeration value="Cancelled"/>
+            <xsd:enumeration value="ChangeOfDates"/>
+            <xsd:enumeration value="ChangeOfDateTerms"/>
+            <xsd:enumeration value="ChangesToItemLevelAllowanceAndCharges"/>
+            <xsd:enumeration value="ChangesToLineItems"/>
+            <xsd:enumeration value="ChangeToConfirmationOfRevisedAnnouncement"/>
+            <xsd:enumeration value="ChangeToOriginalConfirmationOfOriginaAnnouncement"/>
+            <xsd:enumeration value="ChargeBackToSeller"/>
+            <xsd:enumeration value="Checked"/>
+            <xsd:enumeration value="ConcurrentItemNoChange"/>
+            <xsd:enumeration value="ConditionallyPaid"/>
+            <xsd:enumeration value="CorrectionOfError"/>
+            <xsd:enumeration value="CreditAdviceStatementLine"/>
+            <xsd:enumeration value="DebitAdviceStatementLine"/>
+            <xsd:enumeration value="FinalResponse"/>
+            <xsd:enumeration value="ForUnitPriceQuantityRescheduleChangeMultiple"/>
+            <xsd:enumeration value="InterimResponse"/>
+            <xsd:enumeration value="ItemAccepted"/>
+            <xsd:enumeration value="ItemAcceptedAndReleasedForShipment"/>
+            <xsd:enumeration value="ItemAcceptedAndShipped"/>
+            <xsd:enumeration value="ItemAcceptedChangesMade"/>
+            <xsd:enumeration value="ItemAcceptedDateRescheduled"/>
+            <xsd:enumeration value="ItemAccepted-OrderForwardedToAlternateSupplierLocation"/>
+            <xsd:enumeration value="ItemAcceptedPartialShipmentBalanceBackordered"/>
+            <xsd:enumeration value="ItemAcceptedPriceChanged"/>
+            <xsd:enumeration value="ItemAcceptedPricePending"/>
+            <xsd:enumeration value="ItemAcceptedQuantityChanged"/>
+            <xsd:enumeration value="ItemAcceptedScheduleDatePending"/>
+            <xsd:enumeration value="ItemAcceptedSubstitutionMade"/>
+            <xsd:enumeration value="ItemBackordered"/>
+            <xsd:enumeration value="ItemChangeRejected"/>
+            <xsd:enumeration value="ItemDeleted"/>
+            <xsd:enumeration value="ItemNotAcceptedByTheSeller"/>
+            <xsd:enumeration value="ItemOnHold"/>
+            <xsd:enumeration value="ItemOnHoldIncompleteDescription"/>
+            <xsd:enumeration value="ItemOnHoldWaiverRequired"/>
+            <xsd:enumeration value="ItemRejected"/>
+            <xsd:enumeration value="ItemRejectedContractItemNotAvailable"/>
+            <xsd:enumeration value="ItemRejectedInvalidItemProductNumber"/>
+            <xsd:enumeration value="ItemRejectedInvalidUnitOfIssue"/>
+            <xsd:enumeration value="ItemRejectedNotAContractItem"/>
+            <xsd:enumeration value="ItemRejectedReorderItemAsADropShipment"/>
+            <xsd:enumeration value="ItemRejectedReorderItemAsAJustInTimeOrder"/>
+            <xsd:enumeration value="ItemRejectedReorderItemAsASurgeOrder"/>
+            <xsd:enumeration value="ItemRjectedReorderItemAsAnExtendedDeliveryOrder"/>
+            <xsd:enumeration value="LineItemNumberChanged"/>
+            <xsd:enumeration value="New"/>
+            <xsd:enumeration value="NoAcknowledgementNeeded"/>
+            <xsd:enumeration value="NotAmended"/>
+            <xsd:enumeration value="NotChecked"/>
+            <xsd:enumeration value="NotFound"/>
+            <xsd:enumeration value="NotPaidPredeterminationPricingOnly"/>
+            <xsd:enumeration value="NotProcessed"/>
+            <xsd:enumeration value="OnAppeal"/>
+            <xsd:enumeration value="PaymentDenied"/>
+            <xsd:enumeration value="Pending"/>
+            <xsd:enumeration value="PendingIncomplete"/>
+            <xsd:enumeration value="PendingWaitingAdditionalMaterial"/>
+            <xsd:enumeration value="PendingWaitingReview"/>
+            <xsd:enumeration value="PriceChange"/>
+            <xsd:enumeration value="Proposed"/>
+            <xsd:enumeration value="QuantityDecrease"/>
+            <xsd:enumeration value="QuantityIncrease"/>
+            <xsd:enumeration value="Reaudited"/>
+            <xsd:enumeration value="Redetermined"/>
+            <xsd:enumeration value="ReferredItemAccepted"/>
+            <xsd:enumeration value="ReferredItemRejected"/>
+            <xsd:enumeration value="RejectedDuplicate"/>
+            <xsd:enumeration value="RejectedNoDetail"/>
+            <xsd:enumeration value="RejectedNotAsAgreed"/>
+            <xsd:enumeration value="RejectedSubmittedWithCorrections"/>
+            <xsd:enumeration value="RejectedViolatesIndustryPractices"/>
+            <xsd:enumeration value="RejectedWithCounterOffer"/>
+            <xsd:enumeration value="RejectWithDetail"/>
+            <xsd:enumeration value="RejectWithExceptionDetailOnly"/>
+            <xsd:enumeration value="ReplaceAllDates"/>
+            <xsd:enumeration value="ReplaceAllValues"/>
+            <xsd:enumeration value="Replaced"/>
+            <xsd:enumeration value="ReplacementItem"/>
+            <xsd:enumeration value="ReplacementItemWithModifications"/>
+            <xsd:enumeration value="ReplaceModeOfShipment"/>
+            <xsd:enumeration value="Repriced"/>
+            <xsd:enumeration value="Reschedule"/>
+            <xsd:enumeration value="Reschedule-QuantityChange"/>
+            <xsd:enumeration value="SellerRejectsDispute"/>
+            <xsd:enumeration value="SellerWillIssueACreditNote"/>
+            <xsd:enumeration value="Settlement"/>
+            <xsd:enumeration value="TermsChangedForNewTerms"/>
+            <xsd:enumeration value="TransactionNotImpacted"/>
+            <xsd:enumeration value="TransferItem"/>
+            <xsd:enumeration value="UnitPrice-QuantityChange"/>
+            <xsd:enumeration value="UnitPrice-RescheduleChange"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+</xsd:schema>

@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="http://perfect.com/LiteEnvelope" 
+            xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+	    xmlns:osn="http://perfect.com/LiteEnvelope" 
+            targetNamespace="http://perfect.com/LiteEnvelope" 
+            elementFormDefault="qualified"
+	    version="1.0" >
+<xs:include schemaLocation="osn.xsd" />
+    <xs:annotation>
+        <xs:documentation xml:lang="en">
+            Extension of xCBL35 namespace using OSN LiteEnvelope namespace combined with 
+            Perfect Commerce 2006
+            2006/02/03 Adam Swick  version 1.0  created.
+            based on XML Common Business Library 3.5
+        </xs:documentation>
+    </xs:annotation>
+
+<!-- Misc. Types -->
+
+    <xs:complexType name="LineItemNumberReference">
+        <xs:simpleContent>
+            <xs:extension base="xs:int">
+                <xs:attribute name="LineItemNumTypeCoded" type="LineItemNumTypeCode" use="optional" default="Buyer"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:element name="LineItemNumberReference" type="LineItemNumberReference"/>
+ 
+    <xs:simpleType name="LineItemNumTypeCode">
+        <xs:restriction base="xs:NMTOKEN">
+            <xs:enumeration value="Buyer"/>
+            <xs:enumeration value="Seller"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="Reference">
+        <xs:sequence>
+            <xs:element name="RefNum" type="xs:string"/>
+            <xs:element minOccurs="0" name="RefDate" type="xs:dateTime"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="Reference" type="Reference"/>
+
+    <xs:complexType name="ApplicationIdentification">
+        <xs:sequence>
+            <xs:element name="ApplicationID" type="xs:string"/>
+            <xs:element minOccurs="0" name="ApplicationIDExtension" type="xs:string"/>
+            <xs:element minOccurs="0" name="ApplicationInstance" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ApplicationIdentification" type="ApplicationIdentification"/>
+
+    <xs:simpleType name="ErrorTypeCode">
+        <xs:restriction base="xs:NMTOKEN">
+            <xs:enumeration value="CorrelationError"/>
+            <xs:enumeration value="BusinessError"/>
+            <xs:enumeration value="PayloadError"/>
+            <xs:enumeration value="Other"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="DocumentStatusCode">
+        <xs:restriction base="xs:NMTOKEN">
+            <xs:enumeration value="Received"/>
+            <xs:enumeration value="CheckedOK"/>
+            <xs:enumeration value="WarningError"/>
+            <xs:enumeration value="FatalError"/>
+            <xs:enumeration value="ProcessingStarted"/>
+            <xs:enumeration value="ProcessedOK"/>
+            <xs:enumeration value="ProcessFatalError"/>
+            <xs:enumeration value="ProcessWarningError"/>
+            <xs:enumeration value="Other"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="OSNBusinessDocumentTypeCode">
+        <xs:restriction base="xs:NMTOKEN">
+            <xs:enumeration value="Invoice"/>
+            <xs:enumeration value="InvoiceResponse"/>
+            <xs:enumeration value="MessageAcknowledgement"/>
+            <xs:enumeration value="Order"/>
+            <xs:enumeration value="ChangeOrder"/>
+            <xs:enumeration value="ChangeCancellation"/>
+            <xs:enumeration value="OrderResponse"/>
+            <xs:enumeration value="OrderStatusResult"/>
+            <xs:enumeration value="Other"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="ApplicationResponseTypeCode">
+        <xs:restriction base="xs:NMTOKEN">
+            <xs:enumeration value="Acknowledgement"/>
+            <xs:enumeration value="Error"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+
+    <xs:complexType name="ApplicationResponse">
+        <xs:sequence>
+            <xs:element name="ApplicationResponseHeader" type="ApplicationResponseHeader" />
+            <xs:element minOccurs="0" ref="ListOfApplicationResponseDetail" />
+        </xs:sequence>
+    </xs:complexType>
+ 
+    <xs:element name="OSNApplicationResponse">
+     <xs:complexType>
+      <xs:sequence>
+       <xs:element name="ApplicationResponse" type="ApplicationResponse" />
+       <xs:element name="Envelope" type="osn:EnvelopeType">
+       </xs:element>
+      </xs:sequence>
+     </xs:complexType>
+    </xs:element>
+
+<!-- Error Info -->
+
+    <xs:complexType name="ErrorInfo">
+        <xs:sequence>
+            <xs:element name="CompletionText" type="xs:string"/>
+            <xs:element name="CompletionMsg" type="xs:string"/>
+            <xs:element ref="Severity"/>
+            <xs:element minOccurs="0" ref="ListOfParameter"/>
+            <xs:element minOccurs="0" name="MinRetrySecs" type="xs:int"/>
+            <xs:element minOccurs="0" name="SwVendorErrorRef" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ErrorInfo" type="ErrorInfo"/>
+    <xs:complexType name="ListOfParameter">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" name="Parameter" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ListOfParameter" type="ListOfParameter"/>
+    <xs:complexType name="ListOfErrorInfo">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" ref="ErrorInfo"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ListOfErrorInfo" type="ListOfErrorInfo"/>
+    <xs:complexType name="Severity">
+        <xs:sequence>
+            <xs:element name="SeverityCoded" type="SeverityCode"/>
+            <xs:element minOccurs="0" name="SeverityCodedOther" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="Severity" type="Severity"/>
+    <xs:simpleType name="SeverityCode">
+        <xs:restriction base="xs:NMTOKEN">
+            <xs:enumeration value="Other"/>
+            <xs:enumeration value="Informational"/>
+            <xs:enumeration value="Warning"/>
+            <xs:enumeration value="Diagnostic"/>
+            <xs:enumeration value="Transient"/>
+            <xs:enumeration value="Error"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+<!-- Header -->
+    <xs:complexType name="ApplicationResponseHeader">
+        <xs:sequence>
+            <xs:element name="ApplicationResponseIssueDate" type="xs:dateTime"/>
+            <xs:element name="ApplicationResponseTypeCoded" type="ApplicationResponseTypeCode"/>
+            <xs:element minOccurs="0" name="SendingApplication">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ApplicationIdentification"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" name="RespondingApplication">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ApplicationIdentification"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="BusinessDocumentTypeCoded" type="OSNBusinessDocumentTypeCode"/>
+            <xs:element minOccurs="0" name="BusinessDocumentTypeCodedOther" type="xs:string"/>
+            <xs:element name="DocumentReference">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="Reference"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="DocumentStatusCoded" type="DocumentStatusCode"/>
+            <xs:element minOccurs="0" name="DocumentStatusCodedOther" type="xs:string"/>
+            <xs:element minOccurs="0" name="ApplicationResponseNote" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+<!-- Detail -->
+
+    <xs:complexType name="ApplicationResponseDetail">
+        <xs:sequence>
+            <xs:element name="ErrorTypeCoded" type="ErrorTypeCode"/>
+            <xs:element minOccurs="0" name="ErrorTypeCodedOther" type="xs:string"/>
+            <xs:element minOccurs="0" ref="ItemReference"/>
+            <xs:element ref="ErrorInfo"/>
+            <xs:element minOccurs="0" name="DetailResponseNote" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ApplicationResponseDetail" type="ApplicationResponseDetail"/>
+    <xs:complexType name="ListOfApplicationResponseDetail">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" ref="ApplicationResponseDetail"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ListOfApplicationResponseDetail" type="ListOfApplicationResponseDetail"/>
+    <xs:complexType name="ItemReference">
+        <xs:sequence>
+            <xs:element ref="LineItemNumberReference"/>
+            <xs:element minOccurs="0" name="ScheduleLineID" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ItemReference" type="ItemReference"/>
+
+</xs:schema>

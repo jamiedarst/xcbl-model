@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" targetNamespace="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" elementFormDefault="qualified">
+    <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+            XML Common Business Library 3.5
+            Copyright 2000 Commerce One, Inc.
+            Permission is granted to use, copy, modify and distribute the
+            DTD's, schemas and modules in the Commerce One XML Common Business
+            Library Version 3.5 subject to the terms and conditions specified
+            at http://www.xcbl.org/license.html
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:simpleType name="ItemReleaseStatusCode">
+        <xsd:restriction base="xsd:NMTOKEN">
+            <xsd:enumeration value="Other"/>
+            <xsd:enumeration value="FabricationAuthorizationQuantityIsFinalYearRequirement"/>
+            <xsd:enumeration value="MaterialAuthorizationQuantityIsFinalYearRequirement"/>
+            <xsd:enumeration value="PartWillBeCanceledAtTheMaterialQuantity"/>
+            <xsd:enumeration value="PartIsACarryoverItemFromSubsequentModelYearFromTheSupplier"/>
+            <xsd:enumeration value="PartIsANewItemForTheSubsequentModelYear"/>
+            <xsd:enumeration value="PartIsANewItemDueToAnInterimEngineeringRelease"/>
+            <xsd:enumeration value="FinalReleaseForThisCancelledPart"/>
+            <xsd:enumeration value="PlanningQuantityIsFinalYearRequirement"/>
+            <xsd:enumeration value="FinalForecastForThisCancelledPart"/>
+            <xsd:enumeration value="AllTimeBuy"/>
+            <xsd:enumeration value="Balance-OutPart"/>
+            <xsd:enumeration value="TerminalBuy"/>
+            <xsd:enumeration value="SystemsAutomatedBuy"/>
+            <xsd:enumeration value="CorporationCampaignBuy"/>
+            <xsd:enumeration value="SourceSurplus"/>
+            <xsd:enumeration value="Reschedule"/>
+            <xsd:enumeration value="MerchandizingActPromotionBuy"/>
+            <xsd:enumeration value="MinimumOrLotBuy"/>
+            <xsd:enumeration value="DieTie"/>
+            <xsd:enumeration value="LandauSpecification"/>
+            <xsd:enumeration value="MillRunPurchase"/>
+            <xsd:enumeration value="Solicitation"/>
+            <xsd:enumeration value="PilotPreProduction"/>
+            <xsd:enumeration value="SpecialLargeQuantityBuy"/>
+            <xsd:enumeration value="ReplacementOrders"/>
+            <xsd:enumeration value="InitialOrders"/>
+            <xsd:enumeration value="TrimOrder"/>
+            <xsd:enumeration value="ConfirmingPhoneOrder"/>
+            <xsd:enumeration value="CoverOvershipment-DoNotReship"/>
+            <xsd:enumeration value="EconomicOrderQuantity"/>
+            <xsd:enumeration value="ProductionYearEndSurplus"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+</xsd:schema>

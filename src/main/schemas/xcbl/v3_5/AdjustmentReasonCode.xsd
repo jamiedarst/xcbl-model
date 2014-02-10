@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" targetNamespace="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" elementFormDefault="qualified">
+    <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+            XML Common Business Library 3.5
+            Copyright 2000 Commerce One, Inc.
+            Permission is granted to use, copy, modify and distribute the
+            DTD's, schemas and modules in the Commerce One XML Common Business
+            Library Version 3.5 subject to the terms and conditions specified
+            at http://www.xcbl.org/license.html
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:simpleType name="AdjustmentReasonCode">
+        <xsd:restriction base="xsd:NMTOKEN">
+            <xsd:enumeration value="AgreedSettlement"/>
+            <xsd:enumeration value="BelowSpecificationGoods"/>
+            <xsd:enumeration value="DamagedGoods"/>
+            <xsd:enumeration value="ShortDelivery"/>
+            <xsd:enumeration value="PriceQuery"/>
+            <xsd:enumeration value="ProofOfDeliveryRequired"/>
+            <xsd:enumeration value="PaymentOnAccount"/>
+            <xsd:enumeration value="ReturnableContainerChargeIncluded"/>
+            <xsd:enumeration value="InvoiceError"/>
+            <xsd:enumeration value="CostsForDraft"/>
+            <xsd:enumeration value="BankCharges"/>
+            <xsd:enumeration value="AgentCommission"/>
+            <xsd:enumeration value="CounterClaim"/>
+            <xsd:enumeration value="WrongDelivery"/>
+            <xsd:enumeration value="GoodsReturnedToAgent"/>
+            <xsd:enumeration value="GoodsPartlyReturned"/>
+            <xsd:enumeration value="TransportDamage"/>
+            <xsd:enumeration value="GoodsOnConsignment"/>
+            <xsd:enumeration value="TradeDiscount"/>
+            <xsd:enumeration value="DeductionForLateDelivery"/>
+            <xsd:enumeration value="AdvertisingCosts"/>
+            <xsd:enumeration value="CustomsDuties"/>
+            <xsd:enumeration value="TelephoneAndPostalCosts"/>
+            <xsd:enumeration value="RepairCosts"/>
+            <xsd:enumeration value="AttorneyFees"/>
+            <xsd:enumeration value="Taxes"/>
+            <xsd:enumeration value="ReclaimedDeduction"/>
+            <xsd:enumeration value="SeeSeparateAdvice"/>
+            <xsd:enumeration value="BuyerRefusedToTakeDelivery"/>
+            <xsd:enumeration value="DirectPaymentToSeller"/>
+            <xsd:enumeration value="BuyerDisagreesWithDueDate"/>
+            <xsd:enumeration value="GoodsNotDelivered"/>
+            <xsd:enumeration value="LateDelivery"/>
+            <xsd:enumeration value="QuotedAsPaidToYou"/>
+            <xsd:enumeration value="GoodsReturned"/>
+            <xsd:enumeration value="InvoiceNotReceived"/>
+            <xsd:enumeration value="CreditNoteToDebtorOrNotToUs"/>
+            <xsd:enumeration value="DeductedBonus"/>
+            <xsd:enumeration value="DeductedDiscount"/>
+            <xsd:enumeration value="DeductedFreightCosts"/>
+            <xsd:enumeration value="DeductionAgainstOtherInvoices"/>
+            <xsd:enumeration value="CreditBalance"/>
+            <xsd:enumeration value="ReasonUnknown"/>
+            <xsd:enumeration value="AwaitingMessageFromSeller"/>
+            <xsd:enumeration value="DebitNoteToSeller"/>
+            <xsd:enumeration value="DiscountBeyondTerms"/>
+            <xsd:enumeration value="SeeBuyersLetter"/>
+            <xsd:enumeration value="AllowanceOrChargeError"/>
+            <xsd:enumeration value="SubstituteProduct"/>
+            <xsd:enumeration value="TermsOfSaleError"/>
+            <xsd:enumeration value="RequiredDataMissing"/>
+            <xsd:enumeration value="WrongInvoice"/>
+            <xsd:enumeration value="DuplicateInvoice"/>
+            <xsd:enumeration value="WeightError"/>
+            <xsd:enumeration value="AdditionalChargeNotAuthorized"/>
+            <xsd:enumeration value="IncorrectDiscount"/>
+            <xsd:enumeration value="PriceChange"/>
+            <xsd:enumeration value="Variation"/>
+            <xsd:enumeration value="Chargeback"/>
+            <xsd:enumeration value="Offset"/>
+            <xsd:enumeration value="IndirectPayment"/>
+            <xsd:enumeration value="FinancialReassignment"/>
+            <xsd:enumeration value="ReinstatementOfChargebackOrOffset"/>
+            <xsd:enumeration value="ExpectingNewTerms"/>
+            <xsd:enumeration value="SettlementToAgent"/>
+            <xsd:enumeration value="CashDiscount"/>
+            <xsd:enumeration value="DelcredereCosts"/>
+            <xsd:enumeration value="EarlyPaymentAllowanceAdjustment"/>
+            <xsd:enumeration value="IncorrectDueDateForMonetaryAmount"/>
+            <xsd:enumeration value="WrongMonetaryAmountResultingFromIncorrectFreeGoods"/>
+            <xsd:enumeration value="RackOrShelfReplenishmentServiceByASupplier"/>
+            <xsd:enumeration value="TemporarySpecialPromotion"/>
+            <xsd:enumeration value="DifferenceInTaxRate"/>
+            <xsd:enumeration value="Other"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+</xsd:schema>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" targetNamespace="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" elementFormDefault="qualified">
+    <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+            XML Common Business Library 3.5
+            Copyright 2000 Commerce One, Inc.
+            Permission is granted to use, copy, modify and distribute the
+            DTD's, schemas and modules in the Commerce One XML Common Business
+            Library Version 3.5 subject to the terms and conditions specified
+            at http://www.xcbl.org/license.html
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:simpleType name="PackageCharacteristicCode">
+        <xsd:restriction base="xsd:NMTOKEN">
+            <xsd:enumeration value="Other"/>
+            <xsd:enumeration value="CasingType"/>
+            <xsd:enumeration value="ShippingPackageLabeling"/>
+            <xsd:enumeration value="ShippingPackageSealing"/>
+            <xsd:enumeration value="ProductMarking"/>
+            <xsd:enumeration value="TypeofPackage"/>
+            <xsd:enumeration value="PackageSpecifications"/>
+            <xsd:enumeration value="PackageProtection"/>
+            <xsd:enumeration value="Tarping"/>
+            <xsd:enumeration value="PlatformOrSkidLocation"/>
+            <xsd:enumeration value="BearingPieceLocation"/>
+            <xsd:enumeration value="PlacementonCarrier"/>
+            <xsd:enumeration value="SpacingDirections"/>
+            <xsd:enumeration value="UnloadingDevice"/>
+            <xsd:enumeration value="UnloadingEquipment"/>
+            <xsd:enumeration value="ProductMarkingPattern"/>
+            <xsd:enumeration value="ProductMarkingLocation"/>
+            <xsd:enumeration value="PackageOrContainerMarkLocation"/>
+            <xsd:enumeration value="MarkingMethod"/>
+            <xsd:enumeration value="CoreCharacteristics"/>
+            <xsd:enumeration value="ReceivingFacilityLimitations"/>
+            <xsd:enumeration value="TaggingOrBarCodeInstructions"/>
+            <xsd:enumeration value="SkidOrPalletType"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+</xsd:schema>

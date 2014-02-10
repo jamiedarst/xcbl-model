@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" targetNamespace="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" elementFormDefault="qualified">
+    <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+            XML Common Business Library 3.5
+            Copyright 2000 Commerce One, Inc.
+            Permission is granted to use, copy, modify and distribute the
+            DTD's, schemas and modules in the Commerce One XML Common Business
+            Library Version 3.5 subject to the terms and conditions specified
+            at http://www.xcbl.org/license.html
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType name="AllowOrCharge">
+        <xsd:sequence>
+            <xsd:element name="IndicatorCoded" type="IndicatorCode"/>
+            <xsd:element minOccurs="0" name="IndicatorCodedOther" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="BasisCoded" type="BasisCode"/>
+            <xsd:element minOccurs="0" name="BasisCodedOther" type="xsd:string"/>
+            <xsd:element name="MethodOfHandlingCoded" type="MethodOfHandlingCode"/>
+            <xsd:element minOccurs="0" name="MethodOfHandlingCodedOther" type="xsd:string"/>
+            <xsd:element name="AllowanceOrChargeDescription">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="AllowOrChgDesc"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" ref="ValidityDates"/>
+            <xsd:choice minOccurs="0">
+                <xsd:element name="BasisQuantityRange">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element ref="Quantity"/>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+                <xsd:element ref="BasisMonetaryRange"/>
+            </xsd:choice>
+            <xsd:element ref="TypeOfAllowanceOrCharge"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="Tax"/>
+        </xsd:sequence>
+        <xsd:attribute name="SeqNo" type="xsd:int" use="optional" default="1"/>
+    </xsd:complexType>
+    <xsd:element name="AllowOrCharge" type="AllowOrCharge"/>
+    <xsd:simpleType name="BasisCode">
+        <xsd:restriction base="xsd:NMTOKEN">
+            <xsd:enumeration value="Other"/>
+            <xsd:enumeration value="None"/>
+            <xsd:enumeration value="Quantity"/>
+            <xsd:enumeration value="Percent"/>
+            <xsd:enumeration value="MonetaryAmount"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:complexType name="PercentageAllowanceOrCharge">
+        <xsd:sequence>
+            <xsd:element ref="PercentQualifier"/>
+            <xsd:element name="Percent" type="Decimal10_4"/>
+            <xsd:element minOccurs="0" name="PercentageMonetaryValue">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="MonetaryValue"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="PercentageAllowanceOrCharge" type="PercentageAllowanceOrCharge"/>
+    <xsd:complexType name="PercentQualifier">
+        <xsd:sequence>
+            <xsd:element name="PercentQualifierCoded" type="PercentQualifierCode"/>
+            <xsd:element minOccurs="0" name="PercentQualifierCodedOther" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="PercentQualifier" type="PercentQualifier"/>
+    <xsd:simpleType name="PercentQualifierCode">
+        <xsd:restriction base="xsd:NMTOKEN">
+            <xsd:enumeration value="Other"/>
+            <xsd:enumeration value="ItemListCost"/>
+            <xsd:enumeration value="ItemNetCost"/>
+            <xsd:enumeration value="Discount-Gross"/>
+            <xsd:enumeration value="Discount-Net"/>
+            <xsd:enumeration value="BasePriceperUnit"/>
+            <xsd:enumeration value="BasePriceAmount"/>
+            <xsd:enumeration value="BasePriceAmountLessPreviousDiscount"/>
+            <xsd:enumeration value="NetMonthlyOnAllInvoicesPastDue"/>
+            <xsd:enumeration value="LatePaymentChargeBaseAmount"/>
+            <xsd:enumeration value="FuelRate"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:complexType name="QuantityAllowanceOrCharge">
+        <xsd:sequence>
+            <xsd:element ref="Quantity"/>
+            <xsd:element ref="Rate"/>
+            <xsd:element minOccurs="0" name="QuantityMonetaryValue">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="MonetaryValue"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="QuantityAllowanceOrCharge" type="QuantityAllowanceOrCharge"/>
+    <xsd:complexType name="Rate">
+        <xsd:sequence>
+            <xsd:element name="RatePerUnit">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="UnitPrice"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="UnitPriceBasis" type="Decimal18_3"/>
+            <xsd:element minOccurs="0" ref="UnitOfMeasurement"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="Rate" type="Rate"/>
+    <xsd:complexType name="ListOfAllowOrCharge">
+        <xsd:sequence>
+            <xsd:element maxOccurs="unbounded" ref="AllowOrCharge"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="ListOfAllowOrCharge" type="ListOfAllowOrCharge"/>
+    <xsd:complexType name="TypeOfAllowanceOrCharge">
+        <xsd:choice>
+            <xsd:element ref="QuantityAllowanceOrCharge"/>
+            <xsd:element ref="PercentageAllowanceOrCharge"/>
+            <xsd:element ref="MonetaryValue"/>
+        </xsd:choice>
+    </xsd:complexType>
+    <xsd:element name="TypeOfAllowanceOrCharge" type="TypeOfAllowanceOrCharge"/>
+</xsd:schema>

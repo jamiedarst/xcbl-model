@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" targetNamespace="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" elementFormDefault="qualified">
+    <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+            XML Common Business Library 3.5
+            Copyright 2000 Commerce One, Inc.
+            Permission is granted to use, copy, modify and distribute the
+            DTD's, schemas and modules in the Commerce One XML Common Business
+            Library Version 3.5 subject to the terms and conditions specified
+            at http://www.xcbl.org/license.html
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType name="Hazardous">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" ref="ListOfHazardousIdentifiers"/>
+            <xsd:element minOccurs="0" name="HazardClassCoded" type="HazardClassCode"/>
+            <xsd:element minOccurs="0" name="HazardClassCodedOther" type="xsd:string"/>
+            <xsd:element minOccurs="0" ref="HazardousPlacardInformation"/>
+            <xsd:element minOccurs="0" name="HazardousReferences">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="ListOfReferenceCoded"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="HazardousContact">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Contact"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="HazardNote" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="UNDGNum" type="xsd:int"/>
+            <xsd:element minOccurs="0" ref="HazardousTemperatures"/>
+            <xsd:element minOccurs="0" ref="HazardousShipmentInformation"/>
+            <xsd:element minOccurs="0" name="EMSNum" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="Mfag" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="Hazardous" type="Hazardous"/>
+    <xsd:complexType name="HazardousIdentifiers">
+        <xsd:sequence>
+            <xsd:element name="HazardousRegulationsCoded" type="AgencyCode"/>
+            <xsd:element minOccurs="0" name="HazardousRegulationsCodedOther" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="HazardCode" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="CodeExtension" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="CodeVersion" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="HazardOfficialText" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="TremCardNum" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="HazardousIdentifiers" type="HazardousIdentifiers"/>
+    <xsd:complexType name="ListOfHazardousIdentifiers">
+        <xsd:sequence>
+            <xsd:element maxOccurs="unbounded" ref="HazardousIdentifiers"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="ListOfHazardousIdentifiers" type="ListOfHazardousIdentifiers"/>
+    <xsd:complexType name="HazardousPlacardInformation">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="HazardousPlacardIdentification" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="HazardousPlacardText" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="HazardousPlacardInformation" type="HazardousPlacardInformation"/>
+    <xsd:complexType name="HazardousTemperatures">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="Flashpoint">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Quantity"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="Emergency">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Quantity"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="Control">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Quantity"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="ListOfTemperatureCoded">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="ListOfDimension"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="HazardousTemperatures" type="HazardousTemperatures"/>
+    <xsd:complexType name="HazardousShipmentInformation">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="HazardPackingCoded" type="HazardPackingCode"/>
+            <xsd:element minOccurs="0" name="HazardPackingCodedOther" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="HazardousShipmentCoded" type="HazardousShipmentCode"/>
+            <xsd:element minOccurs="0" name="HazardousShipmentCodedOther" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="HazardousShipmentNote" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="HazardousZoneCoded" type="HazardousZoneCode"/>
+            <xsd:element minOccurs="0" name="HazardousZoneCodedOther" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="HazardousShipmentInformation" type="HazardousShipmentInformation"/>
+    <xsd:simpleType name="HazardPackingCode">
+        <xsd:restriction base="xsd:NMTOKEN">
+            <xsd:enumeration value="Other"/>
+            <xsd:enumeration value="NotSpecified"/>
+            <xsd:enumeration value="GreatDanger"/>
+            <xsd:enumeration value="MediumDanger"/>
+            <xsd:enumeration value="MinorDanger"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="HazardClassCode">
+        <xsd:restriction base="xsd:NMTOKEN">
+            <xsd:enumeration value="Other"/>
+            <xsd:enumeration value="Primary"/>
+            <xsd:enumeration value="Secondary"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="HazardousZoneCode">
+        <xsd:restriction base="xsd:NMTOKEN">
+            <xsd:enumeration value="Other"/>
+            <xsd:enumeration value="HazardZoneA"/>
+            <xsd:enumeration value="HazardZoneB"/>
+            <xsd:enumeration value="HazardZoneC"/>
+            <xsd:enumeration value="HazardZoneD"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="HazardousShipmentCode">
+        <xsd:restriction base="xsd:NMTOKEN">
+            <xsd:enumeration value="Other"/>
+            <xsd:enumeration value="AdditionalDescriptiveInformationNotRequiredByRegulationButDesiredToAccompanyTheMovementByTheShipper"/>
+            <xsd:enumeration value="CargoAirliftOnly"/>
+            <xsd:enumeration value="DOT-113DoNotBumpOrCutOffCarWhileInMotionDeclaration"/>
+            <xsd:enumeration value="DamagedCarNumber"/>
+            <xsd:enumeration value="DangerousWhenWetDeclaration"/>
+            <xsd:enumeration value="EMSPageNumber"/>
+            <xsd:enumeration value="IdentifiesProductsInAHeatedMoltenState"/>
+            <xsd:enumeration value="HazardousSubstanceConstituents"/>
+            <xsd:enumeration value="InhalationHazard"/>
+            <xsd:enumeration value="LimitedQuantityDeclaration"/>
+            <xsd:enumeration value="MFAGPageNumber"/>
+            <xsd:enumeration value="MaximumOperatingSpeed"/>
+            <xsd:enumeration value="MarinePollutant"/>
+            <xsd:enumeration value="Poison-InhalationHazardDeclaration"/>
+            <xsd:enumeration value="PoisonDeclaration"/>
+            <xsd:enumeration value="RadioactiveMaterialData"/>
+            <xsd:enumeration value="TechnicalOrChemicalGroupName"/>
+            <xsd:enumeration value="TradeName"/>
+            <xsd:enumeration value="WasteDeclaration"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:complexType name="ListOfHazardous">
+        <xsd:sequence>
+            <xsd:element maxOccurs="unbounded" ref="Hazardous"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="ListOfHazardous" type="ListOfHazardous"/>
+</xsd:schema>

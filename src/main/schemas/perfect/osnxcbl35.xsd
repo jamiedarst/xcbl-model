@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+		xmlns="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" 
+		xmlns:osn="http://perfect.com/LiteEnvelope/xcbl" 
+		targetNamespace="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" 
+		elementFormDefault="qualified"
+		version="1.0" >
+<xs:include schemaLocation="../xcbl/v3_5/XCBL35.xsd" />
+<xs:import namespace="http://perfect.com/LiteEnvelope/xcbl" 
+  schemaLocation="osnxcbl.xsd" />
+ <xs:annotation>
+     <xs:documentation xml:lang="en">
+         Extension of xCBL35 namespace using OSN LiteEnvelope namespace combined with 
+         Perfect Commerce 2006
+         2006/02/03 Adam Swick  version 1.0  created.
+     </xs:documentation>
+ </xs:annotation>
+
+<xs:element name="OSNOrder">
+ <xs:complexType>
+  <xs:sequence>
+   <xs:element name="Order" type="Order" />
+   <xs:element name="Envelope" type="osn:EnvelopeType">
+   </xs:element>
+  </xs:sequence>
+ </xs:complexType>
+</xs:element>
+
+<xs:element name="OSNInvoice">
+ <xs:complexType>
+  <xs:sequence>
+   <xs:element name="Invoice" type="Invoice" />
+   <xs:element name="Envelope" type="osn:EnvelopeType">
+   </xs:element>
+  </xs:sequence>
+ </xs:complexType>
+</xs:element>
+
+<xs:element name="OSNOrderResponse">
+ <xs:complexType>
+  <xs:sequence>
+   <xs:element name="OrderResponse" type="OrderResponse" />
+   <xs:element name="Envelope" type="osn:EnvelopeType">
+   </xs:element>
+  </xs:sequence>
+ </xs:complexType>
+</xs:element>
+
+</xs:schema>

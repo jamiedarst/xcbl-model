@@ -1,0 +1,173 @@
+"LiteEnvelope" schemas and validation test tool
+
+Version: 1.0 Release 2006/2/15
+==================
+
+Summary
+----
+This package includes the extension schemas needed to communicate with Perfect Commerce using the "LiteEnvelope" method.
+
+
+Details
+----
+The OSN LiteEnvelope solution is a lightweight envelope and delivery mechanism to provide bi-directional messaging with the Perfect Commerce OSN.  By the use of envelope IDs, response codes, acknowledgement and application statuses, XML (also non-XML) documents can be easily sent to the Perfect Commerce OSN and tracked for resubmission or further analysis.
+
+The OSN LiteEnvelope solution is intended for use by trading partners who have the capabilities to develop and maintain their own messaging solution.  For those trading partners who are looking for a pre-built solution offerring robust messaging capabilities such as guaranteed delivery and attachment support, Perfect Commerce will offer a server-based solution that can be installed behind your firewall.
+
+
+Currently Supported Transport Methods
+----
+HTTPS POST
+
+
+Currently Supported Documents
+----
+OSNOrder (xCBL 3.5 Order)
+OSNMessageAcknowledgement
+OSNApplicationResponse
+OSNInvoice (xCBL 3.5 Invoice)
+OSNOrderResponse (xCBL 3.5 OrderResponse)
+
+Sample Base Documents
+----
+OSNApplicationResponse.xml (for future use)
+OSNApplicationResponse2.xml (for future use)
+OSNAttachment.xml (for future use)
+OSNMessageAck.xml
+OSNMessageAck2.xml
+
+
+Schemas Installation
+----
+1.  Unzip the files to a directory.
+2.  Create a subdirectory structure within the directory to store the document standard schemas.  See the "Standards/Directory Structure" section below for the directory structure needed for the document standard being used.  
+3.  Download the standard document xsd schemas from the specified website in the "Standards/Schemas" section.  Copy the schemas into the applicable schemas subdirectory at the lowest level of the directory structure.
+
+As an example, the user unzips the LiteEnvelope files to a directory called "c:\perfectXSD".  The user will be validating against xCBL 3.5 schemas, so they create the directory structure "c:\perfectXSD\schemas\xcbl\v3_5" and copy all of the xCBL 3.5 schemas into the v3_5 subdirectory.
+
+
+Running the Sample XML Validator
+----
+1.  Download and install version 1.5 of the Java JRE (Java Runtime Environment).  Test the install by running "java -version" at the command prompt.
+2.  Run the following command at the command prompt: 
+-> java validate <base schema> <xmldoc>
+
+Where "base schema" is specified in the "Standards/Base Schema" section below, and the XML doc refers to the document that will be validated.  Sample documents have been included for testing.
+
+The OSNMessageAcknowledgement document's base schema is located in the file "osnmsgack.xsd".  Note that 2 sample documents have also been included for message acknowledgements: MessageAck.xml and MessageAck2.xml.  You can run the xsd validator against them as well: "java validate osnmsgack.xsd <xmldoc>".
+
+
+Standards
+----
+            -*-*- xCBL 3.5 -*-*-
+
+Directory Structure (see Schemas Installation step 2):
+->  <main dir>
+->    <schemas>
+->      <xcbl>
+->        <v3_5>
+
+Schemas (see Schemas Installation step 3): 
+-> http://www.xcbl.org/xcbl35/xsd/schemas.html.  
+-> Download "xCBL 3.5 Components (XSDL Schema version)".
+
+Base Schema (The xsd schema to validate against.  You can use your own validator or the sample validator that has been included in this release.  See "Running the sample XML Validator" section above):
+-> osnxcbl35.xsd
+
+Sample Documents (The following document(s) have been included to test schema validations against.  If you are using the sample validator, use the document name in place of "xmldoc" as noted in the "Running the sample XML Validator" section above):
+-> OSNOrder.xml
+-> OSNOrder2.xml
+-> OSNOrder3.xml (sample with attachments.  cannot validate by itself)
+-> OSNOrderResponse.xml
+-> OSNInvoice.xml
+
+
+OSN LiteEnvelope Recommended Use (best viewed in a non-proportional font)
+-------------
+
+Trading Partner                                                              Trading Partner
+   (Buyer)                           Perfect Commerce                          (Supplier)
+...............                      ................                        ...............
+      | OSNOrder- - - - - - - - - - - - - -> |                                      |
+      | < - - - - -OSNMessageAcknowledgement |                                      |
+      |                                      |                                      |
+      |                        <OSN Doc Translation occurs>                         |
+      |                                      |                                      |
+      | < - - - - - - OSNApplicationResponse |                                      |
+      |        (if translation error occurs) |                                      |
+      | OSNMessageAcknowledgement - - - - -> |                                      |
+      |                                      | OSNOrder - - - - - - - - - - - - - > |
+      |                                      | < - - - - -OSNMessageAcknowledgement |
+      | < - - - - - - OSNApplicationResponse |                                      |
+      |        (if transmission fatal error) |                                      |
+      | OSNMessageAcknowledgement - - - - -> |                                      |
+      |                                      |                                      |
+      |                                      |                                      |
+      |                                      | < - - - - - - - - - OSNOrderResponse |
+      |                                      | OSNMessageAcknowledgement- - - - - > |
+      |                                      |                                      |
+      |                        <OSN Doc Translation occurs>                         |
+      |                                      |                                      |
+      |                                      | OSNApplicationResponse - - - - - - > |
+      |                                      |   (if translation error occurs)      |
+      |                                      | < - - - - -OSNMessageAcknowledgement |
+      | < - - - - - - - - - OSNOrderResponse |                                      |
+      | OSNMessageAcknowledgement - - - - -> |                                      |
+      |                                      | OSNApplicationResponse - - - - - - > |
+      |                                      |   (if transmission fatal error)      |
+      |                                      | < - - - - -OSNMessageAcknowledgement |
+      |                                      |                                      |
+      |                                      |                                      |
+      |                                      | < - - - - - - - - - - - - OSNInvoice |
+      |                                      | OSNMessageAcknowledgement- - - - - > |
+      |                                      |                                      |
+      |                        <OSN Doc Translation occurs>                         |
+      |                                      |                                      |
+      |                                      | OSNApplicationResponse - - - - - - > |
+      |                                      |   (if translation error occurs)      |
+      |                                      | < - - - - -OSNMessageAcknowledgement |
+      | < - - - - - - - - - - - - OSNInvoice |                                      |
+      | OSNMessageAcknowledgement - - - - -> |                                      |
+      |                                      | OSNApplicationResponse - - - - - - > |
+      |                                      |   (if transmission fatal error)      |
+      |                                      | < - - - - -OSNMessageAcknowledgement |
+      |                                      |                                      |
+
+
+
+HTTP Transmissions
+-------------
+-> Stage URL:
+-> Production URL: 
+-> Authentication: Basic.  Perfect Commerce will setup a userid/password for your use.  You may optionally use a certificate for authentication, if you choose to do so.
+
+1.  Note that the "OSNMessageAcknowledgement" document is to be returned in the HTTP response body for HTTP tranmissions (synchronous message) and should be the result of envelope-level validation only.  Validation on the business document itself or validation from backend system logic or transmissions should be handled with an asynchronous response document, such as an OSNApplicationResponse document.
+
+2.  HTTP transmissions should be sent with a single HTTP header field, "Content-Type=text/xml".  The body of the message should contain the OSN LiteEnvelope XML document only, no other text should be present.  The OSN LiteEnvelope XML document should not be assigned to a name/value pair.
+
+3.  Three Standard HTTP 1.1 Status Codes will be supported for communication between Perfect Commerce and a trading partner.
+
+--> Status Code 200 (OK) indicates that the request has succeeded.
+--> Status Code 500 (Internal Server Error) will indicate that the server cannot fulfill the request at this time, but it can be reattempted at another time.  Examples would include hardware failure or subsystem nonavailability.
+--> Status Code 501 (Not Implemented) will indicate that the server does not support the request.  Examples would include envelope validation errors or a long-term outage that will surpass normal retries.  Retries should not be attempted when this status code is returned.
+
+4.  It is recommended that the trading partner implement solutions for duplicate document checking and guaranteed delivery (retries).
+
+Duplicate document checking at the envelope level would ensure that previously-submitted envelopes (identified by the Envelope ID) would not be reprocessed.  A status code of 501 should be returned in the response to note that retries should not be attempted.  This capability should be configurable so that resubmissions can occur during emergency situations.
+
+Duplicate document checking at the business document level would prevent reprocessing of previously-submitted business documents (determined by business document identifiers such as PO Number/Issue Date, Invoice Number, etc).  In this case, a 200 status code and OSNMessageAcknowledgement document would be returned on the response to note successful transmission, but in addition a business response document noting the duplication would also be sent in an asynchronous fashion.  This capability should also be configurable so that resubmissions can occur during emergency situations.
+
+Guaranteed Delivery would enable HTTP POST retry capabilities for any non-200 or 501 response code, based on parameters for number of retries and time between retries.
+
+
+Key LiteEnvelope Elements (see xsd schemas for more details)
+----
+-> Envelope Identifier: a globally-unique identifier created to differentiate each transmission from a specific trading partner.  The identifier follows the IETF UUID/GUID standard RFC 4122.  Further requirements are for the letters to be lowercase.  Code for creation of the identifier is available on the web (google "UUID Generator").  UUID Generator web pages are also available according to the RFC specification (e.g. http://kruithof.xs4all.nl/uuid/uuidgen).
+
+A unique Envelope ID is required for every OSN LiteEnvelope document that is transmitted.  A correctly-generated unique Envelope ID will differentiate a trading partner's envelope from any other trading partner's Envelope ID and will accelerate Perfect Commerce in troubleshooting transmission failures, if required.
+
+-> Conversation Identifier: a globally-unique identifier created to track complete business transaction flow (e.g. Order->OrderResponse->Invoice).  Normally, the Conversation ID is defaulted to the Envelope ID of the first business transmission (Order in the previous example) and the same value is used for the succeeding business documents.
+
+-> Transmission Date/Time: Date/time the document is sent from the trading partner.  The sender of the document can use this along with the Envelope ID for tracking purposes.
+
+-> Sender and Recipient IDs: globally-unique identifiers commonly used between Perfect Commerce and the trading partners.  Perfect Commerce maintains and disributes the IDs. 

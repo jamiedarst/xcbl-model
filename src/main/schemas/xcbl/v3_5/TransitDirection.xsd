@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" targetNamespace="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" elementFormDefault="qualified">
+    <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+            XML Common Business Library 3.5
+            Copyright 2000 Commerce One, Inc.
+            Permission is granted to use, copy, modify and distribute the
+            DTD's, schemas and modules in the Commerce One XML Common Business
+            Library Version 3.5 subject to the terms and conditions specified
+            at http://www.xcbl.org/license.html
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType name="TransitDirection">
+        <xsd:sequence>
+            <xsd:element name="TransitDirectionCoded" type="TransitDirectionCode"/>
+            <xsd:element minOccurs="0" name="TransitDirectionCodedOther" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="TransitTimeQualifierCoded" type="TransitTimeQualifierCode"/>
+            <xsd:element minOccurs="0" name="TransitTimeQualifierCodedOther" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="TransitTime" type="xsd:decimal"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="TransitDirection" type="TransitDirection"/>
+    <xsd:simpleType name="TransitDirectionCode">
+        <xsd:restriction base="xsd:NMTOKEN">
+            <xsd:enumeration value="Other"/>
+            <xsd:enumeration value="BuyerToSeller"/>
+            <xsd:enumeration value="SellerToBuyer"/>
+            <xsd:enumeration value="SubcontractorToSeller"/>
+            <xsd:enumeration value="SellerToDropShipDesignatedLocation"/>
+            <xsd:enumeration value="SellerToFreightForwarder"/>
+            <xsd:enumeration value="SellerToSubcontractor"/>
+            <xsd:enumeration value="MotherVesselToLighter"/>
+            <xsd:enumeration value="LighterToMotherVessel"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="TransitTimeQualifierCode">
+        <xsd:restriction base="xsd:NMTOKEN">
+            <xsd:enumeration value="Other"/>
+            <xsd:enumeration value="AirHours"/>
+            <xsd:enumeration value="AirDays"/>
+            <xsd:enumeration value="CalendarDays"/>
+            <xsd:enumeration value="CalendarWeeks"/>
+            <xsd:enumeration value="Hours"/>
+            <xsd:enumeration value="SurfaceDays"/>
+            <xsd:enumeration value="SurfaceHours"/>
+            <xsd:enumeration value="WorkingDays"/>
+            <xsd:enumeration value="5DayWorkWeek"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+</xsd:schema>

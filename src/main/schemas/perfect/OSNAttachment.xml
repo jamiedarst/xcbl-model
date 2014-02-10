@@ -1,0 +1,8 @@
+<OSNAttachment xmlns="http://perfect.com/LiteEnvelope" 
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://perfect.com/LiteEnvelope osnattachment.xsd">
+ <AttachmentURI>file1.txt</AttachmentURI>
+ <AttachmentContent>base-64 encoded content</AttachmentContent>
+ <AttachmentContentType>text/xml</AttachmentContentType>
+</OSNAttachment>
+

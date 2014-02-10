@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" targetNamespace="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" elementFormDefault="qualified">
+    <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+            XML Common Business Library 3.5
+            Copyright 2000 Commerce One, Inc.
+            Permission is granted to use, copy, modify and distribute the
+            DTD's, schemas and modules in the Commerce One XML Common Business
+            Library Version 3.5 subject to the terms and conditions specified
+            at http://www.xcbl.org/license.html
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType name="PaymentMethod">
+        <xsd:sequence>
+            <xsd:element name="PaymentMeanCoded" type="PaymentMeanCode"/>
+            <xsd:element minOccurs="0" name="PaymentMeanCodedOther" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="PaymentMeanReference">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Reference"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="PaymentSystemCoded" type="PaymentSystemCode"/>
+            <xsd:element minOccurs="0" name="PaymentSystemCodedOther" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="OriginatingFIAccount">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="FIAccount"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="ReceivingFIAccount">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="FIAccount"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" ref="CardInfo"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="PaymentMethod" type="PaymentMethod"/>
+    <xsd:simpleType name="PaymentSystemCode">
+        <xsd:restriction base="xsd:NMTOKEN">
+            <xsd:enumeration value="Other"/>
+            <xsd:enumeration value="OrdinaryPost"/>
+            <xsd:enumeration value="AirMail"/>
+            <xsd:enumeration value="BillPayment"/>
+            <xsd:enumeration value="ConsumerEmployeeCheck"/>
+            <xsd:enumeration value="CashConcentrationDisbursement"/>
+            <xsd:enumeration value="CashConcentrationDisbursementPlusAddenda"/>
+            <xsd:enumeration value="CustomerInitiatedEntry"/>
+            <xsd:enumeration value="CustomerInitiatedEntryPlusAddenda"/>
+            <xsd:enumeration value="CorporateTradeExchange"/>
+            <xsd:enumeration value="CorporateCheck"/>
+            <xsd:enumeration value="Telegraph"/>
+            <xsd:enumeration value="Telex"/>
+            <xsd:enumeration value="SWIFT"/>
+            <xsd:enumeration value="OtherTransmissionNetworks"/>
+            <xsd:enumeration value="NetworksNotDefined"/>
+            <xsd:enumeration value="Fedwire"/>
+            <xsd:enumeration value="Personal-Face-To-Face"/>
+            <xsd:enumeration value="PrearrangedPaymentAndDeposit"/>
+            <xsd:enumeration value="PrearrangedPaymentAndDepositPlusAddenda"/>
+            <xsd:enumeration value="PreauthorizedDraft"/>
+            <xsd:enumeration value="RegisteredAirMail"/>
+            <xsd:enumeration value="RegisteredMail"/>
+            <xsd:enumeration value="Courier"/>
+            <xsd:enumeration value="Messenger"/>
+            <xsd:enumeration value="NationalACH"/>
+            <xsd:enumeration value="OtherACH"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+</xsd:schema>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" targetNamespace="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" elementFormDefault="qualified">
+    <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+            XML Common Business Library 3.5
+            Copyright 2000 Commerce One, Inc.
+            Permission is granted to use, copy, modify and distribute the
+            DTD's, schemas and modules in the Commerce One XML Common Business
+            Library Version 3.5 subject to the terms and conditions specified
+            at http://www.xcbl.org/license.html
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType name="ListOfPartners">
+        <xsd:sequence>
+            <xsd:element maxOccurs="unbounded" ref="Partner"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="ListOfPartners" type="ListOfPartners"/>
+    <xsd:complexType name="Partner">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" ref="Action"/>
+            <xsd:element minOccurs="0" ref="Party"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="PartnerRelationship"/>
+        </xsd:sequence>
+        <xsd:attribute name="PartnerID" type="xsd:ID" use="optional"/>
+        <xsd:attribute name="Relationship" type="PartnerRelationshipCode" use="optional" default="Supplier"/>
+    </xsd:complexType>
+    <xsd:element name="Partner" type="Partner"/>
+    <xsd:complexType name="PartnerRelationship">
+        <xsd:sequence>
+            <xsd:element name="PartnerRelationshipCoded" type="PartnerRelationshipCode"/>
+            <xsd:element minOccurs="0" name="PartnerRelationshipCodedOther" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="PartnerRelationship" type="PartnerRelationship"/>
+    <xsd:simpleType name="PartnerRelationshipCode">
+        <xsd:restriction base="xsd:NMTOKEN">
+            <xsd:enumeration value="Supplier"/>
+            <xsd:enumeration value="SupplierAgent"/>
+            <xsd:enumeration value="Buyer"/>
+            <xsd:enumeration value="InfoProvider"/>
+            <xsd:enumeration value="Manufacturer"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+</xsd:schema>

@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" targetNamespace="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" elementFormDefault="qualified">
+    <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+            XML Common Business Library 3.5
+            Copyright 2000 Commerce One, Inc.
+            Permission is granted to use, copy, modify and distribute the
+            DTD's, schemas and modules in the Commerce One XML Common Business
+            Library Version 3.5 subject to the terms and conditions specified
+            at http://www.xcbl.org/license.html
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:simpleType name="AlphaNum3">
+        <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="3"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="AlphaNum6">
+        <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="6"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="AlphaNum9">
+        <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="9"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="AlphaNum14">
+        <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="14"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="AlphaNum17">
+        <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="17"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="AlphaNum20">
+        <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="20"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="AlphaNum35">
+        <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="35"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="AlphaNum40">
+        <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="40"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="AlphaNum50">
+        <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="AlphaNum70">
+        <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="70"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="AlphaNum80">
+        <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="80"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="AlphaNum256">
+        <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="256"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="AlphaNum512">
+        <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="512"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="Decimal2_0">
+        <xsd:restriction base="xsd:decimal">
+            <xsd:totalDigits value="2"/>
+            <xsd:fractionDigits value="0"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="Decimal6_0">
+        <xsd:restriction base="xsd:decimal">
+            <xsd:totalDigits value="6"/>
+            <xsd:fractionDigits value="0"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="Decimal15_3">
+        <xsd:restriction base="xsd:decimal">
+            <xsd:totalDigits value="15"/>
+            <xsd:fractionDigits value="3"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="Decimal15_4">
+        <xsd:restriction base="xsd:decimal">
+            <xsd:totalDigits value="15"/>
+            <xsd:fractionDigits value="4"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="Decimal18_3">
+        <xsd:restriction base="xsd:decimal">
+            <xsd:totalDigits value="18"/>
+            <xsd:fractionDigits value="3"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="Decimal8_2">
+        <xsd:restriction base="xsd:decimal">
+            <xsd:totalDigits value="8"/>
+            <xsd:fractionDigits value="2"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="Decimal10_4">
+        <xsd:restriction base="xsd:decimal">
+            <xsd:totalDigits value="10"/>
+            <xsd:fractionDigits value="4"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="Decimal21_6">
+        <xsd:restriction base="xsd:decimal">
+            <xsd:totalDigits value="21"/>
+            <xsd:fractionDigits value="6"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="Decimal19_9">
+        <xsd:restriction base="xsd:decimal">
+            <xsd:totalDigits value="19"/>
+            <xsd:fractionDigits value="9"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="PosInt_6">
+        <xsd:restriction base="xsd:decimal">
+            <xsd:totalDigits value="6"/>
+            <xsd:fractionDigits value="0"/>
+            <xsd:minInclusive value="0"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="AlphaNum60">
+        <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="60"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="AlphaNum30">
+        <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="30"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="AlphaNum10">
+        <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="10"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="Float_16">
+        <xsd:restriction base="xsd:decimal">
+            <xsd:totalDigits value="16"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <!-- SOX format datatypes where they difer from standard XSDL datatypes-->
+    <xsd:simpleType name="xcblDate">
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="[0-9]{4}(((01|03|05|07|08|10|12)((0[1-9])|([1-2][0-9])|(3[0-1])))|((04|06|09|11)((0[1-9])|([1-2][0-9])|30))|((02)((0[1-9])|([1-2][0-9]))))"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="xcblTime">
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="((([0-1][0-9])|(2[0-3]))(:([0-5][0-9])){2}((\+|-)(([0-1][0-9])|(2[0-3])):([0-5][0-9]))?)"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="xcblDatetime">
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="[0-9]{4}(((01|03|05|07|08|10|12)((0[1-9])|([1-2][0-9])|(3[0-1])))|((04|06|09|11)((0[1-9])|([1-2][0-9])|30))|((02)((0[1-9])|([1-2][0-9]))))T((([0-1][0-9])|(2[0-3]))(:([0-5][0-9])){2}((\+|-)(([0-1][0-9])|(2[0-3])):([0-5][0-9]))?)"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="xcblBoolean">
+        <xsd:restriction base="xsd:boolean">
+            <xsd:pattern value="true|false"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="xcblFloat">
+        <xsd:restriction base="xsd:float">
+            <xsd:pattern value="(\+|-)?[0-9]*\.?[0-9]*(E|e)?[0-9]*"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="xcblDouble">
+        <xsd:restriction base="xsd:double">
+            <xsd:pattern value="(\+|-)?[0-9]*\.?[0-9]*(E|e)?[0-9]*"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+</xsd:schema>

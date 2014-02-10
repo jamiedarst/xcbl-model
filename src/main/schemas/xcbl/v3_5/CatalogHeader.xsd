@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" targetNamespace="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" elementFormDefault="qualified">
+    <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+            XML Common Business Library 3.5
+            Copyright 2000 Commerce One, Inc.
+            Permission is granted to use, copy, modify and distribute the
+            DTD's, schemas and modules in the Commerce One XML Common Business
+            Library Version 3.5 subject to the terms and conditions specified
+            at http://www.xcbl.org/license.html
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:import schemaLocation="http://www.w3.org/2001/xml.xsd" namespace="http://www.w3.org/XML/1998/namespace"/>
+    <xsd:complexType name="CatalogHeader">
+        <xsd:sequence>
+            <xsd:element name="CatalogID" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="CatalogDate" type="xcblDate"/>
+            <xsd:element ref="CatalogProvider"/>
+            <xsd:element minOccurs="0" name="CatalogPrettyName" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="CatalogLogoURL" type="xsd:string"/>
+            <xsd:element minOccurs="0" ref="ListOfPartners"/>
+            <xsd:element minOccurs="0" ref="CatalogAudience"/>
+            <xsd:element minOccurs="0" ref="PricingInformation"/>
+            <xsd:element minOccurs="0" ref="SupplierAccountInformation"/>
+            <xsd:element minOccurs="0" name="ValidFrom" type="xcblDate"/>
+            <xsd:element minOccurs="0" name="ValidUntil" type="xcblDate"/>
+            <xsd:element minOccurs="0" name="CatalogVersion" type="xsd:decimal"/>
+            <xsd:element minOccurs="0" ref="DefaultLanguage"/>
+            <xsd:element minOccurs="0" name="DefaultCurrency">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Currency"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" ref="IsReplacement"/>
+            <xsd:element minOccurs="0" ref="IsPriceUpdate"/>
+            <xsd:element minOccurs="0" ref="IsMultiVendor"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="ShortDescription"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="LongDescription"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="ObjectAttribute"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="CatalogHeader" type="CatalogHeader"/>
+    <xsd:complexType name="DefaultLanguage">
+        <xsd:attribute ref="xml:lang" use="optional" default="en"/>
+    </xsd:complexType>
+    <xsd:element name="DefaultLanguage" type="DefaultLanguage"/>
+    <xsd:complexType name="IsReplacement"/>
+    <xsd:element name="IsReplacement" type="IsReplacement"/>
+    <xsd:complexType name="IsPriceUpdate"/>
+    <xsd:element name="IsPriceUpdate" type="IsPriceUpdate"/>
+    <xsd:complexType name="IsMultiVendor"/>
+    <xsd:element name="IsMultiVendor" type="IsMultiVendor"/>
+    <xsd:complexType name="CatalogAudience">
+        <xsd:attribute name="CatalogAudienceCoded" type="CatalogAudienceCode" use="optional" default="Public"/>
+    </xsd:complexType>
+    <xsd:element name="CatalogAudience" type="CatalogAudience"/>
+    <xsd:simpleType name="CatalogAudienceCode">
+        <xsd:restriction base="xsd:NMTOKEN">
+            <xsd:enumeration value="EnumeratedBuyersOnly"/>
+            <xsd:enumeration value="Public"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+</xsd:schema>

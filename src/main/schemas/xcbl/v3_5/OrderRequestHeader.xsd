@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" targetNamespace="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" elementFormDefault="qualified">
+    <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+            XML Common Business Library 3.5
+            Copyright 2000 Commerce One, Inc.
+            Permission is granted to use, copy, modify and distribute the
+            DTD's, schemas and modules in the Commerce One XML Common Business
+            Library Version 3.5 subject to the terms and conditions specified
+            at http://www.xcbl.org/license.html
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType name="OrderRequestHeader">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" ref="OrderRequestNumber"/>
+            <xsd:element name="OrderRequestIssueDate" type="xcblDatetime"/>
+            <xsd:element minOccurs="0" name="OrderRequestReferences">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="OrderReferences"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" ref="Purpose"/>
+            <xsd:element minOccurs="0" ref="RequestedResponse"/>
+            <xsd:element name="OrderRequestCurrency">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Currency"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="TaxAccountingCurrency">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Currency"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="OrderRequestLanguage">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Language"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="OrderRequestTaxReference">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="TaxReference"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="OrderInvoiceMediumTypeCoded" type="OrderInvoiceMediumTypeCode"/>
+            <xsd:element minOccurs="0" name="OrderInvoiceMediumTypeCodedOther" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="OrderRequestDates">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="OrderDates"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="PartialShipmentAllowed" type="xcblBoolean"/>
+            <xsd:element ref="OrderRequestParty"/>
+            <xsd:element minOccurs="0" ref="ListOfTransport"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="OrderTermsOfDelivery">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="TermsOfDelivery"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="OrderHeaderPrice">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="ListOfPrice"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="OrderPaymentInstructions">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="PaymentInstructions"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="OrderAllowancesOrCharges">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="ListOfAllowOrCharge"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" ref="RoundTripInformation"/>
+            <xsd:element minOccurs="0" name="OrderHeaderNote" type="xsd:string"/>
+            <xsd:element minOccurs="0" ref="ListOfStructuredNote"/>
+            <xsd:element minOccurs="0" name="OrderHeaderAttachments">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="ListOfAttachment"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="OrderRequestHeader" type="OrderRequestHeader"/>
+    <xsd:complexType name="OrderRequestNumber">
+        <xsd:sequence>
+            <xsd:element name="BuyerOrderRequestNumber" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="SellerOrderRequestNumber" type="xsd:string"/>
+            <xsd:element minOccurs="0" ref="ListOfMessageID"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="OrderRequestNumber" type="OrderRequestNumber"/>
+</xsd:schema>

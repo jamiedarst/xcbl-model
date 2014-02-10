@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" targetNamespace="rrn:org.xcbl:schemas/xcbl/v3_5/xcbl35.xsd" elementFormDefault="qualified">
+    <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+            XML Common Business Library 3.5
+            Copyright 2000 Commerce One, Inc.
+            Permission is granted to use, copy, modify and distribute the
+            DTD's, schemas and modules in the Commerce One XML Common Business
+            Library Version 3.5 subject to the terms and conditions specified
+            at http://www.xcbl.org/license.html
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType name="PlanningScheduleResponseHeader">
+        <xsd:sequence>
+            <xsd:element name="ScheduleResponseID" type="xsd:string"/>
+            <xsd:element name="ScheduleResponseIssueDate" type="xcblDatetime"/>
+            <xsd:element name="ScheduleReference">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Reference"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" ref="ListOfReferenceCoded"/>
+            <xsd:element name="BuyerParty">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Party"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="SellerParty">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="Party"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element ref="Purpose"/>
+            <xsd:element ref="ResponseType"/>
+            <xsd:element ref="Language"/>
+            <xsd:element minOccurs="0" name="OriginalPlanningScheduleHeader">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="PlanningScheduleHeader"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="ChangedPlanningScheduleHeader">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="PlanningScheduleHeader"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="PlanningScheduleResponseHeaderNote" type="xsd:string"/>
+            <xsd:element minOccurs="0" ref="ListOfStructuredNote"/>
+            <xsd:element minOccurs="0" ref="ListOfAttachment"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="PlanningScheduleResponseHeader" type="PlanningScheduleResponseHeader"/>
+</xsd:schema>
