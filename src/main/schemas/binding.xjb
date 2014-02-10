@@ -3,7 +3,7 @@
 
 	<!-- Raise theEnumMemberSizeCap limit -->
 	<jxb:bindings>
-		<jxb:globalBindings typesafeEnumMaxMembers="512"/>
+		<jxb:globalBindings typesafeEnumMaxMembers="2500"/>
 	</jxb:bindings>
 	
 	<jxb:bindings schemaLocation="xcbl/v3_5/SchemaCategory.xsd" version="1.0">
